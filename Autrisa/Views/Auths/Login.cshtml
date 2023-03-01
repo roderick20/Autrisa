@@ -1,0 +1,90 @@
+@using Autrisa.Helpers
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var settings = HttpContextAccessor.HttpContext.Session.GetSettings();
+
+    ViewData["Title"] = "Login";
+    Layout = "/Views/Shared/_Layout_Login.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100 py-5">
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+                <div class="card card-body text-center p-4 p-sm-5">
+                
+                    <img src="/settings/images/@settings["login_login"]" class="img-fluid" />
+
+                    <form class="mt-sm-4" asp-action="Login">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <div class="input-group">
+                                <input class="form-control fakepassword" type="password" placeholder="Contraseña" name="password" id="password"/>
+                                <span class="input-group-text p-0" id="togglePassword">
+                                    <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
+                                </span>
+                            </div>                            
+                        </div>
+
+                        @*<div class="mb-3 d-sm-flex justify-content-between">
+                            <div>
+                                <input type="checkbox" class="form-check-input" id="rememberCheck">
+                                <label class="form-check-label" for="rememberCheck">Remember me?</label>
+                            </div>
+                            <a href="forgot-password.html">Forgot password?</a>
+                            </div>*@
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary position-relative">                                
+                                Login
+                                <i class="fa-solid fa-right-to-bracket position-absolute end-0" style="top: 30% !important;right: 10px !important;"></i>
+                            </button>
+                        </div>
+
+                       @* <p class="mb-0 mt-3">©2022 <a target="_blank" href="https://www.webestica.com/">Webestica.</a> All rights reserved</p>*@
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</main>
+@if (ViewBag.Error != null)
+{
+<input type="hidden" id="error" value="@ViewBag.Error" />        
+}
+
+@section Scripts {
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            console.log(this);
+
+            if (type === 'password') {
+                togglePassword.innerHTML = '<i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>';
+            }
+            else {
+                togglePassword.innerHTML = '<i class=" fakepasswordicon fa-solid fa-eye cursor-pointer p-2 w-40px"></i>';
+            }
+        });
+        if (document.getElementById('error') != null) {
+            $.toast({
+                text: document.getElementById('error').value, 
+                heading: '¡Error!', 
+                icon: 'error', 
+                showHideTransition: 'fade', 
+                allowToastClose: true, 
+                hideAfter: 5000, 
+                stack: 5, 
+                position: 'bottom-right'
+            });
+        }
+    </script>
+}
