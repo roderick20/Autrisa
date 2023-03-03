@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Lista de Movimientos";
+    var today = DateTime.Today;
+    var lastDayOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
+    
 }
 
 <div class="col-12">
@@ -9,9 +12,26 @@
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
                 <h5 class="mb-2 mb-sm-0">Movimientos</h5>
-                <a class="btn btn-sm btn-primary" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-sm btn-primary text-end" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar</a>
+                        @if(today == lastDayOfMonth)
+                        {
+                            <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
+                            <script>
+                                alert("Ultimo dia del mes, considere cerrar el mes");
+                            </script>
+                        }
+                        else
+                        {
+                        <a class="btn btn-sm btn-secondary text-end disabled" asp-action="MonthClosure">Cerrar mes</a>
+                        }
+                        <a class="btn btn-sm btn-success text-end" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes</a>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="card-body" style="min-height:500px">
             @if (TempData["Success"] != null)
             {
@@ -26,122 +46,114 @@
                 </div>
             }
 
-                <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
-                    <thead>
+            <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Modality)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountId)
+                        </th>
+                        <th>
+                            <span>Número de cuenta</span>
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OperationDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Concept)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Income)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Outcome)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Type)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Modality)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Number)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AccountId)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.OperationDate)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Concept)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Description)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Income)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Outcome)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Year)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Month)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Created)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Author)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Modified)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Editor)
-                            </th>
-                            <th></th>
+                            <td>
+                                @if (item.Type == 0)
+                                {
+                                    <text>Ingreso</text>
+                                }
+                                else if (item.Type == 1)
+                                {
+                                    <text>Salida</text>
+                                }
+                                else
+                                {
+                                    <text>Cierre de mes</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Modality == 0)
+                                {
+                                    <text>Cheque</text>
+                                }
+                                else if (item.Modality == 1)
+                                {
+                                    <text>Transferencia</text>
+                                }
+                                else if (item.Modality == 100)
+                                {
+                                    <text>Cierre de mes</text>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                            <td>
+                                @item.Account.Name
+                            </td>
+                            <td>
+                                @item.Account.AccountNumber
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OperationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Concept)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Income)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Outcome)
+                            </td>
+                            <td style="width:1%;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                        <li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Type)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Modality)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Number)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.AccountId)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OperationDate)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Concept)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Income)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Outcome)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Year)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Month)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Created)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Author)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Modified)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Editor)
-                                </td>       
-                                <td style="width:1%;">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                            <li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            
+                    }
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -153,14 +165,14 @@
 
     <style>
         td .dropdown-toggle::after {
-            display: none;            
+            display: none;
         }
 
         td .btn-sm {
             padding: 0.2rem 0.6rem !important;
         }
     </style>
-    
+
     <script>
         $(document).ready(function () {
             $('#listTable').DataTable({
@@ -168,7 +180,7 @@
                     "url": "/assets/vendor/datatables/es-es.json"
                 }
             });
-            
+
             $(".alert-success").fadeTo(500, 500).slideUp(500, function () {
                 $(".alert-success").slideUp(500);
             });

@@ -19,48 +19,48 @@ namespace Autrisa.Models
         public Guid UniqueId { get; set; }
 
         
-        [Display(Name = "-")]
+        [Display(Name = "Tipo de movimiento")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int Type { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Modalidad")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int Modality { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Número de cheque / transferencia")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int Number { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Cuenta")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int AccountId { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Fecha de operación")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public DateTime OperationDate { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Concepto")]
         [Required(ErrorMessage = "Campo es obligatorio")]
-        public string Concept { get; set; }
+        public string? Concept { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Descripción")]
         [Required(ErrorMessage = "Campo es obligatorio")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Ingresos")]
         [Required(ErrorMessage = "Campo es obligatorio")]
-        public decimal Income { get; set; }
+        public decimal? Income { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Egresos")]
         [Required(ErrorMessage = "Campo es obligatorio")]
-        public decimal Outcome { get; set; }
+        public decimal? Outcome { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Año")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int Year { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Mes")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public int Month { get; set; }
                

@@ -23,24 +23,7 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var accounts = await _context.Accounts
-                .Select(m => new Account
-                {
-                    Id = m.Id,                                    
-                    UniqueId = m.UniqueId,                                    
-                    Name = m.Name,                                    
-                    AccountType = m.AccountType,                                    
-                    AccountNumber = m.AccountNumber,                                    
-                    Currency = m.Currency,                                    
-                    Amount = m.Amount,                                    
-                    Created = m.Created,                                    
-                    Author = m.Author,                                    
-                    Modified = m.Modified,                                    
-                    Editor = m.Editor,                                    
-                    AuthorName = _context.Users.FirstOrDefault(a => a.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(e => e.Id == m.Editor).Name,
-                })
-                .ToListAsync();
+            var accounts = await _context.Accounts.ToListAsync();
             return View(accounts);
         }
         
@@ -85,6 +68,7 @@ namespace Autrisa.Controllers
             try
             {
                 account.UniqueId = Guid.NewGuid();
+                account.PreviousRemaining = account.Amount;
                 account.Created = DateTime.Now;
                 account.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(account);
@@ -151,11 +135,11 @@ namespace Autrisa.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid UniqueId)
         {
             try
             {
-                var account = await _context.Accounts.FindAsync(id);
+                var account = await _context.Accounts.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
                 if (account != null)
                 {
                     _context.Accounts.Remove(account);

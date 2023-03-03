@@ -26,86 +26,75 @@
                 </div>
             }
 
-                <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
-                    <thead>
+            <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Currency)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PreviousRemaining)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AccountType)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AccountNumber)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Currency)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Amount)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Created)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Author)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Modified)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Editor)
-                            </th>
-                            <th></th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountNumber)
+                            </td>
+                            <td>
+                                @if (item.Currency == 0)
+                                {
+                                    <text>Soles</text>
+                                }
+                                else
+                                {
+                                    <text>Dolares</text>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreviousRemaining)
+                            </td>
+                            <td style="width:1%;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                        <li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.AccountType)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.AccountNumber)
-                                </td>       
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.Currency)
-                                </td>
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Amount)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Created)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Author)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Modified)
-                                </td>       
-                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Editor)
-                                </td>       
-                                <td style="width:1%;">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                            <li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            
+                    }
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -117,14 +106,14 @@
 
     <style>
         td .dropdown-toggle::after {
-            display: none;            
+            display: none;
         }
 
         td .btn-sm {
             padding: 0.2rem 0.6rem !important;
         }
     </style>
-    
+
     <script>
         $(document).ready(function () {
             $('#listTable').DataTable({
@@ -132,7 +121,7 @@
                     "url": "/assets/vendor/datatables/es-es.json"
                 }
             });
-            
+
             $(".alert-success").fadeTo(500, 500).slideUp(500, function () {
                 $(".alert-success").slideUp(500);
             });

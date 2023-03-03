@@ -18,13 +18,17 @@
                     <div class="col-md-4">     
                         <div class="form-group">
                             <label asp-for="Type" class="control-label"></label>
-                            <input asp-for="Type" class="form-control"  type="text" />
-                            <span asp-validation-for="Type" class="text-danger"></span>
+                            <select name="Type" id="Type" class="form-select">
+                                <option value="0">Ingreso</option>
+                                <option value="1">Egreso</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label asp-for="Modality" class="control-label"></label>
-                            <input asp-for="Modality" class="form-control"  type="text" />
-                            <span asp-validation-for="Modality" class="text-danger"></span>
+                            <select name="Modality" id="Modality" class="form-select">
+                                <option value="0">Cheque</option>
+                                <option value="1">Transferencia</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label asp-for="Number" class="control-label"></label>
@@ -52,32 +56,21 @@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Income" class="control-label"></label>
-                            <input asp-for="Income" class="form-control"  type="text" />
-                            <span asp-validation-for="Income" class="text-danger"></span>
+                            <label name="montoTransaccion" class="control-label">Monto de movimiento</label>
+                            <input name="montoTransaccion" id="montoTransaccion" class="form-control" type="text" />
                         </div>
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label asp-for="Outcome" class="control-label"></label>
                             <input asp-for="Outcome" class="form-control"  type="text" />
                             <span asp-validation-for="Outcome" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Year" class="control-label"></label>
-                            <input asp-for="Year" class="form-control"  type="text" />
-                            <span asp-validation-for="Year" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Month" class="control-label"></label>
-                            <input asp-for="Month" class="form-control"  type="text" />
-                            <span asp-validation-for="Month" class="text-danger"></span>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
-                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
+                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave" asp-route-Monto="montoTransaccion"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
                 </div>
             </div>
         </div>

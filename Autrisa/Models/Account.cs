@@ -24,22 +24,26 @@ namespace Autrisa.Models
         [Required(ErrorMessage = "Campo es obligatorio")]
         public string Name { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Tipo de cuenta")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public string AccountType { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Número de cuenta")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public string AccountNumber { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Moneda")]
         [Required(ErrorMessage = "Campo es obligatorio")]
-        public bool Currency { get; set; }
+        public int Currency { get; set; }
         
-        [Display(Name = "-")]
+        [Display(Name = "Monto")]
         [Required(ErrorMessage = "Campo es obligatorio")]
         public decimal Amount { get; set; }
-               
+
+        [Display(Name = "Saldo del mes anterior")]
+        [Required(ErrorMessage = "Campo es obligatorio")]
+        public decimal? PreviousRemaining { get; set; }
+
 
         //------------Auth--------------------
         [Display(Name = "Creado")]
