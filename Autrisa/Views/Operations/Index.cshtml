@@ -15,17 +15,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-sm btn-primary text-end" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar</a>
-                        @if(today == lastDayOfMonth)
-                        {
-                            <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
-                            <script>
-                                alert("Ultimo dia del mes, considere cerrar el mes");
-                            </script>
-                        }
-                        else
-                        {
-                        <a class="btn btn-sm btn-secondary text-end disabled" asp-action="MonthClosure">Cerrar mes</a>
-                        }
+                        <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
                         <a class="btn btn-sm btn-success text-end" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes</a>
                     </div>
                 </div>

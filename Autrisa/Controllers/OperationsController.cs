@@ -283,9 +283,9 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Reportes()
         {
             var years = await _context.Operations.Select(m => m.Year).Distinct().ToListAsync();
+            ViewBag.YearList = years;
 
             var accounts = await _context.Accounts.Select(m => m.Name).Distinct().ToListAsync();
-            ViewBag.YearList = years;
             ViewBag.AccountId = accounts;
             return View();
         }
@@ -293,7 +293,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Reportes(String fechaInicio, String fechaFin, int AccountId, int Modality)
+        public async Task<IActionResult> Reportes(String fechaInicio, String fechaFin, string AccountId, int Modality)
         {
             var DbF = Microsoft.EntityFrameworkCore.EF.Functions;
             string[] formats = { "dd/MM/yyyy" };
@@ -327,7 +327,7 @@ namespace Autrisa.Controllers
             //ws.Cell("M" + cont).Value = "Monto";
             cont++;
 
-            if (AccountId == 1000)
+            if (AccountId == "none")
             {
                 if (Modality == 1000)
                 {
@@ -341,8 +341,8 @@ namespace Autrisa.Controllers
                             ws.Cell("A" + cont).Value = item.Name;
                             ws.Cell("B" + cont).Value = item.AccountNumber;
                             ws.Cell("C" + cont).Value = item.AccountType;
-                            
-                            if(item.Currency == 0)
+
+                            if (item.Currency == 0)
                             {
                                 ws.Cell("D" + cont).Value = "Soles";
                             }
@@ -353,12 +353,12 @@ namespace Autrisa.Controllers
 
                             ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
-                            if(obj.Type == 0)
+                            if (obj.Type == 0)
                             {
                                 ws.Cell("F" + cont).Value = "Ingreso";
                                 ws.Cell("I" + cont).Value = obj.Income;
                             }
-                            else if(obj.Type == 1)
+                            else if (obj.Type == 1)
                             {
                                 ws.Cell("F" + cont).Value = "Egreso";
                                 ws.Cell("I" + cont).Value = obj.Outcome;
@@ -371,8 +371,8 @@ namespace Autrisa.Controllers
 
                             ws.Cell("G" + cont).Value = obj.Concept;
                             ws.Cell("H" + cont).Value = obj.Description;
-                            
-                            if(obj.Modality == 0)
+
+                            if (obj.Modality == 0)
                             {
                                 ws.Cell("J" + cont).Value = "Cheque";
 
@@ -381,12 +381,13 @@ namespace Autrisa.Controllers
                             {
                                 ws.Cell("J" + cont).Value = "Transferencia";
                             }
-                            else if(obj.Modality == 100)
+                            else if (obj.Modality == 100)
                             {
                                 ws.Cell("J" + cont).Value = "Cierre de mes";
                             }
                             ws.Cell("K" + cont).Value = obj.Number;
                             ws.Cell("L" + cont).Value = obj.OperationDate;
+                            cont++;
                         }
                     }
 
@@ -449,183 +450,140 @@ namespace Autrisa.Controllers
                             }
                             ws.Cell("K" + cont).Value = obj.Number;
                             ws.Cell("L" + cont).Value = obj.OperationDate;
+                            cont++;
                         }
                     }
+                }
             }
 
+            else
+            {
+                if (Modality == 1000)
+                {
+                    var account = _context.Accounts.Where(m => m.Name == AccountId).ToList();
+                    foreach (var item in account)
+                    {
+                        var operation = _context.Operations.Include(m => m.Account).Where(m => m.AccountId == item.Id).ToList();
 
+                        foreach (var obj in operation)
+                        {
+                            ws.Cell("A" + cont).Value = item.Name;
+                            ws.Cell("B" + cont).Value = item.AccountNumber;
+                            ws.Cell("C" + cont).Value = item.AccountType;
 
+                            if (item.Currency == 0)
+                            {
+                                ws.Cell("D" + cont).Value = "Soles";
+                            }
+                            else
+                            {
+                                ws.Cell("D" + cont).Value = "Dólares";
+                            }
 
+                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
+                            if (obj.Type == 0)
+                            {
+                                ws.Cell("F" + cont).Value = "Ingreso";
+                                ws.Cell("I" + cont).Value = obj.Income;
+                            }
+                            else if (obj.Type == 1)
+                            {
+                                ws.Cell("F" + cont).Value = "Egreso";
+                                ws.Cell("I" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("F" + cont).Value = "Cierre de mes";
+                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                            }
 
+                            ws.Cell("G" + cont).Value = obj.Concept;
+                            ws.Cell("H" + cont).Value = obj.Description;
 
-            //foreach (var item in list)
-            //{
-            //    if (fechaInicioDT <= item.Created && item.Created <= fechaFinDT)
-            //    {
-            //        if (item.Header.CreditTypeId != 11)
-            //        {
-            //            ws.Cell("A" + cont).Value = item.Header.Customers.Name;
-            //            ws.Cell("B" + cont).Value = item.Installment;
-            //            ws.Cell("C" + cont).Value = item.PaidCapital;
-            //            ws.Cell("D" + cont).Value = item.PaidInterest;
-            //            ws.Cell("E" + cont).Value = item.InstallmentPaid;
-            //            ws.Cell("F" + cont).Value = item.TotalDebt;
-            //            ws.Cell("G" + cont).Value = item.InstallmentDate;
-            //            ws.Cell("H" + cont).Value = item.InterestAmount;
-            //            if (item.PaymentStatus == true)
-            //            {
-            //                if (item.PaymentModality == 1)
-            //                {
-            //                    ws.Cell("I" + cont).Value = "Depósito";
-            //                }
-            //                else if (item.PaymentModality == 0)
-            //                {
-            //                    ws.Cell("H" + cont).Value = "Efectivo";
-            //                }
-            //                else
-            //                {
-            //                    ws.Cell("H" + cont).Value = "Reprogramado";
-            //                }
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("I" + cont).Value = "Aún no pagado";
-            //            }
+                            if (obj.Modality == 0)
+                            {
+                                ws.Cell("J" + cont).Value = "Cheque";
 
+                            }
+                            else if (obj.Modality == 1)
+                            {
+                                ws.Cell("J" + cont).Value = "Transferencia";
+                            }
+                            else if (obj.Modality == 100)
+                            {
+                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                            }
+                            ws.Cell("K" + cont).Value = obj.Number;
+                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            cont++;
+                        }
+                    }
 
-            //            if (item.Header.CreditTypeId == 1)
-            //            {
-            //                ws.Cell("J" + cont).Value = "Diario";
-            //            }
-            //            else if (item.Header.CreditTypeId == 2)
-            //            {
-            //                ws.Cell("J" + cont).Value = "Semanal";
-            //            }
-            //            else if (item.Header.CreditTypeId == 3)
-            //            {
-            //                ws.Cell("J" + cont).Value = "Mensual";
-            //            }
-            //            else if (item.Header.CreditTypeId == 4)
-            //            {
-            //                ws.Cell("J" + cont).Value = "Paralelo";
-            //            }
+                }
+                else
+                {
+                    var account = _context.Accounts.Where(m => m.Name == AccountId).ToList();
+                    foreach (var item in account)
+                    {
+                        var operation = _context.Operations.Include(m => m.Account).Where(m => m.AccountId == item.Id && m.Modality == Modality).ToList();
 
-            //            ws.Cell("K" + cont).Value = item.CapitalInstallment;
+                        foreach (var obj in operation)
+                        {
+                            ws.Cell("A" + cont).Value = item.Name;
+                            ws.Cell("B" + cont).Value = item.AccountNumber;
+                            ws.Cell("C" + cont).Value = item.AccountType;
 
-            //            if (item.PaymentDate == null)
-            //            {
-            //                ws.Cell("L" + cont).Value = "Aún no pagado";
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("L" + cont).Value = item.PaymentDate;
-            //            }
+                            if (item.Currency == 0)
+                            {
+                                ws.Cell("D" + cont).Value = "Soles";
+                            }
+                            else
+                            {
+                                ws.Cell("D" + cont).Value = "Dólares";
+                            }
 
+                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
-            //            if (item.PaymentStatus == true)
-            //            {
-            //                ws.Cell("M" + cont).Value = "Pagado";
+                            if (obj.Type == 0)
+                            {
+                                ws.Cell("F" + cont).Value = "Ingreso";
+                                ws.Cell("I" + cont).Value = obj.Income;
+                            }
+                            else if (obj.Type == 1)
+                            {
+                                ws.Cell("F" + cont).Value = "Egreso";
+                                ws.Cell("I" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("F" + cont).Value = "Cierre de mes";
+                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                            }
 
-            //                if (item.PaymentDate - item.InstallmentDate <= new TimeSpan(23, 59, 59))
-            //                {
-            //                    ws.Cell("N" + cont).Value = "A tiempo";
-            //                }
+                            ws.Cell("G" + cont).Value = obj.Concept;
+                            ws.Cell("H" + cont).Value = obj.Description;
 
-            //                else if (item.PaymentDate - item.InstallmentDate > new TimeSpan(23, 59, 59))
-            //                {
-            //                    ws.Cell("N" + cont).Value = "Demorado";
-            //                    demoras++;
-            //                }
+                            if (Modality == 0)
+                            {
+                                ws.Cell("J" + cont).Value = "Cheque";
 
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("M" + cont).Value = "No pagado";
-
-            //                if (item.InstallmentDate - DateTime.Now <= new TimeSpan(0, 0, 0))
-            //                {
-            //                    ws.Cell("N" + cont).Value = "En mora";
-            //                    mora++;
-            //                }
-
-            //                else if (((item.InstallmentDate - DateTime.Now) > new TimeSpan(0, 0, 0)) && ((item.InstallmentDate - DateTime.Now) <= new TimeSpan(23, 59, 59)))
-            //                {
-            //                    ws.Cell("N" + cont).Value = "Debe pagar";
-            //                }
-
-            //                if (item.InstallmentDate - DateTime.Now >= new TimeSpan(23, 59, 59))
-            //                {
-            //                    ws.Cell("N" + cont).Value = "Cuota aún no vencida";
-            //                }
-            //            }
-            //            cont++;
-            //        }
-            //    }
-            //}
-
-            //cont = cont + 2;
-
-            //ws.Cell("A" + cont).Value = "Ahorros";
-            //cont++;
-            //ws.Range("A" + cont, "G" + cont).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
-            //ws.Range("A" + cont, "G" + cont).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
-            //ws.Range("A" + cont, "G" + cont).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
-            //ws.Range("A" + cont, "G" + cont).Style.Font.SetFontColor(XLColor.White);
-
-            //ws.Cell("A" + cont).Value = "Cliente";
-            //ws.Cell("B" + cont).Value = "Movimiento";
-            //ws.Cell("C" + cont).Value = "Modalidad";
-            //ws.Cell("D" + cont).Value = "Monto de movimiento";
-            //ws.Cell("E" + cont).Value = "Fecha de movimiento";
-            //ws.Cell("F" + cont).Value = "Estado pre-movimiento";
-            //ws.Cell("G" + cont).Value = "Estado post-movimiento";
-            //cont++;
-
-            //foreach (var item in list)
-            //{
-            //    if (fechaInicioDT <= item.Created && item.Created <= fechaFinDT)
-            //    {
-            //        if (item.Header.CreditTypeId == 11)
-            //        {
-            //            ws.Cell("A" + cont).Value = item.Header.Customers.Name;
-
-            //            if (item.OperationType == 0)
-            //            {
-            //                ws.Cell("B" + cont).Value = "Efectivo";
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("B" + cont).Value = "Depósito";
-            //            }
-
-            //            if (item.PaymentModality == 0)
-            //            {
-            //                ws.Cell("C" + cont).Value = "Efectivo";
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("C" + cont).Value = "Depósito";
-            //            }
-
-            //            if (item.OperationType == 1)
-            //            {
-            //                ws.Cell("D" + cont).Value = item.DepositAmount;
-            //            }
-            //            else
-            //            {
-            //                ws.Cell("D" + cont).Value = item.WithdrawalAmount;
-            //            }
-
-            //            ws.Cell("E" + cont).Value = item.Created;
-            //            ws.Cell("F" + cont).Value = item.Balance;
-            //            ws.Cell("G" + cont).Value = item.RemainingCapital;
-            //            cont++;
-            //        }
-            //    }
-            //}
-
-
+                            }
+                            else if (Modality == 1)
+                            {
+                                ws.Cell("J" + cont).Value = "Transferencia";
+                            }
+                            else if (Modality == 100)
+                            {
+                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                            }
+                            ws.Cell("K" + cont).Value = obj.Number;
+                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            cont++;
+                        }
+                    }
+                }
+            }
 
             ws.Columns("A", "T").AdjustToContents();
             return wb.Deliver("Estado_cuenta.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
