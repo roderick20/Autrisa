@@ -26,8 +26,8 @@ namespace Autrisa.Areas.Security.Controllers
                     Value = m.Value,
                     Type = m.Type,
                     Created = m.Created,
-                    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
+                    //AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
+                    //EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
                     Modified = m.Modified,
                     Editor = m.Editor,
                 })

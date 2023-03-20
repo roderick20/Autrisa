@@ -1,4 +1,4 @@
-@model IEnumerable<Autrisa.Models.Account>
+﻿@model IEnumerable<Autrisa.Models.Lending>
 
 @{
     ViewData["Title"] = "Lista de Cuentas";
@@ -30,22 +30,22 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AccountType)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AccountNumber)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Currency)
+                            @Html.DisplayNameFor(model => model.Customer)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Amount)
                         </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LendDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountId)
+                        </th>
                         @*<th>
-                            @Html.DisplayNameFor(model => model.PreviousRemaining)
+                        @Html.DisplayNameFor(model => model.PreviousRemaining)
                         </th>*@
                         <th></th>
                     </tr>
@@ -55,30 +55,23 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AccountType)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AccountNumber)
-                            </td>
-                            <td>
-                                @if (item.Currency == 0)
-                                {
-                                    <text>Soles</text>
-                                }
-                                else
-                                {
-                                    <text>Dolares</text>
-                                }
+                                @Html.DisplayFor(modelItem => item.Customer)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Amount)
                             </td>
-                           @* <td>
-                                @Html.DisplayFor(modelItem => item.PreviousRemaining)
-                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LendDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountId)
+                            </td>
+                            @* <td>
+                        @Html.DisplayFor(modelItem => item.PreviousRemaining)
+                        </td>*@
                             <td style="width:1%;">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>

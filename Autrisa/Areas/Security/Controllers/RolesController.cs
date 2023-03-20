@@ -17,16 +17,16 @@ namespace Autrisa.Areas.Security.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.Roles
-                   .Select(m => new Role
-                   {
-                       UniqueId = m.UniqueId,
-                       Name = m.Name,
-                       Created = m.Created,
-                       AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
-                       EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
-                       Modified = m.Modified,
-                       Editor = m.Editor,
-                   })
+                   //.Select(m => new Role
+                   //{
+                   //    UniqueId = m.UniqueId,
+                   //    Name = m.Name,
+                   //    Created = m.Created,
+                   //    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
+                   //    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
+                   //    Modified = m.Modified,
+                   //    Editor = m.Editor,
+                   //})
                    .ToListAsync());
         }
 
@@ -38,16 +38,16 @@ namespace Autrisa.Areas.Security.Controllers
             }
 
             var role = await _context.Roles
-                .Select(m => new Role
-                {
-                    UniqueId = m.UniqueId,
-                    Name = m.Name,
-                    Created = m.Created,
-                    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
-                    Modified = m.Modified,
-                    Editor = m.Editor,
-                })
+                //.Select(m => new Role
+                //{
+                //    UniqueId = m.UniqueId,
+                //    Name = m.Name,
+                //    Created = m.Created,
+                //    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
+                //    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
+                //    Modified = m.Modified,
+                //    Editor = m.Editor,
+                //})
                 .FirstOrDefaultAsync(m => m.Id == id);
                 
             if (role == null)

@@ -43,8 +43,8 @@ namespace Autrisa.Controllers
                     Author = m.Author,                                    
                     Modified = m.Modified,                                    
                     Editor = m.Editor,                                    
-                AuthorName = _context.Users.FirstOrDefault(a => a.Id == m.Author).Name,
-                EditorName = _context.Users.FirstOrDefault(e => e.Id == m.Editor).Name,
+                //AuthorName = _context.Users.FirstOrDefault(a => a.Id == m.Author).Name,
+                //EditorName = _context.Users.FirstOrDefault(e => e.Id == m.Editor).Name,
                 })
                 .FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
             if (account == null)

@@ -30,11 +30,11 @@ namespace Autrisa.Areas.Security.Controllers
                     LastAccess = m.LastAccess,
                     Enabled = m.Enabled,
                     Created = m.Created,
-                    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
+                    //AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
+                    //EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
                     Modified = m.Modified,
                     Editor = m.Editor,
-                    Roles = String.Join(", ", m.UserRoles.Select(x => x.Role.Name))
+                    //UserRoles = String.Join(", ", Convert.ToString(m.UserRoles.Select(x => x.Role.Name)))
                 }).ToListAsync());
         }
 
@@ -55,8 +55,8 @@ namespace Autrisa.Areas.Security.Controllers
                     LastAccess = m.LastAccess,
                     Enabled = m.Enabled,
                     Created = m.Created,
-                    AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
+                    //AuthorName = _context.Users.FirstOrDefault(m => m.Id == m.Author).Name,
+                    //EditorName = _context.Users.FirstOrDefault(m => m.Id == m.Editor).Name,
                     Modified = m.Modified,
                     Editor = m.Editor,
                 })

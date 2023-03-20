@@ -30,7 +30,7 @@
                             @Html.DisplayNameFor(model => model.LastAccess)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Roles)
+                            @Html.DisplayNameFor(model => model.UserRoles)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Created)
@@ -64,19 +64,19 @@
                                 @Html.DisplayFor(modelItem => item.LastAccess)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Roles)
+                                @Html.DisplayFor(modelItem => item.UserRoles)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Created)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AuthorName)
+                                @Html.DisplayFor(modelItem => item.Author)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Modified)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.EditorName)
+                                @Html.DisplayFor(modelItem => item.Editor)
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">

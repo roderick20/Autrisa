@@ -18,7 +18,9 @@ namespace Autrisa.Models
 
 
         public virtual DbSet<Setting> Settings { get; set; } = null!;
-
+        public virtual DbSet<Lending> Lendings { get; set; } = null!;
+        public virtual DbSet<Lending> Investments { get; set; } = null!;
+        public virtual DbSet<Lending> Properties { get; set; } = null!;
         public virtual DbSet<Account> Accounts  { get; set; } = null!;
         public virtual DbSet<Operation> Operations  { get; set; } = null!;
         public virtual DbSet<Resource> Resources  { get; set; } = null!;
@@ -48,7 +50,22 @@ namespace Autrisa.Models
                     entity.ToTable("Account");
                 });
 
-                modelBuilder.Entity<Operation>(entity =>
+            modelBuilder.Entity<Lending>(entity =>
+            {
+                entity.ToTable("Lending");
+            });
+
+            modelBuilder.Entity<Investment>(entity =>
+            {
+                entity.ToTable("Investment");
+            });
+
+            modelBuilder.Entity<Property>(entity =>
+            {
+                entity.ToTable("Property");
+            });
+
+            modelBuilder.Entity<Operation>(entity =>
                 {
                     entity.ToTable("Operation");
                 });

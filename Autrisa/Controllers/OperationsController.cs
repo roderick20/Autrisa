@@ -56,8 +56,8 @@ namespace Autrisa.Controllers
                     Author = m.Author,
                     Modified = m.Modified,
                     Editor = m.Editor,
-                    AuthorName = _context.Users.FirstOrDefault(a => a.Id == m.Author).Name,
-                    EditorName = _context.Users.FirstOrDefault(e => e.Id == m.Editor).Name,
+                    //AuthorName = _context.Users.FirstOrDefault(a => a.Id == m.Author).Name,
+                    //EditorName = _context.Users.FirstOrDefault(e => e.Id == m.Editor).Name,
                 })
                 .FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
             if (operation == null)
@@ -225,7 +225,8 @@ namespace Autrisa.Controllers
                 foreach (var account in accountData)
                 {
                     accountMoney = account.PreviousRemaining;
-                    var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month && m.AccountId == account.Id).ToListAsync();
+                    var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month 
+                    && m.AccountId == account.Id && m.Type != 2).ToListAsync();
 
                     foreach (var operation in operationsData)
                     {
