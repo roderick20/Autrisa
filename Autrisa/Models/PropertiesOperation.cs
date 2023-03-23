@@ -5,47 +5,31 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Autrisa.Models
 {
-    public partial class Operation
+    public partial class PropertiesOperation
     {
         public int Id { get; set; }
         public Guid UniqueId { get; set; }
-        /// <summary>
-        /// 0: Income, 1: Outcome, 2: Remaining
-        /// </summary>
+
         [Display(Name = "Tipo")]
         public int Type { get; set; }
-        /// <summary>
-        /// 0: Check, 1: Transfer, 2...
-        /// </summary>
+
         [Display(Name = "Modalidad")]
         public int Modality { get; set; }
         
-        [Display(Name = "Número")]
-        public int Number { get; set; }
-        
-        [Display(Name = "ID de la cuenta")]
-        public int AccountId { get; set; }
+        [Display(Name = "ID de la propiedad")]
+        public int PropertyId { get; set; }
+
+        [Display(Name = "Receptor")]
+        public string Receptor { get; set; } = null!;
 
         [Display(Name = "Fecha de operación")]
         public DateTime OperationDate { get; set; }
-        
-        [Display(Name = "Concepto")]
-        public string? Concept { get; set; }
-        
+
         [Display(Name = "Descripción")]
-        public string? Description { get; set; }
+        public string Description { get; set; } = null!;
         
-        [Display(Name = "Ingreso")]
-        public decimal? Income { get; set; }
-        
-        [Display(Name = "Salida")]
-        public decimal? Outcome { get; set; }
-        
-        [Display(Name = "Año")]
-        public int Year { get; set; }
-        
-        [Display(Name = "Mes")]
-        public int Month { get; set; }
+        [Display(Name = "Monto")]
+        public decimal Amount { get; set; }
         
         [Display(Name = "Creado")]
         public DateTime Created { get; set; }
@@ -59,6 +43,6 @@ namespace Autrisa.Models
         [Display(Name = "Editor")]
         public int? Editor { get; set; }
 
-        public virtual Account Account { get; set; } = null!;
+        public virtual Property Property { get; set; } = null!;
     }
 }

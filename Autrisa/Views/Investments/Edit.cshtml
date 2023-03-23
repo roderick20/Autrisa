@@ -1,7 +1,7 @@
-﻿@model Autrisa.Models.Lending
+﻿@model Autrisa.Models.Investment
 
 @{
-    ViewData["Title"] = "Editar Préstamo";
+    ViewData["Title"] = "Editar Inversión";
 }
 
 <div class="col-12">
@@ -10,7 +10,7 @@
         <div class="card border rounded-3">
             <div class="card-header  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <h5 class="mb-2 mb-sm-0">Editar Préstamo</h5>
+                    <h5 class="mb-2 mb-sm-0">Editar Inversión</h5>
                 </div>
             </div>
             <div class="card-body">
@@ -23,26 +23,36 @@
                             <span asp-validation-for="Customer" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="LendDate" class="control-label"></label>
-                            <input asp-for="LendDate" class="form-control" type="text" />
-                            <span asp-validation-for="LendDate" class="text-danger"></span>
+                            <label asp-for="Amount" class="control-label"></label>
+                            <input asp-for="Amount" class="form-control" type="text" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OperationType" class="control-label"></label>
+                            <input asp-for="OperationType" class="form-control" type="text" />
+                            <span asp-validation-for="OperationType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OperationDate" class="control-label"></label>
+                            <input asp-for="OperationDate" class="form-control" type="text" />
+                            <span asp-validation-for="OperationDate" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
                             <input asp-for="Description" class="form-control" type="text" />
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
-@*                        <div class="form-group">
-                            <label asp-for="MovementType" class="control-label"></label>
-                            <select name="MovementType" id="MovementType" class="form-select">
-                                <option value="0">Préstamo</option>
+                        <div class="form-group">
+                            <label asp-for="OperationType" class="control-label"></label>
+                            <select name="OperationType" id="OperationType" class="form-select">
+                                <option value="0">Inversión</option>
                                 <option value="1">Pago</option>
                             </select>
-                        </div>*@
+                        </div>
                         <div class="form-group">
-                            <label asp-for="Amount" class="control-label"></label>
-                            <input asp-for="Amount" class="form-control" type="text" />
-                            <span asp-validation-for="Amount" class="text-danger"></span>
+                            <label asp-for="OperationAmount" class="control-label"></label>
+                            <input asp-for="OperationAmount" class="form-control" type="text" />
+                            <span asp-validation-for="OperationAmount" class="text-danger"></span>
                         </div>
                         <div>
                             <label asp-for="AccountId" class="control-label"></label>

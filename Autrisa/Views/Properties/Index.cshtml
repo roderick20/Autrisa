@@ -1,14 +1,14 @@
-﻿@model IEnumerable<Autrisa.Models.Lending>
+﻿@model IEnumerable<Autrisa.Models.Property>
 
 @{
-    ViewData["Title"] = "Lista de Préstamos";
+    ViewData["Title"] = "Lista de Predios";
 }
 
 <div class="col-12">
     <div class="card border rounded-3">
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
-                <h5 class="mb-2 mb-sm-0">Préstamos</h5>
+                <h5 class="mb-2 mb-sm-0">Predios</h5>
                 <a class="btn btn-sm btn-primary" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar </a>
             </div>
         </div>
@@ -30,16 +30,25 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Customer)
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Participation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Receptor)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Amount)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.LendDate)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                            @Html.DisplayNameFor(model => model.Currency)
                         </th>
                         <th>
                             Operaciones
@@ -52,19 +61,35 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Customer)
+                                @Html.DisplayFor(modelItem => item.Address)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Amount)
+                                @Html.DisplayFor(modelItem => item.Number)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.LendDate)
+                                @Html.DisplayFor(modelItem => item.Participation)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                <a asp-controller="LendingOperations" asp-action="Index" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>
+                                @Html.DisplayFor(modelItem => item.Receptor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                            <td>
+                                @if (item.Currency == 0)
+                                {
+                                    <text>Soles</text>
+                                }
+                                else
+                                {
+                                    <text>Dólares</text>
+                                }
+                            </td>
+                             <td>
+                                <a asp-controller="PropertiesOperations" asp-action="Index" asp-route-PropertyId="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">

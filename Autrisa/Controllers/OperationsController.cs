@@ -199,8 +199,6 @@ namespace Autrisa.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-
         public async Task<IActionResult> MonthClosure()
         {
             var years = await _context.Operations.Select(m => m.Year).Distinct().ToListAsync();
@@ -208,14 +206,14 @@ namespace Autrisa.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MonthClosure(int Month, int Year)
         {
             try
             {
-                var accountData = await _context.Accounts.ToListAsync();
+                var accountData = await _context.Accounts.Where(m => m.AccountType != "Inversión"
+                && m.AccountType != "Préstamo" && m.AccountType != "Predios").ToListAsync();
                 decimal? accountMoney = 0;
                 decimal? accountIncome = 0;
                 decimal? accountOutcome = 0;
@@ -290,7 +288,6 @@ namespace Autrisa.Controllers
             ViewBag.AccountId = accounts;
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

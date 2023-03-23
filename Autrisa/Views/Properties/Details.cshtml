@@ -1,32 +1,40 @@
-﻿@model Autrisa.Models.Lending
+﻿@model Autrisa.Models.Property
 
 @{
-    ViewData["Title"] = "Detalle Préstamo";
+    ViewData["Title"] = "Detalle Predio";
 }
 
 <div class="col-12">
     <div class="card border rounded-3">
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
-                <h5 class="mb-2 mb-sm-0">Detalle Préstamo</h5>
+                <h5 class="mb-2 mb-sm-0">Detalle Predio</h5>
             </div>
         </div>
         <div class="card-body">
             <div class="row">
                 <dl class="row">
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Customer)
+                        @Html.DisplayNameFor(model => model.Address)
                     </dt>
                     <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Customer)
+                        @Html.DisplayFor(model => model.Address)
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Amount)
+                        @Html.DisplayNameFor(model => model.Number)
                     </dt>
                     <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Amount)
+                        @Html.DisplayFor(model => model.Number)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Participation)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Participation)
                     </dd>
                 </dl>
                 <dl class="row">
@@ -35,6 +43,22 @@
                     </dt>
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Description)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Receptor)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Receptor)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Amount)
                     </dd>
                 </dl>
                 <dl class="row">

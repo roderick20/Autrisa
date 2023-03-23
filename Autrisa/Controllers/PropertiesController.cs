@@ -1,38 +1,37 @@
 ﻿using Autrisa.Models;
-using DocumentFormat.OpenXml.Presentation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Autrisa.Controllers
 {
-    public class LendingsController : Controller
+    public class PropertiesController : Controller
     {
         private readonly EFContext _context;
-
-        public LendingsController(EFContext context)
+    
+        public PropertiesController(EFContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var lendings = await _context.Lendings
+            var properties = await _context.Properties
                 .Include(m => m.Account)
                 .ToListAsync();
-            return View(lendings);
+            return View(properties);
         }
 
         public async Task<IActionResult> Details(Guid UniqueId)
         {
-            var operation = await _context.Lendings
+            var properties = await _context.Properties
                 .Include(m => m.Account)
                 .FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-            if (operation == null)
+            if (properties == null)
             {
                 return NotFound();
             }
-            return View(operation);
+            return View(properties);
         }
 
         public IActionResult NewAccount()
@@ -42,22 +41,23 @@ namespace Autrisa.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.AccountId = new SelectList(_context.Accounts.Where(m => m.AccountType == "Préstamo"), "Id", "Name");
+            ViewBag.AccountId = new SelectList(_context.Accounts.Where(m => m.AccountType == "Predios"), "Id", "Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Lending lending)
+        public async Task<IActionResult> Create(Property property)
         {
             try
             {
-                var account = await _context.Accounts.Where(x => x.Id == lending.AccountId).FirstOrDefaultAsync();
-                lending.Currency = account.Currency;
-                lending.UniqueId = Guid.NewGuid();
-                lending.Created = DateTime.Now;
-                lending.Author = (int)HttpContext.Session.GetInt32("UserId");
-                _context.Add(lending);
+                var account = await _context.Accounts.Where(x => x.Id == property.AccountId).FirstOrDefaultAsync();
+                
+                property.Currency = account.Currency;
+                property.UniqueId = Guid.NewGuid();
+                property.Created = DateTime.Now;
+                property.Author = (int)HttpContext.Session.GetInt32("UserId");
+                _context.Add(property);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
 
@@ -73,33 +73,35 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Edit(Guid UniqueId)
         {
-            var lending = await _context.Lendings.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-            if (lending == null)
+            var property = await _context.Properties.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            if (property == null)
             {
                 return NotFound();
             }
-            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name", lending.AccountId);
-            return View(lending);
+            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name", property.AccountId);
+            return View(property);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Lending lending)
+        public async Task<IActionResult> Edit(Property property)
         {
             try
             {
-                var lendingEdit = await _context.Lendings.FirstOrDefaultAsync(m => m.UniqueId == lending.UniqueId);
-                var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == lending.AccountId);
+                var propertyEdit = await _context.Properties.FirstOrDefaultAsync(m => m.UniqueId == property.UniqueId);
+                var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == property.AccountId);
 
-                lendingEdit.AccountId = lending.AccountId;
-                lendingEdit.Currency = account.Currency;
-                lendingEdit.Amount = lending.Amount;
-                lendingEdit.Customer = lending.Customer;
-                lendingEdit.LendDate = lending.LendDate;
-                lendingEdit.Description = lending.Description;
-                lendingEdit.Modified = DateTime.Now;
-                lendingEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                _context.Update(lendingEdit);
+                propertyEdit.Address = property.Address;
+                propertyEdit.Amount = property.Amount;
+                propertyEdit.Number = property.Number;
+                propertyEdit.Participation = property.Participation;
+                propertyEdit.Description = property.Description;
+                propertyEdit.Receptor = property.Receptor;
+                propertyEdit.Amount = property.Amount;
+                propertyEdit.Currency = account.Currency;
+                propertyEdit.Modified = DateTime.Now;
+                propertyEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                _context.Update(propertyEdit);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
                 return RedirectToAction(nameof(Index));
@@ -108,13 +110,13 @@ namespace Autrisa.Controllers
             {
                 TempData["Error"] = "Error: " + ex.Message;
             }
-            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "", lending.AccountId);
-            return View(lending);
+            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "", property.AccountId);
+            return View(property);
         }
 
         public async Task<IActionResult> Delete(Guid UniqueId)
         {
-            var lending = await _context.Lendings.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            var lending = await _context.Properties.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
             if (lending == null)
             {
                 return NotFound();
@@ -130,10 +132,10 @@ namespace Autrisa.Controllers
         {
             try
             {
-                var lending = await _context.Lendings.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-                if (lending != null)
+                var properties = await _context.Properties.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+                if (properties != null)
                 {
-                    _context.Lendings.Remove(lending);
+                    _context.Properties.Remove(properties);
                 }
 
                 await _context.SaveChangesAsync();

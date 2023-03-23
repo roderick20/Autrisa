@@ -51,16 +51,14 @@ namespace Autrisa.Controllers
             {
                 return NotFound();
             }
-
             return View(account);
         }
         
         public IActionResult Create()
-        {
-            
+        {   
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Account account)

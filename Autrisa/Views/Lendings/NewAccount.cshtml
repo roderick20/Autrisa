@@ -1,7 +1,7 @@
-@model Autrisa.Models.Account
+﻿@model Autrisa.Models.Account
 
 @{
-    ViewData["Title"] = "Agregar Cuentas";
+    ViewData["Title"] = "Agregar cuentas";
 }
 
 <div class="col-12">
@@ -9,28 +9,26 @@
         <div class="card border rounded-3">
             <div class="card-header  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <h5 class="mb-2 mb-sm-0">Agregar Cuentas</h5>
+                    <h5 class="mb-2 mb-sm-0">Agregar cuentas de préstamo</h5>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="col-md-4">     
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control"  type="text" />
+                            <input asp-for="Name" class="form-control" type="text" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="AccountType" class="control-label"></label>
-                            <select name="AccountType" id="AccountType" class="form-select">
-                                <option value="Corriente">Corriente</option>
-                                <option value="Ahorros">Ahorros</option>
-                            </select>
+                            <input asp-for="AccountType" value="Préstamo" class="form-control" type="text" readonly />
+                            <span asp-validation-for="AccountType" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="AccountNumber" class="control-label"></label>
-                            <input asp-for="AccountNumber" class="form-control"  type="text" />
+                            <input asp-for="AccountNumber" class="form-control" type="text" />
                             <span asp-validation-for="AccountNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -42,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="Amount" class="control-label"></label>
-                            <input asp-for="Amount" class="form-control"  type="text" />
+                            <input asp-for="Amount" class="form-control" type="text" />
                             <span asp-validation-for="Amount" class="text-danger"></span>
                         </div>
                     </div>
@@ -51,7 +49,7 @@
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
-                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
+                    <button class="btn btn-sm btn-primary" asp-controller="Accounts" asp-action="Create" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
                 </div>
             </div>
         </div>
@@ -68,7 +66,7 @@
 
     <script>
         $.datepicker.setDefaults($.datepicker.regional["es"]);
-    
+
         $(document).ready(function () {
 
             $("form").submit(function (event) {

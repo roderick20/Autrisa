@@ -1,14 +1,14 @@
-﻿@model Autrisa.Models.Lending
+﻿@model Autrisa.Models.Investment
 
 @{
-    ViewData["Title"] = "Detalle Préstamo";
+    ViewData["Title"] = "Detalle Inversión";
 }
 
 <div class="col-12">
     <div class="card border rounded-3">
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
-                <h5 class="mb-2 mb-sm-0">Detalle Préstamo</h5>
+                <h5 class="mb-2 mb-sm-0">Detalle Inversión</h5>
             </div>
         </div>
         <div class="card-body">
@@ -39,10 +39,26 @@
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Currency)
+                        @Html.DisplayNameFor(model => model.OperationDate)
                     </dt>
                     <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Currency)
+                        @Html.DisplayFor(model => model.OperationDate)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.OperationType)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.OperationType)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.OperationAmount)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.OperationAmount)
                     </dd>
                 </dl>
                 <dl class="row">

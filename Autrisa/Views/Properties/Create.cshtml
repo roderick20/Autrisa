@@ -1,7 +1,7 @@
-@model Autrisa.Models.Account
+﻿@model Autrisa.Models.Property
 
 @{
-    ViewData["Title"] = "Agregar Cuentas";
+    ViewData["Title"] = "Agregar Predio";
 }
 
 <div class="col-12">
@@ -9,41 +9,47 @@
         <div class="card border rounded-3">
             <div class="card-header  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <h5 class="mb-2 mb-sm-0">Agregar Cuentas</h5>
+                    <h5 class="mb-2 mb-sm-0">Agregar Predio</h5>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="col-md-4">     
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control"  type="text" />
-                            <span asp-validation-for="Name" class="text-danger"></span>
+                            <label asp-for="Address" class="control-label"></label>
+                            <input asp-for="Address" class="form-control" type="text" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="AccountType" class="control-label"></label>
-                            <select name="AccountType" id="AccountType" class="form-select">
-                                <option value="Corriente">Corriente</option>
-                                <option value="Ahorros">Ahorros</option>
-                            </select>
+                            <label asp-for="Number" class="control-label"></label>
+                            <input asp-for="Number" class="form-control" type="text" />
+                            <span asp-validation-for="Number" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="AccountNumber" class="control-label"></label>
-                            <input asp-for="AccountNumber" class="form-control"  type="text" />
-                            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+                            <label asp-for="Participation" class="control-label"></label>
+                            <input asp-for="Participation" class="form-control" type="text" />
+                            <span asp-validation-for="Participation" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Currency" class="control-label"></label>
-                            <select name="Currency" id="Currency" class="form-select">
-                                <option value="0">Soles (S/)</option>
-                                <option value="1">Dolares ($)</option>
-                            </select>
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" type="text" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Receptor" class="control-label"></label>
+                            <input asp-for="Receptor" class="form-control" type="text" />
+                            <span asp-validation-for="Receptor" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Amount" class="control-label"></label>
-                            <input asp-for="Amount" class="form-control"  type="text" />
+                            <input asp-for="Amount" class="form-control" type="text" />
                             <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="AccountId" class="control-label"></label>
+                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
+                            <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -68,7 +74,7 @@
 
     <script>
         $.datepicker.setDefaults($.datepicker.regional["es"]);
-    
+
         $(document).ready(function () {
 
             $("form").submit(function (event) {
@@ -77,4 +83,4 @@
             });
         });
     </script>
-}
+    }
