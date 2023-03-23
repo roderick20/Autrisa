@@ -284,7 +284,8 @@ namespace Autrisa.Controllers
             var years = await _context.Operations.Select(m => m.Year).Distinct().ToListAsync();
             ViewBag.YearList = years;
 
-            var accounts = await _context.Accounts.Select(m => m.Name).Distinct().ToListAsync();
+            var accounts = await _context.Accounts.Where(m => m.AccountType == "Corriente" || m.AccountType == "Ahorros")
+            .Select(m => m.Name).Distinct().ToListAsync();
             ViewBag.AccountId = accounts;
             return View();
         }

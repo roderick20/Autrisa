@@ -58,7 +58,7 @@
                                 @Html.DisplayFor(modelItem => item.Amount)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.LendDate)
+                                @item.LendDate.ToString("dd/MM/yyyy")
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
@@ -71,7 +71,7 @@
                                     <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        <li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
+                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
                                     </ul>

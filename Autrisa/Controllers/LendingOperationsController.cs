@@ -169,8 +169,12 @@ namespace Autrisa.Controllers
                 operationEdit.Modality = lendingoperation.Modality;
                 operationEdit.Description = lendingoperation.Description;
 
+                lendingoperation.Created = operationEdit.Created;
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                lendingoperation.Modified = DateTime.Now;
+                lendingoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
+
                 _context.Update(operationEdit);
                 _context.Update(lendingoperation);
                 await _context.SaveChangesAsync();

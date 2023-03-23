@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="Number" class="control-label"></label>
-                            <input asp-for="Number" class="form-control"  type="text" />
+                            <input asp-for="Number" class="form-control" type="text" required />
                             <span asp-validation-for="Number" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -42,22 +42,22 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="OperationDate" class="control-label"></label>
-                            <input asp-for="OperationDate" class="form-control"  type="text" />
+                            <input asp-for="OperationDate" class="form-control" type="text" required />
                             <span asp-validation-for="OperationDate" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Concept" class="control-label"></label>
-                            <input asp-for="Concept" class="form-control"  type="text" />
+                            <input asp-for="Concept" class="form-control" type="text" required />
                             <span asp-validation-for="Concept" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
-                            <input asp-for="Description" class="form-control"  type="text" />
+                            <input asp-for="Description" class="form-control" type="text" required />
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label name="montoTransaccion" class="control-label">Monto de movimiento</label>
-                            <input name="montoTransaccion" id="montoTransaccion" class="form-control" type="text" />
+                            <input name="montoTransaccion" id="montoTransaccion" class="form-control" type="text" required />
                         </div>
                         @*<div class="form-group">
                             <label asp-for="Outcome" class="control-label"></label>

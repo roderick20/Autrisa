@@ -76,9 +76,19 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link href="~/assets/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/assets/vendor/jquery-ui/jquery.ui.datepicker-es.js"></script>
 
     <script>
         $(document).ready(function () {
+
+            $("#OperationDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
+            });
+
             $("form").submit(function (event) {
                 $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
                 $("#btnSave").prop('disabled', true);

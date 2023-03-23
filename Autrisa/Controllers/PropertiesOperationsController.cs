@@ -175,10 +175,12 @@ namespace Autrisa.Controllers
 
                 operationEdit.Modality = propertyoperation.Modality;
                 operationEdit.Description = propertyoperation.Description;
-
+                propertyoperation.Created = operationEdit.Created;
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                _context.Update(operationEdit);
+                propertyoperation.Modified = DateTime.Now;
+                propertyoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                _context.PropertiesOperations.Update(operationEdit);
                 _context.Update(propertyoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";

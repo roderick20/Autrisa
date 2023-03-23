@@ -178,13 +178,12 @@ namespace Autrisa.Controllers
 
                 operationEdit.Modality = investmentsoperation.Modality;
                 operationEdit.Description = investmentsoperation.Description;
-
+                investmentsoperation.Created = operationEdit.Created;
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 investmentsoperation.Modified = DateTime.Now;
                 investmentsoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(operationEdit);
-                await _context.SaveChangesAsync();
                 _context.Update(investmentsoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";

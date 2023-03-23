@@ -7,9 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Accounts\Details.cshtml" />
+    <Content Remove="Views\Investments\Details.cshtml" />
     <Content Remove="Views\Investments\NewAccount.cshtml" />
+    <Content Remove="Views\Lendings\Details.cshtml" />
     <Content Remove="Views\Lendings\NewAccount.cshtml" />
+    <Content Remove="Views\Operations\Details.cshtml" />
+    <Content Remove="Views\Properties\Details.cshtml" />
     <Content Remove="Views\Properties\NewAccount.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\vendor\yadcf\jquery.dataTables.yadcf.js" />
   </ItemGroup>
 
   <ItemGroup>
