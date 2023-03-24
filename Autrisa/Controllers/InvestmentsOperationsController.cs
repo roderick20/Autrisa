@@ -28,6 +28,8 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index(int Id)
         {
+           
+
             var operations = await _context.InvestmentsOperations
                 .Include(m => m.Investment)
                 .Where(m => m.InvestmentId == Id)
@@ -57,8 +59,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(InvestmentsOperation investmentsoperation, int InvestmentId, string OperationDate,
-            string Created)
+        public async Task<IActionResult> Create(InvestmentsOperation investmentsoperation, int InvestmentId, string OperationDate)
         {
             try
             {
@@ -67,8 +68,8 @@ namespace Autrisa.Controllers
                 investmentsoperation.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 investmentsoperation.UniqueId = Guid.NewGuid();
-                //investmentsoperation.Created = DateTime.Now;
-                investmentsoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                investmentsoperation.Created = DateTime.Now;
+                //investmentsoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 investmentsoperation.Author = (int)HttpContext.Session.GetInt32("UserId");
 
                 var montoInicial = accountEdit.Amount;

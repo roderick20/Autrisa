@@ -46,7 +46,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LendingOperation lendingoperation, int LendingId, string OperationDate
+        public async Task<IActionResult> Create(LendingOperation lendingoperation, int LendingId, string OperationDate,
             string Created)
         {
             try
@@ -68,7 +68,7 @@ namespace Autrisa.Controllers
                 {
                     accountEdit.Amount = montoInicial + lendingoperation.Amount;
                 }
-                lendingoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                lendingoperation.Created = DateTime.Now;
                 _context.Update(accountEdit);
                 _context.Add(lendingoperation);
                 await _context.SaveChangesAsync();
