@@ -54,11 +54,13 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PropertiesOperation propertyoperation, int PropertyId)
+        public async Task<IActionResult> Create(PropertiesOperation propertyoperation, int PropertyId, string OperationDate)
         {
             try
             {
                 var accountEdit = await _context.Properties.FirstOrDefaultAsync(m => m.Id == PropertyId);
+
+                propertyoperation.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 propertyoperation.UniqueId = Guid.NewGuid();
                 propertyoperation.Created = DateTime.Now;
