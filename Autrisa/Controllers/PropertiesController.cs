@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace Autrisa.Controllers
 {
@@ -47,7 +48,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Property property)
+        public async Task<IActionResult> Create(Property property, string Created)
         {
             try
             {
@@ -55,7 +56,8 @@ namespace Autrisa.Controllers
                 
                 property.Currency = account.Currency;
                 property.UniqueId = Guid.NewGuid();
-                property.Created = DateTime.Now;
+                //property.Created = DateTime.Now;
+                property.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 property.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(property);
                 await _context.SaveChangesAsync();
@@ -84,7 +86,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Property property)
+        public async Task<IActionResult> Edit(Property property, string Modified)
         {
             try
             {
@@ -99,7 +101,8 @@ namespace Autrisa.Controllers
                 propertyEdit.Receptor = property.Receptor;
                 propertyEdit.Amount = property.Amount;
                 propertyEdit.Currency = account.Currency;
-                propertyEdit.Modified = DateTime.Now;
+                //propertyEdit.Modified = DateTime.Now;
+                propertyEdit.Modified= DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 propertyEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(propertyEdit);
                 await _context.SaveChangesAsync();

@@ -103,7 +103,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(PropertiesOperation propertyoperation)
+        public async Task<IActionResult> Edit(PropertiesOperation propertyoperation, string Created, string Modified)
         {
             try
             {
@@ -177,10 +177,13 @@ namespace Autrisa.Controllers
 
                 operationEdit.Modality = propertyoperation.Modality;
                 operationEdit.Description = propertyoperation.Description;
-                propertyoperation.Created = operationEdit.Created;
-                operationEdit.Modified = DateTime.Now;
+                propertyoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //propertyoperation.Created = operationEdit.Created;
+                operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 propertyoperation.Modified = DateTime.Now;
+                propertyoperation.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 propertyoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.PropertiesOperations.Update(operationEdit);
                 _context.Update(propertyoperation);

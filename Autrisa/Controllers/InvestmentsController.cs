@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace Autrisa.Controllers
 {
@@ -49,7 +50,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Investment investment)
+        public async Task<IActionResult> Create(Investment investment, string Created)
         {
             try
             {
@@ -57,7 +58,8 @@ namespace Autrisa.Controllers
                 investment.Currency = account.Currency;
                 investment.OperationAmount = investment.Amount;
                 investment.UniqueId = Guid.NewGuid();
-                investment.Created = DateTime.Now;
+                investment.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //investment.Created = DateTime.Now;
                 investment.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(investment);
                 await _context.SaveChangesAsync();
@@ -86,7 +88,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Investment investment)
+        public async Task<IActionResult> Edit(Investment investment, string Modified)
         {
             try
             {
@@ -99,7 +101,8 @@ namespace Autrisa.Controllers
                 investmentEdit.OperationAmount = investment.OperationAmount;
                 investmentEdit.Description = investment.Description;
                 investmentEdit.AccountId = investmentEdit.AccountId;
-                investmentEdit.Modified = DateTime.Now;
+                investmentEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //investmentEdit.Modified = DateTime.Now;
                 investmentEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(investmentEdit);
                 await _context.SaveChangesAsync();

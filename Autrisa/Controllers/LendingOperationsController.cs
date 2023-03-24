@@ -46,14 +46,17 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LendingOperation lendingoperation, int LendingId)
+        public async Task<IActionResult> Create(LendingOperation lendingoperation, int LendingId, string OperationDate
+            string Created)
         {
             try
             {
                 var accountEdit = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == LendingId);
 
+                lendingoperation.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
                 lendingoperation.UniqueId = Guid.NewGuid();
-                lendingoperation.Created = DateTime.Now;
+                //lendingoperation.Created = DateTime.Now;
                 lendingoperation.Author = (int)HttpContext.Session.GetInt32("UserId");
 
                 var montoInicial = accountEdit.Amount;
@@ -65,7 +68,7 @@ namespace Autrisa.Controllers
                 {
                     accountEdit.Amount = montoInicial + lendingoperation.Amount;
                 }
-
+                lendingoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 _context.Update(accountEdit);
                 _context.Add(lendingoperation);
                 await _context.SaveChangesAsync();
@@ -94,7 +97,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(LendingOperation lendingoperation)
+        public async Task<IActionResult> Edit(LendingOperation lendingoperation, string Created, string Modified)
         {
             try
             {
@@ -169,10 +172,13 @@ namespace Autrisa.Controllers
                 operationEdit.Modality = lendingoperation.Modality;
                 operationEdit.Description = lendingoperation.Description;
 
-                lendingoperation.Created = operationEdit.Created;
-                operationEdit.Modified = DateTime.Now;
+                //lendingoperation.Created = operationEdit.Created;
+                lendingoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //operationEdit.Modified = DateTime.Now;
+                operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                lendingoperation.Modified = DateTime.Now;
+                //lendingoperation.Modified = DateTime.Now;
+                lendingoperation.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 lendingoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
 
                 _context.Update(operationEdit);

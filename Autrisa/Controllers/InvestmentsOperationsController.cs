@@ -57,14 +57,18 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(InvestmentsOperation investmentsoperation, int InvestmentId)
+        public async Task<IActionResult> Create(InvestmentsOperation investmentsoperation, int InvestmentId, string OperationDate,
+            string Created)
         {
             try
             {
                 var accountEdit = await _context.Investments.FirstOrDefaultAsync(m => m.Id == InvestmentId);
 
+                investmentsoperation.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
                 investmentsoperation.UniqueId = Guid.NewGuid();
-                investmentsoperation.Created = DateTime.Now;
+                //investmentsoperation.Created = DateTime.Now;
+                investmentsoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 investmentsoperation.Author = (int)HttpContext.Session.GetInt32("UserId");
 
                 var montoInicial = accountEdit.Amount;
@@ -104,7 +108,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(InvestmentsOperation investmentsoperation)
+        public async Task<IActionResult> Edit(InvestmentsOperation investmentsoperation, string Created, string Modified)
         {
             try
             {
@@ -178,10 +182,13 @@ namespace Autrisa.Controllers
 
                 operationEdit.Modality = investmentsoperation.Modality;
                 operationEdit.Description = investmentsoperation.Description;
-                investmentsoperation.Created = operationEdit.Created;
-                operationEdit.Modified = DateTime.Now;
+                investmentsoperation.Created= DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //investmentsoperation.Created = operationEdit.Created;
+                //operationEdit.Modified = DateTime.Now;
+                operationEdit.Modified= DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 investmentsoperation.Modified = DateTime.Now;
+                investmentsoperation.OperationDate = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 investmentsoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(operationEdit);
                 _context.Update(investmentsoperation);

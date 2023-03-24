@@ -9,6 +9,7 @@ using Autrisa.Models;
 using System.Text.RegularExpressions;
 using Autrisa.Helpers;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Globalization;
 
 namespace Autrisa.Controllers
 {
@@ -61,13 +62,14 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Account account)
+        public async Task<IActionResult> Create(Account account, string Created)
         {
             try
             {
                 account.UniqueId = Guid.NewGuid();
                 account.PreviousRemaining = account.Amount;
-                account.Created = DateTime.Now;
+                //account.Created = DateTime.Now;
+                account.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 account.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(account);
                 await _context.SaveChangesAsync();
@@ -95,7 +97,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Account account)
+        public async Task<IActionResult> Edit(Account account, string Modified)
         {
             try
             {
@@ -106,7 +108,8 @@ namespace Autrisa.Controllers
                 accountEdit.AccountNumber = account.AccountNumber; 
                 accountEdit.Currency = account.Currency; 
                 accountEdit.Amount = account.Amount; 
-                accountEdit.Modified = DateTime.Now;
+                //accountEdit.Modified = DateTime.Now;
+                accountEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 accountEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(accountEdit);
                 await _context.SaveChangesAsync();

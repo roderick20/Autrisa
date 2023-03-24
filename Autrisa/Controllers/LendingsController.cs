@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Presentation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace Autrisa.Controllers
 {
@@ -48,14 +49,15 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Lending lending)
+        public async Task<IActionResult> Create(Lending lending, string Created)
         {
             try
             {
                 var account = await _context.Accounts.Where(x => x.Id == lending.AccountId).FirstOrDefaultAsync();
                 lending.Currency = account.Currency;
                 lending.UniqueId = Guid.NewGuid();
-                lending.Created = DateTime.Now;
+                lending.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //lending.Created = DateTime.Now;
                 lending.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(lending);
                 await _context.SaveChangesAsync();
@@ -84,7 +86,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Lending lending)
+        public async Task<IActionResult> Edit(Lending lending, string Modified)
         {
             try
             {
@@ -97,7 +99,8 @@ namespace Autrisa.Controllers
                 lendingEdit.Customer = lending.Customer;
                 lendingEdit.LendDate = lending.LendDate;
                 lendingEdit.Description = lending.Description;
-                lendingEdit.Modified = DateTime.Now;
+                lendingEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //lendingEdit.Modified = DateTime.Now;
                 lendingEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(lendingEdit);
                 await _context.SaveChangesAsync();

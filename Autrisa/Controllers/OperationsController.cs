@@ -77,14 +77,15 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Operation operation, int montoTransaccion)
+        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created)
         {
             try
             {
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
 
                 operation.UniqueId = Guid.NewGuid();
-                operation.Created = DateTime.Now;
+                //operation.Created = DateTime.Now;
+                operation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operation.Author = (int)HttpContext.Session.GetInt32("UserId");
                 DateTime selectedDate = operation.OperationDate;
                 operation.Year = selectedDate.Year;
@@ -133,7 +134,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Operation operation)
+        public async Task<IActionResult> Edit(Operation operation, string OperationDate, string Modified)
         {
             try
             {
@@ -143,14 +144,16 @@ namespace Autrisa.Controllers
                 operationEdit.Modality = operation.Modality;
                 operationEdit.Number = operation.Number;
                 operationEdit.AccountId = operation.AccountId;
-                operationEdit.OperationDate = operation.OperationDate;
+                operationEdit.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //operationEdit.OperationDate = operation.OperationDate;
                 operationEdit.Concept = operation.Concept;
                 operationEdit.Description = operation.Description;
                 operationEdit.Income = operation.Income;
                 operationEdit.Outcome = operation.Outcome;
                 operationEdit.Year = operation.Year;
                 operationEdit.Month = operation.Month;
-                operationEdit.Modified = DateTime.Now;
+                operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(operationEdit);
                 await _context.SaveChangesAsync();
