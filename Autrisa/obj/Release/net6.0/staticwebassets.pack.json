@@ -1,0 +1,2857 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\Autrisa.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Autrisa.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\css\\style-dark-rtl.html",
+      "PackagePath": "staticwebassets\\assets\\css\\style-dark-rtl.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\css\\style-dark.css",
+      "PackagePath": "staticwebassets\\assets\\css\\style-dark.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\css\\style-rtl.html",
+      "PackagePath": "staticwebassets\\assets\\css\\style-rtl.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\assets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\app-store.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\app-store.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\avatar\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\placeholder.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\01.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\03.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\04.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\06.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\bg\\07.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\bg\\07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\cookie.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cookie.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\01.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\01.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\02.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\02.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\03.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\03.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\04.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\04.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\05.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\05.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\06.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\06.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\07.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\07.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\08.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\08.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\09.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\09.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\10.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\10.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\11.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\11.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\12.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\12.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\14.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\14.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\319A0761.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\319A0761.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\319A0763.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\319A0763.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\319A0767.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\319A0767.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\8F5261F3.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\8F5261F3.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\8F5261F4.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\8F5261F4.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\8F5261F5.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\8F5261F5.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\BD7D5ED1.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\BD7D5ED1.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\BD7D5ED3.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\BD7D5ED3.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\elements\\BD7D5ED6.html",
+      "PackagePath": "staticwebassets\\assets\\images\\elements\\BD7D5ED6.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\events\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\events\\02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\events\\05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\events\\05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\favicon.ico",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\google-play.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\google-play.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\arrow-boxed-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\arrow-boxed-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\badge-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\badge-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\calendar-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\calendar-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\chat-alt-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\chat-alt-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\chat-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\chat-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\clipboard-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\clipboard-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\clock-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\clock-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\cog-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\cog-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\earth-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\earth-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\handshake-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\handshake-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\home-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\home-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\imac-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\imac-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\like-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\like-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\medal-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\medal-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\notification-outlined-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\notification-outlined-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\person-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\person-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\shield-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\shield-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\star-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\star-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\task-done-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\task-done-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\icon\\trash-var-outline-filled.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\trash-var-outline-filled.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\01.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\01.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\02.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\02.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\03.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\03.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\04.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\04.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\05.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\05.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\06.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\06.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\08.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\08.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\09.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\09.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\10.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\10.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\11.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\11.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\12.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\12.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\logo\\13.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\13.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\01.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\03.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\04.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\06.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\07.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\08.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\09.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\10.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\11.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\12.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\13.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\14.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\big\\01.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\big\\01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\big\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\big\\02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\01.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\03.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\04.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\07.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\08.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\09.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\10.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\11.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\12.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\13.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\14.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\16by9\\large\\15.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\16by9\\large\\15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\4by3\\04.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\4by3\\04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\4by3\\05.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\4by3\\05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\post\\4by3\\06.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\post\\4by3\\06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\qr-code.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr-code.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\js\\functions.js",
+      "PackagePath": "staticwebassets\\assets\\js\\functions.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\css\\autoFill.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\autoFill.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\dataTables.autoFill.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\dataTables.autoFill.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\dataTables.autoFill.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\AutoFill-2.5.1\\js\\dataTables.autoFill.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\buttons.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\common.scss",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\common.scss"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\mixins.scss",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\css\\mixins.scss"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.colVis.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.colVis.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.html5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.html5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.print.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.print.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\buttons.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\dataTables.buttons.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\dataTables.buttons.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Buttons-2.3.3\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\css\\colReorder.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\colReorder.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\dataTables.colReorder.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\dataTables.colReorder.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\dataTables.colReorder.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\ColReorder-1.6.1\\js\\dataTables.colReorder.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\dataTables.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\jquery.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\jquery.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_asc.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_asc_disabled.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_asc_disabled.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_both.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_desc.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_desc.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_desc_disabled.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\images\\sort_desc_disabled.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\dataTables.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DataTables-1.13.1\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DateTime-1.2.0\\css\\dataTables.dateTime.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DateTime-1.2.0\\css\\dataTables.dateTime.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DateTime-1.2.0\\css\\dataTables.dateTime.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DateTime-1.2.0\\css\\dataTables.dateTime.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DateTime-1.2.0\\js\\dataTables.dateTime.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DateTime-1.2.0\\js\\dataTables.dateTime.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\DateTime-1.2.0\\js\\dataTables.dateTime.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\DateTime-1.2.0\\js\\dataTables.dateTime.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\css\\fixedColumns.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\dataTables.fixedColumns.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\dataTables.fixedColumns.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\dataTables.fixedColumns.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\dataTables.fixedColumns.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedColumns-4.2.1\\js\\fixedColumns.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\css\\fixedHeader.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\dataTables.fixedHeader.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\dataTables.fixedHeader.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\dataTables.fixedHeader.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\dataTables.fixedHeader.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\FixedHeader-3.3.1\\js\\fixedHeader.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\JSZip-2.5.0\\jszip.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\JSZip-2.5.0\\jszip.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\JSZip-2.5.0\\jszip.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\JSZip-2.5.0\\jszip.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\css\\keyTable.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\dataTables.keyTable.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\dataTables.keyTable.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\dataTables.keyTable.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\dataTables.keyTable.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\KeyTable-2.8.0\\js\\keyTable.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\css\\responsive.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\dataTables.responsive.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\dataTables.responsive.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Responsive-2.4.0\\js\\responsive.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\css\\rowGroup.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\dataTables.rowGroup.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\dataTables.rowGroup.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\dataTables.rowGroup.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\dataTables.rowGroup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowGroup-1.3.0\\js\\rowGroup.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\css\\rowReorder.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\dataTables.rowReorder.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\dataTables.rowReorder.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\dataTables.rowReorder.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\dataTables.rowReorder.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\RowReorder-1.3.1\\js\\rowReorder.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\css\\scroller.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\dataTables.scroller.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\dataTables.scroller.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\dataTables.scroller.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\dataTables.scroller.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Scroller-2.0.7\\js\\scroller.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\css\\searchBuilder.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\dataTables.searchBuilder.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\dataTables.searchBuilder.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\dataTables.searchBuilder.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\dataTables.searchBuilder.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchBuilder-1.4.0\\js\\searchBuilder.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\css\\searchPanes.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\dataTables.searchPanes.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\dataTables.searchPanes.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\dataTables.searchPanes.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\dataTables.searchPanes.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\SearchPanes-2.1.0\\js\\searchPanes.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\css\\select.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\dataTables.select.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\dataTables.select.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\dataTables.select.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\dataTables.select.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\Select-1.5.0\\js\\select.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap4.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap5.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap5.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bulma.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bulma.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bulma.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.bulma.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.dataTables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.foundation.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.foundation.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.jqueryui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.semanticui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.semanticui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\css\\stateRestore.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\dataTables.stateRestore.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\dataTables.stateRestore.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\dataTables.stateRestore.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\dataTables.stateRestore.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap4.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap5.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap5.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bulma.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bulma.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bulma.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.bulma.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.dataTables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.foundation.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.foundation.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.jqueryui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.semanticui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.semanticui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\StateRestore-1.2.0\\js\\stateRestore.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\datatables.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\datatables.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\datatables.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\datatables.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\datatables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\datatables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\datatables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\datatables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\es-ES.json",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\es-ES.json"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\pdfmake.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\pdfmake.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\pdfmake.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\DataTables\\pdfmake-0.1.36\\vfs_fonts.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\OverlayScrollbars-master\\css\\OverlayScrollbars.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\OverlayScrollbars-master\\css\\OverlayScrollbars.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\OverlayScrollbars-master\\js\\OverlayScrollbars.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\OverlayScrollbars-master\\js\\OverlayScrollbars.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\bootstrap-icons\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\bootstrap-icons\\bootstrap-icons.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\bootstrap-icons\\fonts\\bootstrap-icons44df.woff",
+      "PackagePath": "staticwebassets\\assets\\vendor\\bootstrap-icons\\fonts\\bootstrap-icons44df.woff"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\bootstrap-icons\\fonts\\bootstrap-icons44df.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendor\\bootstrap-icons\\fonts\\bootstrap-icons44df.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\choices.js\\public\\assets\\scripts\\choices.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\choices.js\\public\\assets\\scripts\\choices.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\choices.js\\public\\assets\\styles\\choices.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\choices.js\\public\\assets\\styles\\choices.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\dropzone\\dist\\dropzone.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\dropzone\\dist\\dropzone.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\dropzone\\dist\\dropzone.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\dropzone\\dist\\dropzone.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\dropzone\\dist\\min\\dropzone.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\dropzone\\dist\\min\\dropzone.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\dropzone\\dist\\min\\dropzone.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\dropzone\\dist\\min\\dropzone.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\flatpickr\\dist\\flatpickr.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\flatpickr\\dist\\flatpickr.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\flatpickr\\dist\\flatpickr.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\flatpickr\\dist\\flatpickr.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\flatpickr\\dist\\flatpickr.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\flatpickr\\dist\\flatpickr.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\css\\all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\font-awesome\\webfonts\\fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendor\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\glightbox-master\\dist\\css\\glightbox.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\glightbox-master\\dist\\css\\glightbox.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\glightbox-master\\dist\\js\\glightbox.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\glightbox-master\\dist\\js\\glightbox.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\AUTHORS.txt",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\AUTHORS.txt"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\external\\jquery\\jquery.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\external\\jquery\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_444444_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_444444_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_555555_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_555555_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_777620_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_777620_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_777777_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_777777_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_cc0000_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_cc0000_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\images\\ui-icons_ffffff_256x240.png",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\images\\ui-icons_ffffff_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\index.html",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.structure.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.structure.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.structure.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.structure.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.theme.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.theme.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery-ui.theme.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery-ui.theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\jquery.ui.datepicker-es.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\jquery.ui.datepicker-es.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery-ui\\package.json",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery-ui\\package.json"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\jquery\\jquery-3.6.1.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\jquery\\jquery-3.6.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\plyr\\plyr.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\plyr\\plyr.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\plyr\\plyr.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\plyr\\plyr.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\pswmeter\\pswmeter.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\pswmeter\\pswmeter.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\tiny-slider\\dist\\tiny-slider.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\tiny-slider\\dist\\tiny-slider.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\tiny-slider\\dist\\tiny-slider.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\tiny-slider\\dist\\tiny-slider.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\toast\\jquery.toast.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\toast\\jquery.toast.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\toast\\jquery.toast.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\toast\\jquery.toast.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\yadcf\\jquery.dataTables.yadcf.css",
+      "PackagePath": "staticwebassets\\assets\\vendor\\yadcf\\jquery.dataTables.yadcf.css"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\yadcf\\jquery.dataTables.yadcf.js",
+      "PackagePath": "staticwebassets\\assets\\vendor\\yadcf\\jquery.dataTables.yadcf.js"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\assets\\vendor\\yadcf\\package.json",
+      "PackagePath": "staticwebassets\\assets\\vendor\\yadcf\\package.json"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\favicon.svg",
+      "PackagePath": "staticwebassets\\settings\\images\\favicon.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\login_login.svg",
+      "PackagePath": "staticwebassets\\settings\\images\\login_login.svg"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\logo_blanco.png",
+      "PackagePath": "staticwebassets\\settings\\images\\logo_blanco.png"
+    },
+    {
+      "Id": "C:\\Users\\Administrador\\Documents\\GitHub\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\logo_color.png",
+      "PackagePath": "staticwebassets\\settings\\images\\logo_color.png"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.Autrisa.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.Autrisa.props",
+      "PackagePath": "build\\Autrisa.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Autrisa.props",
+      "PackagePath": "buildMultiTargeting\\Autrisa.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.Autrisa.props",
+      "PackagePath": "buildTransitive\\Autrisa.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
