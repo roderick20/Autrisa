@@ -15,6 +15,8 @@
             <div class="card-body">
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" id="PropertyId" name="PropertyId" value="@ViewBag.PropertyId" />
                     <div class="col-md-4">
                         @*<div class="form-group">
                             <label asp-for="AccountId" class="control-label"></label>
@@ -62,7 +64,7 @@
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
-                    <button class="btn btn-sm btn-primary" asp-route-PropertyId="@ViewBag.PropertyId" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
+                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
                 </div>
             </div>
         </div>
@@ -91,6 +93,21 @@
             $("form").submit(function (event) {
                 $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
                 $("#btnSave").prop('disabled', true);
+            });
+
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                if (!/^[0-9]+(\.)?[0-9]*$/.test($("#Amount").val())) {
+
+                    alert("Monto incorecto");
+                    return false;
+                }
+
+                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
+                $("#btnSave").prop('disabled', true);
+
+                event.currentTarget.submit();
             });
         });
     </script>

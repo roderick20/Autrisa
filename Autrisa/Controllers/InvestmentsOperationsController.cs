@@ -86,7 +86,7 @@ namespace Autrisa.Controllers
                 _context.Add(investmentsoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "InvestmentsOperations", new { Id = InvestmentId });
             }
             catch (Exception ex)
             {

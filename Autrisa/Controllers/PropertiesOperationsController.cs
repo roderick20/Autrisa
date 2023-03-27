@@ -80,7 +80,7 @@ namespace Autrisa.Controllers
                 _context.Add(propertyoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "PropertiesOperations", new { Id = PropertyId });
             }
             catch (Exception ex)
             {

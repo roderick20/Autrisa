@@ -9,8 +9,10 @@
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
                 <h5 class="mb-2 mb-sm-0">Operaciones de Inversión</h5>
-                <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-InvestmentId="@ViewBag.InvestmentId"> <i class="fa-solid fa-plus"></i> Agregar </a>
-                <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-InvestmentId="@ViewBag.InvestmentId"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                <div>
+                    <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-InvestmentId="@ViewBag.InvestmentId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-InvestmentId="@ViewBag.InvestmentId"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                </div>
             </div>
         </div>
         <div class="card-body" style="min-height:500px">

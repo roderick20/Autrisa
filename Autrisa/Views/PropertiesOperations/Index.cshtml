@@ -9,8 +9,17 @@
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
                 <h5 class="mb-2 mb-sm-0">Operaciones de Predios</h5>
-                <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
-                <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                <div>
+                    @*<form>
+                        <a class="btn btn-sm btn-primary" asp-action="Create"><i class="fa-solid fa-plus"></i> Agregar </a>
+                        <input type="hidden" value="@ViewBag.PropertyId" name="PropertyId" id="PropertyId" />
+                        <a class="btn btn-sm btn-success" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                    </form>*@
+                    
+                    <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
+                    <a class="btn btn-sm btn-success" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                    
+                </div>
             </div>
         </div>
         <div class="card-body" style="min-height:500px">
@@ -118,7 +127,6 @@
                     }
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
