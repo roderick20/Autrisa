@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NRUblut8cxUTZK4W2hcuBScWfxxhwdCBrIkqXucMSys=",
+  "Hash": "PcljDs/DdT3fVjWPOyq+DEUrzMilQHKXmGDqRa1NFOo=",
   "Source": "Autrisa",
   "BasePath": "_content/Autrisa",
   "Mode": "Default",
@@ -712,6 +712,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\gbs altruisa.png",
+      "SourceId": "Autrisa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\",
+      "BasePath": "_content/Autrisa",
+      "RelativePath": "assets/images/gbs altruisa.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\gbs altruisa.png"
     },
     {
       "Identity": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\assets\\images\\google-play.svg",

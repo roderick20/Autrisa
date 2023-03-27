@@ -15,8 +15,8 @@ namespace Autrisa.Models
 
         [Display(Name = "Modalidad")]
         public int Modality { get; set; }
-        
-        [Display(Name = "ID de la inversión")]
+
+        [Display(Name = "Inversión")]
         public int InvestmentId { get; set; }
 
         [Display(Name = "Fecha de operación")]
@@ -24,20 +24,14 @@ namespace Autrisa.Models
 
         [Display(Name = "Descripción")]
         public string Description { get; set; } = null!;
-        
+
         [Display(Name = "Monto")]
         public decimal Amount { get; set; }
         
-        [Display(Name = "Creado")]
+        
         public DateTime Created { get; set; }
-        
-        [Display(Name = "Autor")]
         public int Author { get; set; }
-        
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
-        
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
 
         public virtual Investment Investment { get; set; } = null!;

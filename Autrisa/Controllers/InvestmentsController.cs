@@ -56,6 +56,15 @@ namespace Autrisa.Controllers
             {
                 var account = await _context.Accounts.Where(x => x.Id == investment.AccountId).FirstOrDefaultAsync();
                 investment.Currency = account.Currency;
+                if (investment.Currency == 0)
+                {
+                    investment.SolesAmount = investment.Amount;
+                }
+                else
+                {
+                    investment.DollarsAmount = investment.Amount;
+                }
+
                 investment.OperationAmount = investment.Amount;
                 investment.UniqueId = Guid.NewGuid();
                 investment.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -93,6 +102,15 @@ namespace Autrisa.Controllers
             try
             {
                 var investmentEdit = await _context.Investments.FirstOrDefaultAsync(m => m.UniqueId == investment.UniqueId);
+
+                if (investmentEdit.Currency == 0)
+                {
+                    investmentEdit.SolesAmount = investmentEdit.Amount;
+                }
+                else
+                {
+                    investmentEdit.DollarsAmount = investmentEdit.Amount;
+                }
 
                 investmentEdit.Customer = investment.Customer;
                 investmentEdit.Amount = investment.Amount;

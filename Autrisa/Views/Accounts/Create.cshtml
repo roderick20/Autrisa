@@ -45,6 +45,7 @@
                             <input asp-for="Amount" class="form-control" type="text" required />
                             <span asp-validation-for="Amount" class="text-danger"></span>
                         </div>
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
                 </div>
             </div>

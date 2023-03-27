@@ -26,23 +26,25 @@ namespace Autrisa.Models
 
         [Display(Name = "Descripción")]
         public string Description { get; set; } = null!;
-        
+
         [Display(Name = "Moneda")]
         public int Currency { get; set; }
-        
-        [Display(Name = "ID de la cuenta")]
+
+        [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
-        
-        [Display(Name = "Autor")]
+
+        [Display(Name = "Monto en soles")]
+        public decimal? SolesAmount { get; set; }
+
+        [Display(Name = "Monto en dólares")]
+        public decimal? DollarsAmount { get; set; }
+
+        [Display(Name = "Tipo de préstamo")]
+        public int? LendType { get; set; }
+
         public int Author { get; set; }
-        
-        [Display(Name = "Creado")]
         public DateTime Created { get; set; }
-        
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
-        
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
 
         public virtual Account Account { get; set; } = null!;

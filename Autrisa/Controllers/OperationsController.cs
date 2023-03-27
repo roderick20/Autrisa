@@ -70,8 +70,7 @@ namespace Autrisa.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name");
-
+            ViewBag.AccountId = new SelectList(_context.Accounts.Where(m => m.AccountType == "Ahorros" || m.AccountType == "Corriente"), "Id", "Name");
             return View();
         }
 

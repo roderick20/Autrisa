@@ -12,18 +12,20 @@ namespace Autrisa.Models
         /// <summary>
         /// 0: Income, 1: Outcome, 2: Remaining
         /// </summary>
-        [Display(Name = "Tipo")]
+        
+        [Display(Name = "Habilitado")]
         public int Type { get; set; }
         /// <summary>
         /// 0: Check, 1: Transfer, 2...
         /// </summary>
+        
         [Display(Name = "Modalidad")]
         public int Modality { get; set; }
         
         [Display(Name = "Número")]
         public int Number { get; set; }
         
-        [Display(Name = "ID de la cuenta")]
+        [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
 
         [Display(Name = "Fecha de operación")]
@@ -47,16 +49,9 @@ namespace Autrisa.Models
         [Display(Name = "Mes")]
         public int Month { get; set; }
         
-        [Display(Name = "Creado")]
         public DateTime Created { get; set; }
-        
-        [Display(Name = "Autor")]
         public int Author { get; set; }
-        
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
-        
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
 
         public virtual Account Account { get; set; } = null!;

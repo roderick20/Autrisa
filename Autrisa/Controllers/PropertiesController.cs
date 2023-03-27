@@ -53,8 +53,18 @@ namespace Autrisa.Controllers
             try
             {
                 var account = await _context.Accounts.Where(x => x.Id == property.AccountId).FirstOrDefaultAsync();
-                
                 property.Currency = account.Currency;
+                if(property.Currency == 0)
+                {
+                    property.SolesAmount = property.Amount;
+                }
+                else
+                {
+                    property.DollarsAmount = property.Amount;
+                }
+                property.Income = 0;
+                property.Outcome = 0;
+                property.Amount = 0;
                 property.UniqueId = Guid.NewGuid();
                 //property.Created = DateTime.Now;
                 property.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -92,6 +102,15 @@ namespace Autrisa.Controllers
             {
                 var propertyEdit = await _context.Properties.FirstOrDefaultAsync(m => m.UniqueId == property.UniqueId);
                 var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == property.AccountId);
+
+                if (propertyEdit.Currency == 0)
+                {
+                    propertyEdit.SolesAmount = propertyEdit.Amount;
+                }
+                else
+                {
+                    propertyEdit.DollarsAmount = propertyEdit.Amount;
+                }
 
                 propertyEdit.Address = property.Address;
                 propertyEdit.Amount = property.Amount;

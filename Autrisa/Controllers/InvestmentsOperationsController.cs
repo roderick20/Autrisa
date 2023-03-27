@@ -72,14 +72,31 @@ namespace Autrisa.Controllers
                 //investmentsoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 investmentsoperation.Author = (int)HttpContext.Session.GetInt32("UserId");
 
-                var montoInicial = accountEdit.Amount;
                 if (investmentsoperation.Type == 0)
                 {
-                    accountEdit.Amount = montoInicial - investmentsoperation.Amount;
+                    if (accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.SolesAmount;
+                        accountEdit.SolesAmount = montoInicial - investmentsoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.DollarsAmount;
+                        accountEdit.DollarsAmount = montoInicial - investmentsoperation.Amount;
+                    }
                 }
                 else if (investmentsoperation.Type == 1)
                 {
-                    accountEdit.Amount = montoInicial + investmentsoperation.Amount;
+                    if (accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.SolesAmount;
+                        accountEdit.SolesAmount = montoInicial + investmentsoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.DollarsAmount;
+                        accountEdit.DollarsAmount = montoInicial + investmentsoperation.Amount;
+                    }
                 }
 
                 _context.Update(accountEdit);
@@ -117,30 +134,30 @@ namespace Autrisa.Controllers
 
                 if (operationEdit.Type != investmentsoperation.Type && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
-                    repay.Amount = operationEdit.Amount + repay.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
                     operationEdit.Type = investmentsoperation.Type;
                     _context.Update(repay);
                 }
 
                 else if (operationEdit.Type != investmentsoperation.Type && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
-                    repay.Amount = repay.Amount - operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
                 }
                 //________________________________________________________________________________________________________
                 if (investmentsoperation.Type == 0 && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    repay.Amount = repay.Amount - investmentsoperation.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    repay.SolesAmount = repay.SolesAmount - investmentsoperation.Amount;
                     operationEdit.Type = investmentsoperation.Type;
                 }
                 else if (investmentsoperation.Type == 1 && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    repay.Amount = repay.Amount + investmentsoperation.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    repay.DollarsAmount = repay.DollarsAmount + investmentsoperation.Amount;
                     operationEdit.Type = investmentsoperation.Type;
                 }
                 else
@@ -150,16 +167,16 @@ namespace Autrisa.Controllers
                 //________________________________________________________________________________________________________
                 if (operationEdit.InvestmentId != investmentsoperation.InvestmentId && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
-                    repay.Amount = repay.Amount + operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    repay.SolesAmount = repay.SolesAmount + operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
                 }
 
                 else if (operationEdit.InvestmentId != investmentsoperation.InvestmentId && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
-                    repay.Amount = repay.Amount - operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
                 }
@@ -170,14 +187,14 @@ namespace Autrisa.Controllers
                 //__________________________________________________________________________________________________________
                 if (investmentsoperation.Type == 0)
                 {
-                    var pay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    pay.Amount = pay.Amount - investmentsoperation.Amount;
+                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    pay.SolesAmount = pay.SolesAmount - investmentsoperation.Amount;
                     _context.Update(pay);
                 }
                 else if (investmentsoperation.Type == 1)
                 {
-                    var pay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    pay.Amount = pay.Amount + investmentsoperation.Amount;
+                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    pay.DollarsAmount = pay.DollarsAmount + investmentsoperation.Amount;
                     _context.Update(pay);
                 }
 

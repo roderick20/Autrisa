@@ -58,15 +58,33 @@ namespace Autrisa.Controllers
                 lendingoperation.UniqueId = Guid.NewGuid();
                 //lendingoperation.Created = DateTime.Now;
                 lendingoperation.Author = (int)HttpContext.Session.GetInt32("UserId");
-
-                var montoInicial = accountEdit.Amount;
+                
                 if (lendingoperation.Type == 0)
                 {
-                    accountEdit.Amount = montoInicial - lendingoperation.Amount;
+                    if(accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.SolesAmount;
+                        accountEdit.SolesAmount = montoInicial - lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.DollarsAmount;
+                        accountEdit.DollarsAmount = montoInicial - lendingoperation.Amount;
+                    }
+                    
                 }
                 else if (lendingoperation.Type == 1)
                 {
-                    accountEdit.Amount = montoInicial + lendingoperation.Amount;
+                    if (accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.SolesAmount;
+                        accountEdit.SolesAmount = montoInicial + lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.DollarsAmount;
+                        accountEdit.DollarsAmount = montoInicial + lendingoperation.Amount;
+                    }
                 }
                 lendingoperation.Created = DateTime.Now;
                 _context.Update(accountEdit);
@@ -105,30 +123,30 @@ namespace Autrisa.Controllers
 
                 if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.Amount = operationEdit.Amount + repay.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
                     operationEdit.Type = lendingoperation.Type;
                     _context.Update(repay);
                 }
 
                 else if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.Amount = repay.Amount - operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.LendingId = lendingoperation.LendingId;
                     _context.Update(repay);
                 }
                 //________________________________________________________________________________________________________
                 if (lendingoperation.Type == 0 && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    repay.Amount = repay.Amount - lendingoperation.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    repay.SolesAmount = repay.SolesAmount - lendingoperation.Amount;
                     operationEdit.Type = lendingoperation.Type;
                 }
                 else if (lendingoperation.Type == 1 && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    repay.Amount = repay.Amount + lendingoperation.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    repay.DollarsAmount = repay.DollarsAmount + lendingoperation.Amount;
                     operationEdit.Type = lendingoperation.Type;
                 }
                 else
@@ -138,16 +156,16 @@ namespace Autrisa.Controllers
                 //________________________________________________________________________________________________________
                 if (operationEdit.LendingId != lendingoperation.LendingId && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.Amount = repay.Amount + operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    repay.SolesAmount = repay.SolesAmount + operationEdit.Amount;
                     operationEdit.LendingId = lendingoperation.LendingId;
                     _context.Update(repay);
                 }
 
                 else if (operationEdit.LendingId != lendingoperation.LendingId && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.Amount = repay.Amount - operationEdit.Amount;
+                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.LendingId = lendingoperation.LendingId;
                     _context.Update(repay);
                 }
@@ -158,14 +176,14 @@ namespace Autrisa.Controllers
                 //__________________________________________________________________________________________________________
                 if (lendingoperation.Type == 0)
                 {
-                    var pay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    pay.Amount = pay.Amount - lendingoperation.Amount;
+                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    pay.SolesAmount = pay.SolesAmount - lendingoperation.Amount;
                     _context.Update(pay);
                 }
                 else if (lendingoperation.Type == 1)
                 {
-                    var pay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    pay.Amount = pay.Amount + lendingoperation.Amount;
+                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    pay.DollarsAmount = pay.DollarsAmount + lendingoperation.Amount;
                     _context.Update(pay);
                 }
 

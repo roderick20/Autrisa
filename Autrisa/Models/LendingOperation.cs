@@ -9,14 +9,20 @@ namespace Autrisa.Models
     {
         public int Id { get; set; }
         public Guid UniqueId { get; set; }
+        /// <summary>
+        /// 0: Salida de dinero, 1: Ingreso de dinero
+        /// </summary>
 
         [Display(Name = "Tipo")]
         public int Type { get; set; }
+        /// <summary>
+        /// 0: Transferencia, 1: Cheque, 2: Efectivo
+        /// </summary>
 
         [Display(Name = "Modalidad")]
         public int Modality { get; set; }
-        
-        [Display(Name = "ID del préstamo")]
+
+        [Display(Name = "Préstamo")]
         public int LendingId { get; set; }
 
         [Display(Name = "Fecha de operación")]
@@ -24,20 +30,14 @@ namespace Autrisa.Models
 
         [Display(Name = "Descripción")]
         public string Description { get; set; } = null!;
-        
+
         [Display(Name = "Monto")]
         public decimal Amount { get; set; }
         
-        [Display(Name = "Creado")]
+        
         public DateTime Created { get; set; }
-        
-        [Display(Name = "Autor")]
         public int Author { get; set; }
-        
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
-        
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
 
         public virtual Lending Lending { get; set; } = null!;

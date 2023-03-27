@@ -64,7 +64,9 @@
                             <input asp-for="Outcome" class="form-control"  type="text" />
                             <span asp-validation-for="Outcome" class="text-danger"></span>
                         </div>*@
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
+
                 </div>
             </div>
             <div class="card-footer  border-bottom p-3">

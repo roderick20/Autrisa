@@ -54,6 +54,16 @@ namespace Autrisa.Controllers
             try
             {
                 var account = await _context.Accounts.Where(x => x.Id == lending.AccountId).FirstOrDefaultAsync();
+
+                if (lending.Currency == 0)
+                {
+                    lending.SolesAmount = lending.Amount;
+                }
+                else
+                {
+                    lending.DollarsAmount = lending.Amount;
+                }
+
                 lending.Currency = account.Currency;
                 lending.UniqueId = Guid.NewGuid();
                 lending.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -92,6 +102,15 @@ namespace Autrisa.Controllers
             {
                 var lendingEdit = await _context.Lendings.FirstOrDefaultAsync(m => m.UniqueId == lending.UniqueId);
                 var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == lending.AccountId);
+
+                if (lendingEdit.Currency == 0)
+                {
+                    lendingEdit.SolesAmount = lendingEdit.Amount;
+                }
+                else
+                {
+                    lendingEdit.DollarsAmount = lendingEdit.Amount;
+                }
 
                 lendingEdit.AccountId = lending.AccountId;
                 lendingEdit.Currency = account.Currency;

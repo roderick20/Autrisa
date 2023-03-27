@@ -33,13 +33,22 @@
                             @Html.DisplayNameFor(model => model.Customer)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Amount)
+                            Monto Inicial
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.LendDate)
                         </th>
                         <th>
+                            @Html.DisplayNameFor(model => model.LendType)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            Monto Soles
+                        </th>
+                        <th>
+                            Monto Dólares
                         </th>
                         <th>
                             Operaciones
@@ -61,7 +70,30 @@
                                 @item.LendDate.ToString("dd/MM/yyyy")
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.LendType)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @if (item.Currency == 0)
+                                {
+                                    @item.SolesAmount
+                                }
+                                else
+                                {
+                                    <text>0</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Currency == 1)
+                                {
+                                    @item.DollarsAmount
+                                }
+                                else
+                                {
+                                    <text>0</text>
+                                }
                             </td>
                             <td>
                                 <a asp-controller="LendingOperations" asp-action="Index" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>

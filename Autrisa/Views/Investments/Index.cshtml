@@ -45,6 +45,12 @@
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
                         <th>
+                            Monto Soles
+                        </th>
+                        <th>
+                            Monto Dólares
+                        </th>
+                        <th>
                             Operaciones
                         </th>
                         <th></th>
@@ -74,6 +80,26 @@
                                 else
                                 {
                                     <text>Dólares</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Currency == 0)
+                                {
+                                    @item.SolesAmount
+                                }
+                                else
+                                {
+                                    <text>0</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Currency == 1)
+                                {
+                                    <text>@item.DollarsAmount</text>
+                                }
+                                else
+                                {
+                                    <text>0</text>
                                 }
                             </td>
                             <td>

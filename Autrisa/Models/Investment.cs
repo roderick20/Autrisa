@@ -12,46 +12,42 @@ namespace Autrisa.Models
             InvestmentsOperations = new HashSet<InvestmentsOperation>();
         }
 
-        [Display(Name = "ID")]
         public int Id { get; set; }
-
-        [Display(Name = "-")]
         public Guid UniqueId { get; set; }
-        
+
         [Display(Name = "Fecha de operación")]
         public DateTime OperationDate { get; set; }
-        
+
         [Display(Name = "Tipo de operación")]
         public int OperationType { get; set; }
-        
+
         [Display(Name = "Monto")]
         public decimal Amount { get; set; }
-        
+
         [Display(Name = "Cliente")]
         public string Customer { get; set; } = null!;
 
         [Display(Name = "Descripción")]
         public string Description { get; set; } = null!;
-        
-        [Display(Name = "Monto de Operación")]
+
+        [Display(Name = "Nonto de Operación")]
         public decimal OperationAmount { get; set; }
-        
-        [Display(Name = "ID de la cuenta")]
+
+        [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
-        
+
         [Display(Name = "Moneda")]
         public int Currency { get; set; }
-        
-        [Display(Name = "Autor")]
+
+        [Display(Name = "Monto en Soles")]
+        public decimal? SolesAmount { get; set; }
+
+        [Display(Name = "Monto en dólares")]
+        public decimal? DollarsAmount { get; set; }
+
         public int Author { get; set; }
-        
-        [Display(Name = "Creado")]
         public DateTime Created { get; set; }
-        
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
-        
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
 
         public virtual Account Account { get; set; } = null!;

@@ -45,11 +45,20 @@
                             @Html.DisplayNameFor(model => model.Receptor)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Amount)
-                        </th>
-                        <th>
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
+                        <th>
+                            Ingreso
+                        </th>
+                        <th>
+                            Salida
+                        </th>
+                        <th>
+                            Rentabilidad
+                        </th>
+@*                        <th>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>*@
                         <th>
                             Operaciones
                         </th>
@@ -76,9 +85,6 @@
                                 @Html.DisplayFor(modelItem => item.Receptor)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Amount)
-                            </td>
-                            <td>
                                 @if (item.Currency == 0)
                                 {
                                     <text>Soles</text>
@@ -88,6 +94,23 @@
                                     <text>Dólares</text>
                                 }
                             </td>
+                            <td>
+                                @item.Income
+                            </td>
+                            <td>
+                                @item.Outcome
+                            </td>
+                            <td>
+                                @{
+                                    var rent = item.Income - item.Outcome;
+                                }
+                                <text>@rent</text>
+                            </td>
+@*                            <td>
+                                @{
+                                    var earnings = item.
+                                }
+                            </td>*@
                              <td>
                                 <a asp-controller="PropertiesOperations" asp-action="Index" asp-route-PropertyId="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>
                             </td>

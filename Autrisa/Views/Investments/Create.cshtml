@@ -45,6 +45,7 @@
                             <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
                 </div>
             </div>

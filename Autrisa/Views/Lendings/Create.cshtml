@@ -31,13 +31,13 @@
                             <input asp-for="Amount" class="form-control" type="text" required />
                             <span asp-validation-for="Amount" class="text-danger"></span>
                         </div>
-@*                        <div class="form-group">
-                            <label asp-for="MovementType" class="control-label"></label>
-                            <select name="MovementType" id="MovementType" class="form-select">
-                                <option value="0">Préstamo</option>
-                                <option value="1">Pago</option>
+                        <div class="form-group">
+                            <label asp-for="LendType" class="control-label"></label>
+                            <select name="LendType" id="LendType" class="form-select">
+                                <option value="0">Recibido</option>
+                                <option value="1">Otorgado</option>
                             </select>
-                        </div>*@
+                        </div>
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
                             <input asp-for="Description" class="form-control" type="text" required />
@@ -48,6 +48,7 @@
                             <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created"/>
                     </div>
                 </div>
             </div>

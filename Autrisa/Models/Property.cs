@@ -30,25 +30,31 @@ namespace Autrisa.Models
         [Display(Name = "Receptor")]
         public string Receptor { get; set; } = null!;
 
-        [Display(Name = "Amount")]
+        [Display(Name = "Rentabilidad")]
         public decimal Amount { get; set; }
 
         [Display(Name = "Moneda")]
         public int Currency { get; set; }
 
-        [Display(Name = "ID de la cuenta")]
+        [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
 
-        [Display(Name = "Autor")]
+        [Display(Name = "Monto en Soles")]
+        public decimal? SolesAmount { get; set; }
+
+        [Display(Name = "Monto en Dólares")]
+        public decimal? DollarsAmount { get; set; }
+
+        [Display(Name = "Ingreso")]
+        public decimal? Income{ get; set; }
+
+        [Display(Name = "Salida")]
+        public decimal? Outcome{ get; set; }
+
+
         public int Author { get; set; }
-
-        [Display(Name = "Creado")]
         public DateTime Created { get; set; }
-
-        [Display(Name = "Editor")]
         public int? Editor { get; set; }
-
-        [Display(Name = "Modificado")]
         public DateTime? Modified { get; set; }
 
         public virtual Account Account { get; set; } = null!;

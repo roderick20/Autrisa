@@ -42,7 +42,10 @@
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
                         <th class="text-end">
-                            @Html.DisplayNameFor(model => model.Amount)
+                            Monto Soles
+                        </th>
+                        <th class="text-end">
+                            Monto D&oacutelares
                         </th>
                         <th></th>
                     </tr>
@@ -73,7 +76,24 @@
                                     }
                                 </td>
                                 <td class="text-end">
-                                    @Html.DisplayFor(modelItem => item.Amount)
+                                    @if (item.Currency == 0)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (item.Currency == 1)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
                                 </td>
                                 <td style="width:1%;">
                                     <div class="dropdown">
