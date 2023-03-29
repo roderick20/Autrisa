@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Lista de Inversiones";
+    decimal? sumsol = 0;
+    decimal? sumdlls = 0;
 }
 
 <div class="col-12">
@@ -32,7 +34,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Customer)
                         </th>
-                        <th>
+                        <th class="text-end">
                             @Html.DisplayNameFor(model => model.Amount)
                         </th>
                         <th>
@@ -44,13 +46,13 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
-                        <th>
+                        <th class="text-end">
                             Monto Soles
                         </th>
-                        <th>
+                        <th class="text-end">
                             Monto Dólares
                         </th>
-                        <th>
+                        <th class="">
                             Operaciones
                         </th>
                         <th></th>
@@ -59,11 +61,20 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
+                        @if (item.Currency == 0)
+                        {
+                            sumsol = sumsol + item.SolesAmount;
+                        }
+                        else
+                        {
+                            sumdlls = sumdlls + item.DollarsAmount;
+                        }
+
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Customer)
                             </td>
-                            <td>
+                            <td class="text-end">
                                 @Html.DisplayFor(modelItem => item.Amount)
                             </td>
                             <td>
@@ -82,7 +93,7 @@
                                     <text>Dólares</text>
                                 }
                             </td>
-                            <td>
+                            <td class="text-end">
                                 @if (item.Currency == 0)
                                 {
                                     @item.SolesAmount
@@ -92,7 +103,7 @@
                                     <text>0</text>
                                 }
                             </td>
-                            <td>
+                            <td class="text-end">
                                 @if (item.Currency == 1)
                                 {
                                     <text>@item.DollarsAmount</text>
@@ -118,6 +129,21 @@
                         </tr>
                     }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">
+                            Total:
+                        </th>
+                        <th class="text-end">
+                            @sumsol
+                        </th>
+                        <th class="text-end">
+                            @sumdlls
+                        </th>
+                        <th colspan="2"></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
             </table>
 
         </div>
@@ -126,8 +152,9 @@
 
 @section Scripts {
     <link href="~/assets/vendor/datatables/datatables-1.13.1/css/datatables.bootstrap5.min.css" rel="stylesheet" />
-    <script src="~/assets/vendor/datatables/datatables-1.13.1/js/jquery.datatables.min.js"></script>
-    <script src="~/assets/vendor/datatables/datatables-1.13.1/js/datatables.bootstrap5.min.js"></script>
+    <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
+    <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js"></script>
 
     <style>
         td .dropdown-toggle::after {
@@ -144,7 +171,11 @@
             $('#listTable').DataTable({
                 "language": {
                     "url": "/assets/vendor/datatables/es-es.json"
-                }
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel'
+                ]
             });
 
             $(".alert-success").fadeTo(500, 500).slideUp(500, function () {

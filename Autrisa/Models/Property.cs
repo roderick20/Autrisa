@@ -46,11 +46,16 @@ namespace Autrisa.Models
         public decimal? DollarsAmount { get; set; }
 
         [Display(Name = "Ingreso")]
-        public decimal? Income{ get; set; }
+        public decimal? IncomeSoles{ get; set; }
 
         [Display(Name = "Salida")]
-        public decimal? Outcome{ get; set; }
+        public decimal? OutcomeSoles{ get; set; }
 
+        [Display(Name = "Ingreso (USD)")]
+        public decimal? IncomeDollars { get; set; }
+
+        [Display(Name = "Salida (USD)")]
+        public decimal? OutcomeDollars { get; set; }
 
         public int Author { get; set; }
         public DateTime Created { get; set; }

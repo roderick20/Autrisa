@@ -62,8 +62,10 @@ namespace Autrisa.Controllers
                 {
                     property.DollarsAmount = property.Amount;
                 }
-                property.Income = 0;
-                property.Outcome = 0;
+                property.IncomeSoles = 0;
+                property.OutcomeSoles = 0;
+                property.IncomeDollars = 0;
+                property.OutcomeDollars = 0;
                 property.Amount = 0;
                 property.UniqueId = Guid.NewGuid();
                 //property.Created = DateTime.Now;

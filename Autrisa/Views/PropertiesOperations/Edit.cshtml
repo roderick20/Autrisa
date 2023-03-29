@@ -56,13 +56,15 @@
                             <input asp-for="Description" class="form-control" type="text" />
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
+                        <input type="hidden" name="PropertyId" id="PropertyId" value="@Model.PropertyId" />
+                        <input type="hidden" name="Created" id="Created" value="@Model.Created.ToString("dd/MM/yyyy")" />
                     </div>
                 </div>
             </div>
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
-                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave" asp-route-PropertyId="@Model.PropertyId"><i class="fa-solid fa-floppy-disk"></i>  Grabar </button>
+                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Grabar </button>
                 </div>
             </div>
         </div>

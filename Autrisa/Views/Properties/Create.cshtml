@@ -83,20 +83,20 @@
                 $("#btnSave").prop('disabled', true);
             });
 
-            $("form").submit(function (event) {
-                event.preventDefault();
+            //$("form").submit(function (event) {
+            //    event.preventDefault();
 
-                if (!/^[0-9]+(\.)?[0-9]*$/.test($("#Amount").val())) {
+            //    if (!/^[0-9]+(\.)?[0-9]*$/.test($("#Amount").val())) {
 
-                    alert("Monto incorecto");
-                    return false;
-                }
+            //        alert("Monto incorecto");
+            //        return false;
+            //    }
 
-                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
-                $("#btnSave").prop('disabled', true);
+            //    $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
+            //    $("#btnSave").prop('disabled', true);
 
-                event.currentTarget.submit();
-            });
+            //    event.currentTarget.submit();
+            //});
         });
     </script>
     }

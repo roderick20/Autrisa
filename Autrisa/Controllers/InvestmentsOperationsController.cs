@@ -28,28 +28,13 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index(int Id)
         {
-           
-
             var operations = await _context.InvestmentsOperations
                 .Include(m => m.Investment)
                 .Where(m => m.InvestmentId == Id)
                 .ToListAsync();
             ViewBag.InvestmentId = Id;
-            return View(operations);
-            
+            return View(operations);  
         }
-
-        ////public async Task<IActionResult> Details(Guid UniqueId)
-        ////{
-        ////    var operation = await _context.InvestmentsOperations
-        ////        .Include(m => m.Account)
-        ////        .FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-        ////    if (operation == null)
-        ////    {
-        ////        return NotFound();
-        ////    }
-        ////    return View(operation);
-        ////}
 
         public IActionResult Create(int InvestmentId)
         {
@@ -126,7 +111,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(InvestmentsOperation investmentsoperation, string Created, string Modified)
+        public async Task<IActionResult> Edit(InvestmentsOperation investmentsoperation, string Created)
         {
             try
             {
@@ -134,7 +119,7 @@ namespace Autrisa.Controllers
 
                 if (operationEdit.Type != investmentsoperation.Type && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
                     repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
                     operationEdit.Type = investmentsoperation.Type;
                     _context.Update(repay);
@@ -142,7 +127,7 @@ namespace Autrisa.Controllers
 
                 else if (operationEdit.Type != investmentsoperation.Type && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
                     repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
@@ -150,14 +135,28 @@ namespace Autrisa.Controllers
                 //________________________________________________________________________________________________________
                 if (investmentsoperation.Type == 0 && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    repay.SolesAmount = repay.SolesAmount - investmentsoperation.Amount;
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount - investmentsoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount - investmentsoperation.Amount;
+                    }
                     operationEdit.Type = investmentsoperation.Type;
                 }
                 else if (investmentsoperation.Type == 1 && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
-                    repay.DollarsAmount = repay.DollarsAmount + investmentsoperation.Amount;
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount + investmentsoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount + investmentsoperation.Amount;
+                    }
                     operationEdit.Type = investmentsoperation.Type;
                 }
                 else
@@ -167,7 +166,7 @@ namespace Autrisa.Controllers
                 //________________________________________________________________________________________________________
                 if (operationEdit.InvestmentId != investmentsoperation.InvestmentId && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
                     repay.SolesAmount = repay.SolesAmount + operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
@@ -175,7 +174,7 @@ namespace Autrisa.Controllers
 
                 else if (operationEdit.InvestmentId != investmentsoperation.InvestmentId && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
+                    var repay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == operationEdit.InvestmentId);
                     repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
                     operationEdit.InvestmentId = investmentsoperation.InvestmentId;
                     _context.Update(repay);
@@ -187,29 +186,25 @@ namespace Autrisa.Controllers
                 //__________________________________________________________________________________________________________
                 if (investmentsoperation.Type == 0)
                 {
-                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    var pay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
                     pay.SolesAmount = pay.SolesAmount - investmentsoperation.Amount;
                     _context.Update(pay);
                 }
                 else if (investmentsoperation.Type == 1)
                 {
-                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
+                    var pay = await _context.Investments.FirstOrDefaultAsync(m => m.Id == investmentsoperation.InvestmentId);
                     pay.DollarsAmount = pay.DollarsAmount + investmentsoperation.Amount;
                     _context.Update(pay);
                 }
 
+                string Modified = DateTime.Now.ToString("dd/MM/yyyy");
                 operationEdit.Modality = investmentsoperation.Modality;
                 operationEdit.Description = investmentsoperation.Description;
-                investmentsoperation.Created= DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //investmentsoperation.Created = operationEdit.Created;
-                //operationEdit.Modified = DateTime.Now;
+                operationEdit.Created= DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified= DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                investmentsoperation.Modified = DateTime.Now;
-                investmentsoperation.OperationDate = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                investmentsoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                operationEdit.OperationDate = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 _context.Update(operationEdit);
-                _context.Update(investmentsoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
                 return RedirectToAction(nameof(Index),"Investments");

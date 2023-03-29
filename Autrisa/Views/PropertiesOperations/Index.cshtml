@@ -60,10 +60,10 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Receptor)
                         </th>
-                        <th>
+                        <th class="text-end">
                             Monto Soles
                         </th>
-                        <th>
+                        <th class="text-end">
                             Monto Dólares
                         </th>
                         @*<th>
@@ -77,10 +77,10 @@
                     {
                         <tr>
                             <td>
-                                Año
+                                @Html.DisplayFor(modelItem => item.OperationDate.Year)
                             </td>
                             <td>
-                                Mes
+                                @Html.DisplayFor(modelItem => item.OperationDate.Month)
                             </td>
                             <td>
                                 @item.OperationDate.ToString("dd/MM/yyyy")
@@ -115,7 +115,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Receptor)
                             </td>
-                            <td>
+                            <td class="text-end">
                                 @if (item.Property.Currency == 0)
                                 {
                                     @item.Amount
@@ -125,7 +125,7 @@
                                     <text>0</text>
                                 }
                             </td>
-                            <td>
+                            <td class="text-end">
                                 @if (item.Property.Currency == 1)
                                 {
                                     @item.Amount

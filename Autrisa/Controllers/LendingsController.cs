@@ -55,13 +55,15 @@ namespace Autrisa.Controllers
             {
                 var account = await _context.Accounts.Where(x => x.Id == lending.AccountId).FirstOrDefaultAsync();
 
-                if (lending.Currency == 0)
+                if (account.Currency == 0)
                 {
                     lending.SolesAmount = lending.Amount;
+                    lending.DollarsAmount = 0;
                 }
                 else
                 {
                     lending.DollarsAmount = lending.Amount;
+                    lending.SolesAmount = 0;
                 }
 
                 lending.Currency = account.Currency;

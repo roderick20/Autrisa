@@ -115,38 +115,53 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(LendingOperation lendingoperation, string Created, string Modified)
+        public async Task<IActionResult> Edit(LendingOperation lendingoperation, string Created)
         {
             try
             {
                 var operationEdit = await _context.LendingOperations.FirstOrDefaultAsync(m => m.UniqueId == lendingoperation.UniqueId);
 
-                if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 0)
-                {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
-                    operationEdit.Type = lendingoperation.Type;
-                    _context.Update(repay);
-                }
+                //if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 0)
+                //{
+                //    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                //    repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
+                //    operationEdit.Type = lendingoperation.Type;
+                //    _context.Update(repay);
+                //}
 
-                else if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 1)
-                {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
-                    operationEdit.LendingId = lendingoperation.LendingId;
-                    _context.Update(repay);
-                }
+                //else if (operationEdit.Type != lendingoperation.Type && operationEdit.Type == 1)
+                //{
+                //    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                //    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
+                //    operationEdit.LendingId = lendingoperation.LendingId;
+                //    _context.Update(repay);
+                //}
                 //________________________________________________________________________________________________________
                 if (lendingoperation.Type == 0 && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    repay.SolesAmount = repay.SolesAmount - lendingoperation.Amount;
+                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    //repay.SolesAmount = repay.SolesAmount - lendingoperation.Amount;
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount - lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount - lendingoperation.Amount;
+                    }
                     operationEdit.Type = lendingoperation.Type;
                 }
                 else if (lendingoperation.Type == 1 && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
-                    repay.DollarsAmount = repay.DollarsAmount + lendingoperation.Amount;
+                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount + lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount + lendingoperation.Amount;
+                    }
                     operationEdit.Type = lendingoperation.Type;
                 }
                 else
@@ -156,16 +171,30 @@ namespace Autrisa.Controllers
                 //________________________________________________________________________________________________________
                 if (operationEdit.LendingId != lendingoperation.LendingId && operationEdit.Type == 0)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.SolesAmount = repay.SolesAmount + operationEdit.Amount;
+                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount - lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount - lendingoperation.Amount;
+                    }
                     operationEdit.LendingId = lendingoperation.LendingId;
                     _context.Update(repay);
                 }
 
                 else if (operationEdit.LendingId != lendingoperation.LendingId && operationEdit.Type == 1)
                 {
-                    var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
-                    repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
+                    var repay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == operationEdit.LendingId);
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount + lendingoperation.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount + lendingoperation.Amount;
+                    }
                     operationEdit.LendingId = lendingoperation.LendingId;
                     _context.Update(repay);
                 }
@@ -176,31 +205,26 @@ namespace Autrisa.Controllers
                 //__________________________________________________________________________________________________________
                 if (lendingoperation.Type == 0)
                 {
-                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    var pay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
                     pay.SolesAmount = pay.SolesAmount - lendingoperation.Amount;
                     _context.Update(pay);
                 }
                 else if (lendingoperation.Type == 1)
                 {
-                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
+                    var pay = await _context.Lendings.FirstOrDefaultAsync(m => m.Id == lendingoperation.LendingId);
                     pay.DollarsAmount = pay.DollarsAmount + lendingoperation.Amount;
                     _context.Update(pay);
                 }
 
+                string Modified = DateTime.Now.ToString("dd/MM/yyyy");
+                operationEdit.Amount = lendingoperation.Amount;
                 operationEdit.Modality = lendingoperation.Modality;
                 operationEdit.Description = lendingoperation.Description;
-
-                //lendingoperation.Created = operationEdit.Created;
-                lendingoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //operationEdit.Modified = DateTime.Now;
+                operationEdit.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                //lendingoperation.Modified = DateTime.Now;
-                lendingoperation.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                lendingoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
-
+                
                 _context.Update(operationEdit);
-                _context.Update(lendingoperation);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
                 return RedirectToAction(nameof(Index), "Lendings");

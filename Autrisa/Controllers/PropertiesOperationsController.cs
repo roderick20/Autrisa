@@ -14,6 +14,8 @@ using System.Globalization;
 using ClosedXML.Excel;
 using ClosedXML.Extensions;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using DocumentFormat.OpenXml.Office.CustomDocumentInformationPanel;
 
 namespace Autrisa.Controllers
 {
@@ -36,17 +38,6 @@ namespace Autrisa.Controllers
             return View(operations);
         }
 
-        ////public async Task<IActionResult> Details(Guid UniqueId)
-        ////{
-        ////    var operation = await _context.InvestmentsOperations
-        ////        .Include(m => m.Account)
-        ////        .FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-        ////    if (operation == null)
-        ////    {
-        ////        return NotFound();
-        ////    }
-        ////    return View(operation);
-        ////}
 
         public IActionResult Create(int PropertyId)
         {
@@ -78,15 +69,33 @@ namespace Autrisa.Controllers
                     var montoInicial = accountEdit.DollarsAmount;
                     accountEdit.DollarsAmount = montoInicial + propertyoperation.Amount;
                 }
+
                 if (propertyoperation.Type == 0)
                 {
-                    var montoInicial = accountEdit.Outcome;
-                    accountEdit.Outcome = montoInicial + propertyoperation.Amount;
+                    if (accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.OutcomeSoles;
+                        accountEdit.OutcomeSoles = montoInicial + propertyoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.OutcomeDollars;
+                        accountEdit.OutcomeDollars = montoInicial + propertyoperation.Amount;
+                    }
+                    
                 }
                 else if (propertyoperation.Type == 1)
                 {
-                    var montoInicial = accountEdit.Income;
-                    accountEdit.Income = montoInicial + propertyoperation.Amount;
+                    if(accountEdit.Currency == 0)
+                    {
+                        var montoInicial = accountEdit.IncomeSoles;
+                        accountEdit.IncomeSoles = montoInicial + propertyoperation.Amount;
+                    }
+                    else
+                    {
+                        var montoInicial = accountEdit.IncomeDollars;
+                        accountEdit.IncomeDollars = montoInicial + propertyoperation.Amount;
+                    }
                 }
 
                 _context.Update(accountEdit);
@@ -116,7 +125,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(PropertiesOperation propertyoperation, string Created, string Modified)
+        public async Task<IActionResult> Edit(PropertiesOperation propertyoperation, string Created)
         {
             try
             {
@@ -126,6 +135,15 @@ namespace Autrisa.Controllers
                 {
                     var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.PropertyId);
                     repay.SolesAmount = operationEdit.Amount + repay.SolesAmount;
+                    if (repay.Currency == 0)
+                    {
+                        //salida a ingreso
+                        repay.OutcomeSoles = repay.OutcomeSoles - repay.OutcomeSoles;
+                    }
+                    else
+                    {
+                        repay.OutcomeDollars = repay.OutcomeDollars - repay.OutcomeDollars;
+                    }
                     operationEdit.Type = propertyoperation.Type;
                     _context.Update(repay);
                 }
@@ -134,6 +152,15 @@ namespace Autrisa.Controllers
                 {
                     var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.PropertyId);
                     repay.DollarsAmount = repay.DollarsAmount - operationEdit.Amount;
+                    if (repay.Currency == 0)
+                    {
+                        //salida a ingreso
+                        repay.IncomeSoles = repay.IncomeSoles - repay.IncomeSoles;
+                    }
+                    else
+                    {
+                        repay.IncomeDollars = repay.IncomeDollars - repay.IncomeDollars;
+                    }
                     operationEdit.PropertyId = propertyoperation.PropertyId;
                     _context.Update(repay);
                 }
@@ -141,13 +168,31 @@ namespace Autrisa.Controllers
                 if (propertyoperation.Type == 0 && operationEdit.Type == 1)
                 {
                     var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == propertyoperation.PropertyId);
-                    repay.SolesAmount = repay.SolesAmount - propertyoperation.Amount;
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount - propertyoperation.Amount;
+                        //repay.IncomeSoles = repay.IncomeSoles - operationEdit.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount - propertyoperation.Amount;
+                        //repay.IncomeDollars = repay.IncomeDollars - operationEdit.Amount;
+                    }
                     operationEdit.Type = propertyoperation.Type;
                 }
                 else if (propertyoperation.Type == 1 && operationEdit.Type == 0)
                 {
                     var repay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == propertyoperation.PropertyId);
-                    repay.DollarsAmount = repay.DollarsAmount + propertyoperation.Amount;
+                    if (repay.Currency == 0)
+                    {
+                        repay.SolesAmount = repay.SolesAmount - propertyoperation.Amount;
+                        repay.OutcomeSoles = repay.OutcomeSoles - operationEdit.Amount;
+                    }
+                    else
+                    {
+                        repay.DollarsAmount = repay.DollarsAmount - propertyoperation.Amount;
+                        repay.OutcomeDollars = repay.OutcomeDollars - operationEdit.Amount;
+                    }
                     operationEdit.Type = propertyoperation.Type;
                 }
                 else
@@ -177,32 +222,45 @@ namespace Autrisa.Controllers
                 //__________________________________________________________________________________________________________
                 if (propertyoperation.Type == 0)
                 {
-                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == propertyoperation.PropertyId);
-                    pay.SolesAmount = pay.SolesAmount - propertyoperation.Amount;
+                    var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == operationEdit.PropertyId);
+                    pay.SolesAmount = pay.SolesAmount - operationEdit.Amount;
+                    operationEdit.Amount = propertyoperation.Amount;
+                    if (pay.Currency == 0)
+                    {
+                        pay.OutcomeSoles = pay.OutcomeSoles + propertyoperation.Amount;
+                    }
+                    else
+                    {
+                        pay.OutcomeDollars = pay.OutcomeDollars + propertyoperation.Amount;
+                    }
                     _context.Update(pay);
                 }
                 else if (propertyoperation.Type == 1)
                 {
                     var pay = await _context.Properties.FirstOrDefaultAsync(m => m.Id == propertyoperation.PropertyId);
-                    pay.DollarsAmount = pay.DollarsAmount + propertyoperation.Amount;
+                    pay.DollarsAmount = pay.DollarsAmount - operationEdit.Amount;
+                    pay.DollarsAmount = operationEdit.Amount;
+                    if (pay.Currency == 0)
+                    {
+                        pay.IncomeSoles = pay.IncomeSoles + propertyoperation.Amount;
+                    }
+                    else
+                    {
+                        pay.IncomeDollars = pay.IncomeDollars + propertyoperation.Amount;
+                    }
                     _context.Update(pay);
                 }
-
+                operationEdit.Amount = propertyoperation.Amount;
+                string Modified = DateTime.Now.ToString("dd/MM/yyyy");
                 operationEdit.Modality = propertyoperation.Modality;
                 operationEdit.Description = propertyoperation.Description;
-                propertyoperation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //propertyoperation.Created = operationEdit.Created;
+                operationEdit.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                propertyoperation.Modified = DateTime.Now;
-                propertyoperation.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                propertyoperation.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                _context.PropertiesOperations.Update(operationEdit);
-                _context.Update(propertyoperation);
+                _context.Update(operationEdit);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
-                return RedirectToAction(nameof(Index), "Lendings");
+                return RedirectToAction(nameof(Index), "Properties");
             }
             catch (Exception ex)
             {
@@ -230,19 +288,20 @@ namespace Autrisa.Controllers
             try
             {
                 var operation = await _context.PropertiesOperations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+                var data = operation.Id;
                 if (operation != null)
                 {
                     _context.PropertiesOperations.Remove(operation);
                 }
-
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Eliminado exitosamente";
+                return RedirectToAction(nameof(Index), "PropertiesOperations", new { PropertyId = data });
             }
             catch (Exception ex)
             {
                 TempData["Error"] = "Error: " + ex.Message;
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "PropertiesOperations");
         }
 
         public async Task<IActionResult> Reportes(int PropertyId)
