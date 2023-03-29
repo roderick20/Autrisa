@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Autrisa.Models.LendingOperation>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
     ViewData["Title"] = "Movimientos de Préstamo";
 }
 
@@ -11,7 +15,10 @@
 
                 <h5 class="mb-2 mb-sm-0">Movimientos de Préstamo</h5>
                 <div>
-                    <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-LendingId="@ViewBag.LendingId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    @if (UserRole == "admin")
+                    {
+                        <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-LendingId="@ViewBag.LendingId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    }
                     <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-LendingId="@ViewBag.LendingId"><i class="fa-solid fa-file-export"></i> Reportes </a>
                 </div>
             

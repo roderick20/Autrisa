@@ -19,7 +19,7 @@ namespace Autrisa.Controllers
         
         [Route("Login")]
         public IActionResult Login() => View();
-        
+
         [Route("Login")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -33,10 +33,13 @@ namespace Autrisa.Controllers
 
             password = PasswordEncrypt.Encrypt(password);
             var user = await _context.Users.FirstOrDefaultAsync(m => m.Email == email && m.Password == password);
+            user.LastAccess = DateTime.Now;
             if (user != null)// && user.Role == 1)
             {
                 HttpContext.Session.SetInt32("UserId", user.Id);
                 HttpContext.Session.SetString("UserName", user.Name);//s + " " + user.Surnames);
+                HttpContext.Session.SetString("UserRole", user.Role);
+
 
                 return RedirectToAction("Index", "Home");
             }

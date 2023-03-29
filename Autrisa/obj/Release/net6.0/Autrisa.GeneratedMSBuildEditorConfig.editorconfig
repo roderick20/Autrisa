@@ -9,257 +9,257 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Autrisa
 build_property.RootNamespace = Autrisa
-build_property.ProjectDir = C:\Users\Administrador\Documents\GitHub\Autrisa\Autrisa\
+build_property.ProjectDir = C:\Users\AgileX-4\Documents\GitHub\Cato\Autrisa\Autrisa\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Administrador\Documents\GitHub\Autrisa\Autrisa
+build_property.MSBuildProjectDirectory = C:\Users\AgileX-4\Documents\GitHub\Cato\Autrisa\Autrisa
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Roles/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Roles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Roles/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Roles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Roles/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Roles/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Settings/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Settings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcU2V0dGluZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Settings/EditImagen.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Settings/EditImagen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcU2V0dGluZ3NcRWRpdEltYWdlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Settings/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Settings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcU2V0dGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/Details.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/EditPassword.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/EditPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcRWRpdFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/Users/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/_ViewImports.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Areas/Security/Views/_ViewStart.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Areas/Security/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VjdXJpdHlcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Accounts/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Accounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Accounts/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Accounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Accounts/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Accounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Accounts/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Accounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Auths/Login.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Auths/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aHNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Auths/UpdatePassword.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Auths/UpdatePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aHNcVXBkYXRlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Home/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Home/Privacy.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/InvestmentsOperations/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/InvestmentsOperations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNPcGVyYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/InvestmentsOperations/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/InvestmentsOperations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNPcGVyYXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/InvestmentsOperations/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/InvestmentsOperations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNPcGVyYXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/InvestmentsOperations/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/InvestmentsOperations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNPcGVyYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Investments/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Investments/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Investments/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Investments/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Investments/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Investments/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Investments/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Investments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0bWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/LendingOperations/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/LendingOperations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ09wZXJhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/LendingOperations/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/LendingOperations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ09wZXJhdGlvbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/LendingOperations/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/LendingOperations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ09wZXJhdGlvbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/LendingOperations/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/LendingOperations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ09wZXJhdGlvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Lendings/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Lendings/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Lendings/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Lendings/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Lendings/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Lendings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Lendings/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Lendings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/MonthClosure.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/MonthClosure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xNb250aENsb3N1cmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Operations/Reportes.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Operations/Reportes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xSZXBvcnRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/PropertiesOperations/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/PropertiesOperations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc09wZXJhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/PropertiesOperations/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/PropertiesOperations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc09wZXJhdGlvbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/PropertiesOperations/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/PropertiesOperations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc09wZXJhdGlvbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/PropertiesOperations/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/PropertiesOperations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc09wZXJhdGlvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Properties/Create.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Properties/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Properties/Delete.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Properties/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Properties/Edit.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Properties/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Properties/Index.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Properties/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcGVydGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/Components/Footer/Default.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/Components/Navigation/Default.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/Components/Navigation/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/Components/TopBar/Default.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/Components/TopBar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVG9wQmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/Error.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/_Layout_Login.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/_Layout_Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/_ViewImports.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/_ViewStart.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrador/Documents/GitHub/Autrisa/Autrisa/Views/Shared/_Layout.cshtml]
+[C:/Users/AgileX-4/Documents/GitHub/Cato/Autrisa/Autrisa/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bi49t23dvs

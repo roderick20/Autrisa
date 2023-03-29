@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Autrisa.Models.InvestmentsOperation>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
     ViewData["Title"] = "Operaciones de Inversión";
 }
 
@@ -10,7 +14,10 @@
             <div class="d-sm-flex justify-content-between align-items-center">
                 <h5 class="mb-2 mb-sm-0">Operaciones de Inversión</h5>
                 <div>
-                    <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-InvestmentId="@ViewBag.InvestmentId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    @if(UserRole == "admin")
+                    {
+                        <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-InvestmentId="@ViewBag.InvestmentId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    }
                     <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-InvestmentId="@ViewBag.InvestmentId"><i class="fa-solid fa-file-export"></i> Reportes </a>
                 </div>
             </div>

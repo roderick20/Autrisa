@@ -12,6 +12,8 @@ namespace Autrisa.Controllers
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            ViewBag.UserRole = HttpContext.Session.GetString("UserRole");
             return View();
         }
     }

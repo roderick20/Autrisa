@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Autrisa.Models.PropertiesOperation>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
     ViewData["Title"] = "Operaciones de Predios";
 }
 
@@ -15,8 +19,10 @@
                         <input type="hidden" value="@ViewBag.PropertyId" name="PropertyId" id="PropertyId" />
                         <a class="btn btn-sm btn-success" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes </a>
                     </form>*@
-                    
-                    <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
+                    @if (UserRole == "admin")
+                    {
+                        <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
+                    }
                     <a class="btn btn-sm btn-success" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes </a>
                     
                 </div>

@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Autrisa.Models.Investment>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
     ViewData["Title"] = "Lista de Inversiones";
     decimal? sumsol = 0;
     decimal? sumdlls = 0;
@@ -11,7 +15,10 @@
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
                 <h5 class="mb-2 mb-sm-0">Inversiones</h5>
-                <a class="btn btn-sm btn-primary" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                @if (UserRole == "admin")
+                {
+                    <a class="btn btn-sm btn-primary" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                }
             </div>
         </div>
         <div class="card-body" style="min-height:500px">

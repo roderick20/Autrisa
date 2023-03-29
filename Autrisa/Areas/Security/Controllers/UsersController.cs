@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Autrisa.Models;
 using Autrisa.Helper;
 using Autrisa.Helpers;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Autrisa.Areas.Security.Controllers
 {
@@ -91,18 +92,24 @@ namespace Autrisa.Areas.Security.Controllers
                 _context.Add(User);
                 await _context.SaveChangesAsync();
 
-                foreach (int rol in Roles)
-                {
-                    UserRole userRole = new UserRole();
-                    userRole.UniqueId = Guid.NewGuid();
-                    userRole.UserId = user.Id;
-                    userRole.RoleId = rol;
-                    userRole.Created = DateTime.Now;
-                    userRole.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //foreach (int rol in Roles)
+                //{
+                //    UserRole userRole = new UserRole();
+                //    userRole.UniqueId = Guid.NewGuid();
+                //    userRole.UserId = user.Id;
+                //    userRole.RoleId = rol;
+                //    userRole.Created = DateTime.Now;
+                //    userRole.Author = (int)HttpContext.Session.GetInt32("UserId");
 
-                    _context.Add(userRole);
-                    await _context.SaveChangesAsync();
-                }
+                //    _context.Add(userRole);
+                //    await _context.SaveChangesAsync();
+                //}
+
+                ViewBag.Roles = new SelectList(new List<SelectListItem>
+                {
+                    new SelectListItem{ Value = "admin", Text = "admin"},
+                    new SelectListItem{ Value = "user", Text = "user"}
+                }, "Value", "Text");
 
                 return RedirectToAction(nameof(Index));
             }
@@ -110,7 +117,7 @@ namespace Autrisa.Areas.Security.Controllers
             {
 
             }
-            ViewBag.Roles = await _context.Roles.ToArrayAsync();
+            //ViewBag.Roles = await _context.Roles.ToArrayAsync();
             return View(User);
         }
 
@@ -151,18 +158,24 @@ namespace Autrisa.Areas.Security.Controllers
                 _context.UserRoles.RemoveRange(_context.UserRoles.Where(x => x.UserId == UserEdit.Id));
                 await _context.SaveChangesAsync();
 
-                foreach (int rol in Roles)
-                {
-                    UserRole userRole = new UserRole();
-                    userRole.UniqueId = Guid.NewGuid();
-                    userRole.UserId = UserEdit.Id;
-                    userRole.RoleId = rol;
-                    userRole.Created = DateTime.Now;
-                    userRole.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //foreach (int rol in Roles)
+                //{
+                //    UserRole userRole = new UserRole();
+                //    userRole.UniqueId = Guid.NewGuid();
+                //    userRole.UserId = UserEdit.Id;
+                //    userRole.RoleId = rol;
+                //    userRole.Created = DateTime.Now;
+                //    userRole.Author = (int)HttpContext.Session.GetInt32("UserId");
 
-                    _context.Add(userRole);
-                    await _context.SaveChangesAsync();
-                }
+                //    _context.Add(userRole);
+                //    await _context.SaveChangesAsync();
+                //}
+
+                ViewBag.Roles = new SelectList(new List<SelectListItem>
+                {
+                    new SelectListItem{ Value = "admin", Text = "admin"},
+                    new SelectListItem{ Value = "user", Text = "user"}
+                }, "Value", "Text", User.Role);
 
 
                 return RedirectToAction(nameof(Index));

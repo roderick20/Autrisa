@@ -1,6 +1,10 @@
 @model IEnumerable<Autrisa.Models.Operation>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
     ViewData["Title"] = "Lista de Movimientos";
     var today = DateTime.Today;
     var lastDayOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
@@ -13,8 +17,11 @@
                 <h5 class="mb-2 mb-sm-0">Movimientos</h5>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-sm btn-primary text-end" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar</a>
-                        <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
+                        @if (UserRole == "admin")
+                        {
+                            <a class="btn btn-sm btn-primary text-end" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar</a>
+                            <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
+                        }
                         <a class="btn btn-sm btn-success text-end" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes</a>
                     </div>
                 </div>
@@ -159,7 +166,7 @@
     <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
     <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />
     <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js"></script>
-    
+
     <style>
         td .dropdown-toggle::after {
             display: none;
@@ -218,7 +225,7 @@
                 },
                 dom: 'Bfrtip',
                 buttons: [
-                     'excel'
+                    'excel'
                 ]
             });
 
