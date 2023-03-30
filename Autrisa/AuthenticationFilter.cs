@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Autrisa.Helpers;
 using Autrisa.Models;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Autrisa
 {
@@ -29,7 +30,8 @@ namespace Autrisa
             #if (DEBUG)
             context.HttpContext.Session.SetInt32("UserId", 1);
             context.HttpContext.Session.SetString("UserName", "Admin");
-            #endif
+            context.HttpContext.Session.SetString("UserRole", "admin");
+#endif
 
             String controllerName = context.RouteData.Values["controller"].ToString();
             String actionName = context.RouteData.Values["action"].ToString();

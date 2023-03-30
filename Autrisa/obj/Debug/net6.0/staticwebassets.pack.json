@@ -2825,6 +2825,10 @@
       "PackagePath": "staticwebassets\\assets\\vendor\\yadcf\\package.json"
     },
     {
+      "Id": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\GBS_ALTRUISA.svg",
+      "PackagePath": "staticwebassets\\settings\\images\\GBS_ALTRUISA.svg"
+    },
+    {
       "Id": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\favicon.svg",
       "PackagePath": "staticwebassets\\settings\\images\\favicon.svg"
     },

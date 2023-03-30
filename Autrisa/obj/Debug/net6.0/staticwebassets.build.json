@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PcljDs/DdT3fVjWPOyq+DEUrzMilQHKXmGDqRa1NFOo=",
+  "Hash": "ywug+31KLn3edQB7qqODEvQn+1HukidHELRemCHCNqg=",
   "Source": "Autrisa",
   "BasePath": "_content/Autrisa",
   "Mode": "Default",
@@ -12051,6 +12051,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\settings\\images\\favicon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\GBS_ALTRUISA.svg",
+      "SourceId": "Autrisa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\",
+      "BasePath": "_content/Autrisa",
+      "RelativePath": "settings/images/GBS_ALTRUISA.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\settings\\images\\GBS_ALTRUISA.svg"
     },
     {
       "Identity": "C:\\Users\\AgileX-4\\Documents\\GitHub\\Cato\\Autrisa\\Autrisa\\wwwroot\\settings\\images\\login_login.svg",

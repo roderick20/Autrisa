@@ -79,37 +79,38 @@ namespace Autrisa.Areas.Security.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Email,Password,Enabled")] User user, List<int> Roles)
+        public async Task<IActionResult> Create(User user, string Roles)
         {
             try
             {
+                var authuserrole = new UserRole();
                 user.UniqueId = Guid.NewGuid();
                 user.LastAccess = DateTime.Now;
                 user.Password = PasswordEncrypt.Encrypt(user.Password);
                 user.Created = DateTime.Now;
                 user.Author = (int)HttpContext.Session.GetInt32("UserId");
-
-                _context.Add(User);
+                user.Role = Roles;
+                _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                //foreach (int rol in Roles)
+                
+                ////var usuario = await _context.Users.FirstOrDefaultAsync(m => m.Name == user.Name);
+                //foreach (var item in Roles)
                 //{
-                //    UserRole userRole = new UserRole();
-                //    userRole.UniqueId = Guid.NewGuid();
-                //    userRole.UserId = user.Id;
-                //    userRole.RoleId = rol;
-                //    userRole.Created = DateTime.Now;
-                //    userRole.Author = (int)HttpContext.Session.GetInt32("UserId");
-
-                //    _context.Add(userRole);
-                //    await _context.SaveChangesAsync();
+                //    authuserrole.UniqueId = Guid.NewGuid();
+                //    authuserrole.Created = DateTime.Now;
+                //    authuserrole.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    authuserrole.UserId = user.Id;
+                //    authuserrole.RoleId = item;
+                //    _context.UserRoles.Add(authuserrole);
                 //}
+                //await _context.SaveChangesAsync();
 
-                ViewBag.Roles = new SelectList(new List<SelectListItem>
-                {
-                    new SelectListItem{ Value = "admin", Text = "admin"},
-                    new SelectListItem{ Value = "user", Text = "user"}
-                }, "Value", "Text");
+                //ViewBag.Roles = new SelectList(new List<SelectListItem>
+                //{
+                //    new SelectListItem{ Value = "admin", Text = "admin"},
+                //    new SelectListItem{ Value = "user", Text = "user"}
+                //}, "Value", "Text");
 
                 return RedirectToAction(nameof(Index));
             }
