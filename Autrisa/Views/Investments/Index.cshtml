@@ -3,7 +3,7 @@
 @inject IHttpContextAccessor HttpContextAccessor
 
 @{
-    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
 
     ViewData["Title"] = "Lista de Inversiones";
     decimal? sumsol = 0;

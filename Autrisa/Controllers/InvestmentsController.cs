@@ -97,7 +97,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Investment investment, string Modified)
+        public async Task<IActionResult> Edit(Investment investment)
         {
             try
             {
@@ -119,8 +119,8 @@ namespace Autrisa.Controllers
                 investmentEdit.OperationAmount = investment.OperationAmount;
                 investmentEdit.Description = investment.Description;
                 investmentEdit.AccountId = investmentEdit.AccountId;
-                investmentEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //investmentEdit.Modified = DateTime.Now;
+                //investmentEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                investmentEdit.Modified = DateTime.Now;
                 investmentEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(investmentEdit);
                 await _context.SaveChangesAsync();
