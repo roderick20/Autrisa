@@ -1,0 +1,105 @@
+﻿@model Autrisa.Models.Lending
+
+@{
+    ViewData["Title"] = "Agregar Préstamo";
+}
+
+<div class="col-12">
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="card border rounded-3">
+            <div class="card-header  border-bottom p-3">
+                <div class="d-sm-flex justify-content-between align-items-center">
+                    <h5 class="mb-2 mb-sm-0">Agregar Préstamo</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="col-md-4">     
+                        <div class="form-group">
+                            <label asp-for="Customer" class="control-label"></label>
+                            <input asp-for="Customer" class="form-control" type="text" required />
+                            <span asp-validation-for="Customer" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LendDate" class="control-label"></label>
+                            <input asp-for="LendDate" class="form-control" type="text" required />
+                            <span asp-validation-for="LendDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Amount" class="control-label"></label>
+                            <input asp-for="Amount" class="form-control" type="text" required />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LendType" class="control-label"></label>
+                            <select name="LendType" id="LendType" class="form-select">
+                                <option value="0">Recibido</option>
+                                <option value="1">Otorgado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" type="text" required />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="AccountId" class="control-label"></label>
+                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
+                            <span asp-validation-for="AccountId" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created"/>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer  border-bottom p-3">
+                <div class="d-sm-flex justify-content-between align-items-center">
+                    <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <link href="~/assets/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/assets/vendor/jquery-ui/jquery.ui.datepicker-es.js"></script>
+
+    <script>
+        $.datepicker.setDefaults($.datepicker.regional["es"]);
+    
+        $(document).ready(function () {
+
+            $( "#LendDate" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
+            });
+
+            $("form").submit(function (event) {
+                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
+                $("#btnSave").prop('disabled', true);
+            });
+
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                if (!/^[0-9]+(\.)?[0-9]*$/.test($("#Amount").val())) {
+
+                    alert("Monto incorecto");
+                    return false;
+                }
+
+                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
+                $("#btnSave").prop('disabled', true);
+
+                event.currentTarget.submit();
+            });
+        });
+    </script>
+    }

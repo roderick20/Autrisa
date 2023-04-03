@@ -1,0 +1,258 @@
+﻿@model IEnumerable<Autrisa.Models.LendingOperation>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
+    ViewData["Title"] = "Movimientos de Préstamo";
+}
+
+<div class="col-12">
+    <div class="card border rounded-3">
+        <div class="card-header  border-bottom p-3">
+            <div class="d-sm-flex justify-content-between align-items-center">
+
+                <h5 class="mb-2 mb-sm-0">Movimientos de Préstamo</h5>
+                <div>
+                    @if (UserRole == "admin")
+                    {
+                        <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-LendingId="@ViewBag.LendingId"> <i class="fa-solid fa-plus"></i> Agregar </a>
+                    }
+                    <a class="btn btn-sm btn-success" asp-action="Reportes" asp-route-LendingId="@ViewBag.LendingId"><i class="fa-solid fa-file-export"></i> Reportes </a>
+                </div>
+            
+            </div>
+        </div>
+        <div class="card-body" style="min-height:500px">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["Success"]
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["Error"]
+                </div>
+            }
+
+            <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Año
+                        </th>
+                        <th>
+                            Mes
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OperationDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Modality)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>
+                        @*<th>
+                        @Html.DisplayNameFor(model => model.PreviousRemaining)
+                        </th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.OperationDate.Year
+                            </td>
+                            <td>
+                                @item.OperationDate.Month
+                            </td>
+                            <td>
+                                @item.OperationDate.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @if(item.Type == 0)
+                                {
+                                    <text>Salida de dinero</text>
+                                }
+                                else
+                                {
+                                    <text>Ingreso de dinero</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Modality == 0)
+                                {
+                                    <text>Transferencia</text>
+                                }
+                                else if (item.Modality == 1)
+                                {
+                                    <text>Cheque</text>
+                                }
+                                else
+                                {
+                                    <text>Efectivo</text>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td class="text-end">
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                            @* <td>
+                        @Html.DisplayFor(modelItem => item.PreviousRemaining)
+                        </td>*@
+                            <td style="width:1%;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="~/assets/vendor/datatables/datatables-1.13.1/css/datatables.bootstrap5.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
+    <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js"></script>
+
+    <style>
+        td .dropdown-toggle::after {
+            display: none;
+        }
+
+        td .btn-sm {
+            padding: 0.2rem 0.6rem !important;
+        }
+    </style>
+
+    <style>
+        td .dropdown-toggle::after {
+            display: none;
+        }
+
+        td .btn-sm {
+            padding: 0.2rem 0.6rem !important;
+        }
+    </style>
+
+    <style>
+        .yadcf-filter {
+            font-size: 0.875rem !important;
+            border-radius: 4px;
+            box-shadow: none;
+            border: 1px solid #ced4da;
+            margin-right: 2px;
+            max-width: 150px !important;
+        }
+
+        .yadcf-filter-range-date {
+            font-size: 0.875rem !important;
+            border-radius: 4px;
+            box-shadow: none;
+            border: 1px solid #ced4da;
+            margin-right: 2px;
+        }
+
+        .yadcf-filter-reset-button {
+            position: relative;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #0576b9;
+            border-color: #0576b9;
+            min-width: 29px !important;
+            padding-top: 1px !important;
+            height: 27px;
+        }
+
+        .yadcf-filter-range-date {
+            font-size: 0.875rem;
+            border-radius: 4px;
+        }
+
+        .yadcf-filter-wrapper-inner {
+            border: 0;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#listTable').DataTable({
+                "language": {
+                    "url": "/assets/vendor/datatables/es-es.json"
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel'
+                ]
+            });
+
+            yadcf.init(table, [
+
+                {
+                    column_number: 0,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 1,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                //{
+                //    column_number: 2,
+                //    filter_type: "select",
+                //    filter_default_label: ''
+                //},
+                {
+                    column_number: 3,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                //{
+                //    column_number: 4,
+                //    filter_type: "select",
+                //    filter_default_label: ''
+                //},
+
+            ],
+                {
+                    cumulative_filtering: true
+                }
+            );
+
+            $(".alert-success").fadeTo(500, 500).slideUp(500, function () {
+                $(".alert-success").slideUp(500);
+            });
+
+            $(".alert-danger").fadeTo(2000, 500).slideUp(500, function () {
+                $(".alert-danger").slideUp(500);
+            });
+        });
+    </script>
+}

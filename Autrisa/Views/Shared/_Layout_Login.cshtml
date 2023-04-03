@@ -1,0 +1,42 @@
+@using Autrisa.Helpers
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var settings = HttpContextAccessor.HttpContext.Session.GetSettings();
+}
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="agilex.pe">
+
+    <title>@ViewData["Title"] - @settings["title"]</title>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/settings/images/@settings["favicon"]">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap">
+
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <link href="~/assets/vendor/toast/jquery.toast.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <main>
+        <div class="container">           
+                @RenderBody()          
+        </div>
+    </main>  
+
+    <script src="~/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/functions.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/jquery/jquery-3.6.1.min.js"></script>
+    <script src="~/assets/vendor/toast/jquery.toast.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

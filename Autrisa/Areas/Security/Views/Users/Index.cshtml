@@ -1,0 +1,127 @@
+@model IEnumerable<Autrisa.Models.User>
+
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<div class="col-12">
+    <div class="card border rounded-3">
+        <div class="card-header  border-bottom p-3">
+            <div class="d-sm-flex justify-content-between align-items-center">
+                <h5 class="mb-2 mb-sm-0">Usuarios</h5>
+                <a class="btn btn-sm btn-primary" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar </a>
+            </div>
+        </div>
+        <div class="card-body" style="min-height:500px">
+            @*<div class="table-responsive border-0">*@
+            <table id="listTable" class="table  align-middle table-sm table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Enabled)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastAccess)
+                        </th>
+                        <th>
+                            Rol
+                        </th>
+@*                        <th>
+                            @Html.DisplayNameFor(model => model.Created)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Author)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Modified)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Editor)
+                        </th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.Enabled)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastAccess)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role)
+                            </td>
+@*                            <td>
+                                @Html.DisplayFor(modelItem => item.Created)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Author)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Modified)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Editor)
+                            </td>*@
+                            <td style="width:1%;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                        <li><a asp-action="EditPassword" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-unlock"></i> Cambio Contraseña </a></li>
+                                        @*<li><a asp-action="Details" asp-route-id="@item.UniqueId" class="btn btn-success btn-sm  py-0"> Detalle </a></li>*@
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @*</div>*@
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <style>
+        td .dropdown-toggle::after {
+            display: none;            
+        }
+
+        td .btn-sm {
+            padding: 0.2rem 0.6rem !important;
+        }
+    </style>
+
+    <link href="~/assets/vendor/datatables/datatables-1.13.1/css/datatables.bootstrap5.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/datatables/datatables-1.13.1/js/jquery.datatables.min.js"></script>
+    <script src="~/assets/vendor/datatables/datatables-1.13.1/js/datatables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#listTable').DataTable({
+                "language": {
+                    "url": "/assets/vendor/datatables/es-es.json"
+                }
+            });
+        });
+    </script>
+}
