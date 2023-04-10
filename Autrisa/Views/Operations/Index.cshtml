@@ -49,16 +49,13 @@
                             Cuenta
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Year)
+                            A&ntilde;o / Mes
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Month)
+                            Tipo
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Type)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Modality)
+                            Movimiento / Modalidad
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Number)
@@ -67,10 +64,7 @@
                             @Html.DisplayNameFor(model => model.OperationDate)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Concept)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                            Descripci&oacute;n / Concepto
                         </th>
                         <th class="text-end">
                             @Html.DisplayNameFor(model => model.Income)
@@ -89,10 +83,25 @@
                                 @item.Account.Name - @item.Account.AccountNumber
                             </td>
                             <td>
-                                @item.Year
+                                @item.Year / @item.Month 
                             </td>
                             <td>
-                                @item.Month
+@*                                @if (item.Account.AccountDetails.OperationType == 0)
+                                {
+                                    <text>Operación</text>
+                                }
+                                else if (item.Account.AccountDetails.OperationType == 1)
+                                {
+                                    <text>Préstamo</text>
+                                }
+                                else if (item.Account.AccountDetails.OperationType == 2)
+                                {
+                                    <text>Inversión</text>
+                                }
+                                else if (item.Account.AccountDetails.OperationType == 3)
+                                {
+                                    <text>Predios</text>
+                                }*@
                             </td>
                             <td>
                                 @if (item.Type == 0)
@@ -107,8 +116,7 @@
                                 {
                                     <text>Cierre de mes</text>
                                 }
-                            </td>
-                            <td>
+                                /
                                 @if (item.Modality == 0)
                                 {
                                     <text>Cheque</text>
@@ -123,22 +131,19 @@
                                 }
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Number)
+                                @item.Number
                             </td>
                             <td>
                                 @item.OperationDate.ToString("dd/MM/yyyy")
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Concept)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
+                                @item.Description / @item.Concept
                             </td>
                             <td class="text-end">
-                                @Html.DisplayFor(modelItem => item.Income)
+                                @item.Income
                             </td>
                             <td class="text-end">
-                                @Html.DisplayFor(modelItem => item.Outcome)
+                                @item.Outcome
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">

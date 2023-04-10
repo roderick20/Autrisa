@@ -47,5 +47,6 @@ namespace Autrisa.Models
         public virtual ICollection<Lending> Lendings { get; set; }
         public virtual ICollection<Operation> Operations { get; set; }
         public virtual ICollection<Property> Properties { get; set; }
+        public virtual ICollection<AccountDetail> AccountDetails { get; set; }
     }
 }

@@ -13,9 +13,20 @@ using System.Drawing;
 using System.Globalization;
 using ClosedXML.Excel;
 using ClosedXML.Extensions;
+using DocumentFormat.OpenXml.Presentation;
 
 namespace Autrisa.Controllers
 {
+
+    public class productoCliente
+    {
+        public int value { get; set; }
+        public string text { get; set; }
+        public int? type { get; set; }
+        public decimal? samount { get; set; }
+        public decimal? damount { get; set; }
+    }
+
     public class OperationsController : Controller
     {
         private readonly EFContext _context;
@@ -29,7 +40,10 @@ namespace Autrisa.Controllers
         {
             var operations = await _context.Operations
                 .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
                 .ToListAsync();
+
+            ViewBag.operations = operations;
             return View(operations);
         }
 
@@ -76,11 +90,12 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created)
+        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType, string customer)
         {
             try
             {
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+                AccountDetail accdetail = new AccountDetail();
 
                 operation.UniqueId = Guid.NewGuid();
                 //operation.Created = DateTime.Now;
@@ -103,9 +118,35 @@ namespace Autrisa.Controllers
                     operation.Outcome = montoTransaccion;
                     operation.Income = 0;
                 }
-
                 _context.Update(accountEdit);
                 _context.Add(operation);
+
+                
+                if (AccountOper == 0)
+                {
+                    accdetail.AccountId = operation.AccountId;
+                }
+                else
+                {
+                    accdetail.AccountId = AccountOper;
+                }
+                accdetail.UniqueId = Guid.NewGuid();
+                accdetail.Description = operation.Description;
+                accdetail.Concept = operation.Concept;
+                accdetail.Author = operation.Author;
+                accdetail.Created = DateTime.Now;
+                if(accountEdit.Currency == 0)
+                {
+                    accdetail.SolesAmount = montoTransaccion;
+                }
+                else
+                {
+                    accdetail.DollarsAmount = montoTransaccion;
+                }
+                accdetail.InitialAmount = accountEdit.Amount;
+                accdetail.Customer = customer;
+                accdetail.OperationType = OperationType;
+
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
                 return RedirectToAction(nameof(Index));
@@ -589,6 +630,25 @@ namespace Autrisa.Controllers
             ws.Columns("A", "T").AdjustToContents();
             return wb.Deliver("Estado_cuenta.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
+
+
+
+        [HttpPost]
+        public ActionResult Elementos(int id, int oper)
+        {
+            var elementos = _context.AccountDetails.Where(m => m.AccountId == id && m.OperationType == oper)
+                    .Select(m => new productoCliente
+                    {
+                        value = m.Id,
+                        type = m.OperationType,
+                        samount = m.SolesAmount,
+                        damount = m.DollarsAmount,
+                        text = m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
+                    })
+                    .ToList();
+            return Json(elementos);
+        }
+
 
     }
 }

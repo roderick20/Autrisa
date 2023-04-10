@@ -13,7 +13,7 @@ namespace Autrisa.Models
         /// 0: Income, 1: Outcome, 2: Remaining
         /// </summary>
         
-        [Display(Name = "Habilitado")]
+        [Display(Name = "Tipo")]
         public int Type { get; set; }
         /// <summary>
         /// 0: Check, 1: Transfer, 2...

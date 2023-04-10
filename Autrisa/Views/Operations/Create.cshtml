@@ -17,6 +17,11 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-md-4">     
                         <div class="form-group">
+                            <label name="customer" id="customer" class="control-label">Cliente</label>
+                            <input name="customer" id="customer" class="form-control" type="text" required />
+                            @*<span asp-validation-for="Number" class="text-danger"></span>*@
+                        </div>
+                        <div class="form-group">
                             <label asp-for="Type" class="control-label"></label>
                             <select name="Type" id="Type" class="form-select">
                                 <option value="0">Ingreso</option>
@@ -38,6 +43,20 @@
                         <div class="form-group">
                             <label asp-for="AccountId" class="control-label"></label>
                             <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
+                            <span asp-validation-for="AccountId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label name="OperationType" id="OperationType" class="control-label">Tipo de operaci&oacute;n</label>
+                            <select name="Modality" id="Modality" class="form-select">
+                                <option value="0">Operaci&oacute;n normal</option>
+                                <option value="1">Pr&eacute;stamo</option>
+                                <option value="2">Inversi&oacute;n</option>
+                                <option value="3">Predio</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Cuenta a operar</label>
+                            <select name="AccountOper" id="AccountOper" class="form-select" asp-items="@ViewBag.AccountId"></select>
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -116,6 +135,53 @@
 
                 event.currentTarget.submit();
             });
+
+
+
+
+
+
+
+
+
+
+            $('#AccountId').on('change', function () {
+                var id = $(this).val(); // Obtener el valor seleccionado
+                var oper = $('#OperationType')
+                // Hacer una petición AJAX al servidor
+                $.ajax({
+                    url: '/Operations/Elementos', // La URL del controlador y la acción que manejarán la petición
+                    type: 'POST',
+                    data: { id: id }, // Enviar el ID seleccionado como parámetro
+                    success: function (response) {
+                        // Actualizar el segundo Select con la respuesta del servidor
+                        var select = $('#AccountOper');
+                        select.empty(); // Eliminar todas las opciones anteriores
+                        $.each(response, function (index, value) {
+                            if (value.credittype == 11) {
+                                select.append('<option value="' + value.value + '">' + " Ahorro " + value.text + '</option>');
+                            }
+                            else if (value.credittype == 1) {
+                                select.append('<option value="' + value.value + '">' + " Crédito diario " + value.text + '</option>');
+                            }
+                            else if (value.credittype == 2) {
+                                select.append('<option value="' + value.value + '">' + " Crédito semanal " + value.text + '</option>');
+                            }
+                            else if (value.credittype == 3) {
+                                select.append('<option value="' + value.value + '">' + " Crédito mensual " + value.text + '</option>');
+                            }
+                            else {
+                                select.append('<option value="' + value.value + '">' + " Crédito paralelo " + value.text + '</option>');
+                            }
+
+                        });
+                    },
+                    error: function () {
+                        alert('Error al cargar la lista');
+                    }
+                });
+            });
+
         });
     </script>
 }
