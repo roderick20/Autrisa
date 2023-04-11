@@ -18,8 +18,8 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var lendings = await _context.Lendings
-                .Include(m => m.Account)
+            var lendings = await _context.Accounts
+                .Where(m => m.OperationType == 1)
                 .ToListAsync();
             return View(lendings);
         }

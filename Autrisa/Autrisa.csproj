@@ -7,14 +7,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\InvestmentsOperations\**" />
+    <Compile Remove="Views\Investments\**" />
+    <Compile Remove="Views\LendingOperations\**" />
+    <Compile Remove="Views\Lendings\**" />
+    <Compile Remove="Views\PropertiesOperations\**" />
+    <Compile Remove="Views\Properties\**" />
+    <Content Remove="Views\InvestmentsOperations\**" />
+    <Content Remove="Views\Investments\**" />
+    <Content Remove="Views\LendingOperations\**" />
+    <Content Remove="Views\Lendings\**" />
+    <Content Remove="Views\PropertiesOperations\**" />
+    <Content Remove="Views\Properties\**" />
+    <EmbeddedResource Remove="Views\InvestmentsOperations\**" />
+    <EmbeddedResource Remove="Views\Investments\**" />
+    <EmbeddedResource Remove="Views\LendingOperations\**" />
+    <EmbeddedResource Remove="Views\Lendings\**" />
+    <EmbeddedResource Remove="Views\PropertiesOperations\**" />
+    <EmbeddedResource Remove="Views\Properties\**" />
+    <None Remove="Views\InvestmentsOperations\**" />
+    <None Remove="Views\Investments\**" />
+    <None Remove="Views\LendingOperations\**" />
+    <None Remove="Views\Lendings\**" />
+    <None Remove="Views\PropertiesOperations\**" />
+    <None Remove="Views\Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Accounts\Details.cshtml" />
-    <Content Remove="Views\Investments\Details.cshtml" />
-    <Content Remove="Views\Investments\NewAccount.cshtml" />
-    <Content Remove="Views\Lendings\Details.cshtml" />
-    <Content Remove="Views\Lendings\NewAccount.cshtml" />
     <Content Remove="Views\Operations\Details.cshtml" />
-    <Content Remove="Views\Properties\Details.cshtml" />
-    <Content Remove="Views\Properties\NewAccount.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

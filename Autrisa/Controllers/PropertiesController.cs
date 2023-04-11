@@ -17,8 +17,8 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var properties = await _context.Properties
-                .Include(m => m.Account)
+            var properties = await _context.Accounts
+                .Where(m => m.OperationType == 3)
                 .ToListAsync();
             return View(properties);
         }

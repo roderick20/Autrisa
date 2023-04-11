@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Autrisa.Models.Lending>
+﻿@model IEnumerable<Autrisa.Models.Account>
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -39,28 +39,25 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Customer)
-                        </th>
-                        <th class="text-end">
-                            Monto Inicial
+                            @Html.DisplayNameFor(model => model.Name)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.LendDate)
+                            @Html.DisplayNameFor(model => model.BankId)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.LendType)
+                            @Html.DisplayNameFor(model => model.AccountType)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                            @Html.DisplayNameFor(model => model.AccountNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Currency)
                         </th>
                         <th class="text-end">
                             Monto Soles
                         </th>
                         <th class="text-end">
-                            Monto Dólares
-                        </th>
-                        <th class="text-end">
-                            Operaciones
+                            Monto D&oacutelares
                         </th>
                         <th></th>
                     </tr>
@@ -68,88 +65,91 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        @if (item.Currency == 0)
                         {
-                            sumsol = sumsol + item.SolesAmount;
+                            if (item.Currency == 0)
+                            {
+                                sumsol = sumsol + item.Amount;
+                            }
+                            else
+                            {
+                                sumdlls = sumdlls + item.Amount;
+                            }
                         }
-                        else
+
+                        if (item.AccountType == "Corriente" || item.AccountType == "Ahorros")
                         {
-                            sumdlls = sumdlls + item.DollarsAmount;
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @item.BankId
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                                </td>
+                                <td>
+                                    @if (item.Currency == 0)
+                                    {
+                                        <text>Soles</text>
+                                    }
+                                    else
+                                    {
+                                        <text>D&oacutelares</text>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (item.Currency == 0)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (item.Currency == 1)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
+                                </td>
+                                <td style="width:1%;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                            @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                         }
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Customer)
-                            </td>
-                            <td class="text-end">
-                                @Html.DisplayFor(modelItem => item.Amount)
-                            </td>
-                            <td>
-                                @item.LendDate.ToString("dd/MM/yyyy")
-                            </td>
-                            <td>
-                                @if (item.LendType == 0)
-                                {
-                                    <text>Recibido</text>
-                                }
-                                else
-                                {
-                                    <text>Otorgado</text>
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td class="text-end">
-                                @if (item.Currency == 0)
-                                {
-                                    @item.SolesAmount
-                                }
-                                else
-                                {
-                                    <text>0</text>
-                                }
-                            </td>
-                            <td class="text-end">
-                                @if (item.Currency == 1)
-                                {
-                                    @item.DollarsAmount
-                                }
-                                else
-                                {
-                                    <text>0</text>
-                                }
-                            </td>
-                            <td>
-                                <a asp-controller="LendingOperations" asp-action="Index" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>
-                            </td>
-                            <td style="width:1%;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    }                   
+                    }
                 </tbody>
                 <tfoot>
-                        <tr>
-                            <th colspan="5">
-                                Total:
-                            </th>
-                            <th class="text-end">
-                                    @sumsol
-                            </th>
-                            <th class="text-end">
-                                    @sumdlls
-                            </th>
-                            <th colspan="2"></th>
-                        </tr>
-                    </tfoot>
+                    <tr>
+                        <th colspan="4">
+                            Total:
+                        </th>
+                        <th class="text-end">
+                            @sumsol
+                        </th>
+                        <th class="text-end">
+                            @sumdlls
+                        </th>
+                        <th></th>
+                    </tr>
+                </tfoot>
             </table>
 
         </div>

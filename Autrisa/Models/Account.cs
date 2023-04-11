@@ -31,6 +31,15 @@ namespace Autrisa.Models
 
         [Display(Name = "Moneda")]
         public int Currency { get; set; }
+        
+        [Display(Name = "Tipo de movimientos")]
+        public int OperationType { get; set; }
+        /// <summary>
+        /// 0: Normal operation, 1: Lending, 2: Investment, 3: Property
+        /// </summary>
+
+        [Display(Name = "Banco")]
+        public int BankId { get; set; }
 
         [Display(Name = "Monto")]
         public decimal Amount { get; set; }
@@ -48,5 +57,6 @@ namespace Autrisa.Models
         public virtual ICollection<Operation> Operations { get; set; }
         public virtual ICollection<Property> Properties { get; set; }
         public virtual ICollection<AccountDetail> AccountDetails { get; set; }
+        public virtual ICollection<Bank> Banks { get; set; }
     }
 }

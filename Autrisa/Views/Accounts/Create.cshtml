@@ -22,6 +22,10 @@
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+                            <label name="BankId" id="BankId" class="control-label"></label>
+                            <select name="BankId" id="BankId" class="form-select" asp-items="@ViewBag.bankId"></select>
+                        </div>
+                        <div class="form-group">
                             <label asp-for="AccountType" class="control-label"></label>
                             <select name="AccountType" id="AccountType" class="form-select">
                                 <option value="Corriente">Corriente</option>
@@ -38,6 +42,15 @@
                             <select name="Currency" id="Currency" class="form-select">
                                 <option value="0">Soles (S/)</option>
                                 <option value="1">Dolares ($)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OperationType" class="control-label"></label>
+                            <select name="OperationType" id="OperationType" class="form-select">
+                                <option value="0">Operaci&oacute;n normal</option>
+                                <option value="1">Pr&eacute;stamo</option>
+                                <option value="2">Inversi&oacute;n</option>
+                                <option value="3">Predio</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -1,4 +1,4 @@
-@model IEnumerable<Autrisa.Models.Account>
+﻿@model IEnumerable<Autrisa.Models.Account>
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -66,75 +66,70 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
+                        if (item.Currency == 0)
                         {
-                            if (item.Currency == 0)
-                            {
-                                sumsol = sumsol + item.Amount;
-                            }
-                            else
-                            {
-                                sumdlls = sumdlls + item.Amount;
-                            }
+                            sumsol = sumsol + item.Amount;
+                        }
+                        else
+                        {
+                            sumdlls = sumdlls + item.Amount;
                         }
 
-                        if (item.AccountType == "Corriente" || item.AccountType == "Ahorros")
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @item.BankId
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AccountType)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AccountNumber)
-                                </td>
-                                <td>
-                                    @if (item.Currency == 0)
-                                    {
-                                        <text>Soles</text>
-                                    }
-                                    else
-                                    {
-                                        <text>D&oacutelares</text>
-                                    }
-                                </td>
-                                <td class="text-end">
-                                    @if (item.Currency == 0)
-                                    {
-                                        <text>@item.Amount</text>
-                                    }
-                                    else
-                                    {
-                                        <text>0</text>
-                                    }
-                                </td>
-                                <td class="text-end">
-                                    @if (item.Currency == 1)
-                                    {
-                                        <text>@item.Amount</text>
-                                    }
-                                    else
-                                    {
-                                        <text>0</text>
-                                    }
-                                </td>
-                                <td style="width:1%;">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                            @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @item.BankId
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountNumber)
+                            </td>
+                            <td>
+                                @if (item.Currency == 0)
+                                {
+                                    <text>Soles</text>
+                                }
+                                else
+                                {
+                                    <text>D&oacutelares</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Currency == 0)
+                                {
+                                    <text>@item.Amount</text>
+                                }
+                                else
+                                {
+                                    <text>0</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Currency == 1)
+                                {
+                                    <text>@item.Amount</text>
+                                }
+                                else
+                                {
+                                    <text>0</text>
+                                }
+                            </td>
+                            <td style="width:1%;">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
                 <tfoot>

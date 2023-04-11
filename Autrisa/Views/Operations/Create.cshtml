@@ -41,22 +41,26 @@
                             <span asp-validation-for="Number" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="AccountId" class="control-label"></label>
-                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
-                            <span asp-validation-for="AccountId" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label name="OperationType" id="OperationType" class="control-label">Tipo de operaci&oacute;n</label>
-                            <select name="Modality" id="Modality" class="form-select">
-                                <option value="0">Operaci&oacute;n normal</option>
-                                <option value="1">Pr&eacute;stamo</option>
-                                <option value="2">Inversi&oacute;n</option>
-                                <option value="3">Predio</option>
+                            <label class="control-label">Banco</label>
+                            <select id="BankId" name="BankId" class="form-select" asp-items="@ViewBag.BankId">
+                                <option value=""></option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Cuenta a operar</label>
-                            <select name="AccountOper" id="AccountOper" class="form-select" asp-items="@ViewBag.AccountId"></select>
+                            <label class="control-label">Tipo de operaci&oacute;n</label>
+                            <select name="OperationType" id="OperationType" class="form-select">
+                                <option value=""></option>
+                                @*<option value="0">Operaci&oacute;n normal</option>
+                                <option value="1">Pr&eacute;stamo</option>
+                                <option value="2">Inversi&oacute;n</option>
+                                <option value="3">Predio</option>*@
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Cuenta de cargo</label>
+                            <select asp-for="AccountId" class="form-select">
+                                <option value=""></option>
+                            </select>
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -136,44 +140,32 @@
                 event.currentTarget.submit();
             });
 
-
-
-
-
-
-
-
-
-
-            $('#AccountId').on('change', function () {
+            $('#BankId').on('change', function () { // Seguir los cambios de dos o más elementos
+                //alert('cambió');
                 var id = $(this).val(); // Obtener el valor seleccionado
-                var oper = $('#OperationType')
                 // Hacer una petición AJAX al servidor
                 $.ajax({
                     url: '/Operations/Elementos', // La URL del controlador y la acción que manejarán la petición
                     type: 'POST',
-                    data: { id: id }, // Enviar el ID seleccionado como parámetro
+                    data: { id: id}, // Enviar el ID seleccionado como parámetro
                     success: function (response) {
                         // Actualizar el segundo Select con la respuesta del servidor
-                        var select = $('#AccountOper');
+                        var select = $('#OperationType');
                         select.empty(); // Eliminar todas las opciones anteriores
+                        select.append('<option value="">' + " " + '</option>');
                         $.each(response, function (index, value) {
-                            if (value.credittype == 11) {
-                                select.append('<option value="' + value.value + '">' + " Ahorro " + value.text + '</option>');
+                            if(value.type == 0){
+                                select.append('<option value="' + value.type + '">' + "Operaciones normales " + '</option>');
                             }
-                            else if (value.credittype == 1) {
-                                select.append('<option value="' + value.value + '">' + " Crédito diario " + value.text + '</option>');
+                            else if (value.type == 1) {
+                                select.append('<option value="' + value.type + '">' + " Pr&eacute;stamos " + '</option>');
                             }
-                            else if (value.credittype == 2) {
-                                select.append('<option value="' + value.value + '">' + " Crédito semanal " + value.text + '</option>');
+                            else if (value.type == 2) {
+                                select.append('<option value="' + value.type + '">' + " Inversiones " + '</option>');
                             }
-                            else if (value.credittype == 3) {
-                                select.append('<option value="' + value.value + '">' + " Crédito mensual " + value.text + '</option>');
+                            else if (value.type == 3) {
+                                select.append('<option value="' + value.type + '">' + " Predios " + '</option>');
                             }
-                            else {
-                                select.append('<option value="' + value.value + '">' + " Crédito paralelo " + value.text + '</option>');
-                            }
-
                         });
                     },
                     error: function () {
@@ -182,6 +174,39 @@
                 });
             });
 
+            $('#OperationType').on('change', function () { // Seguir los cambios de dos o más elementos
+                var id = $(this).val(); // Obtener el valor seleccionado
+                var bank = $('#BankId').val();
+                // Hacer una petición AJAX al servidor
+                $.ajax({
+                    url: '/Operations/CuentaOperacion', // La URL del controlador y la acción que manejarán la petición
+                    type: 'POST',
+                    data: { id: id, bank: bank }, // Enviar el ID seleccionado como parámetro
+                    success: function (response) {
+                        // Actualizar el segundo Select con la respuesta del servidor
+                        var select = $('#AccountId');
+                        select.empty(); // Eliminar todas las opciones anteriores
+                        select.append('<option value="">' + " " + '</option>');
+                        $.each(response, function (index, value) {
+                            if (value.type == 0) {
+                                select.append('<option value="' + value.value + '">' + "Cuenta regular: " + value.text + '</option>');
+                            }
+                            else if (value.type == 1) {
+                                select.append('<option value="' + value.value + '">' + " Cuenta de pr&eacute;stamo:  " + value.text + '</option>');
+                            }
+                            else if (value.type == 2) {
+                                select.append('<option value="' + value.value + '">' + " Cuenta de inversi&oacute;n:  " + value.text + '</option>');
+                            }
+                            else if (value.type == 3) {
+                                select.append('<option value="' + value.value + '">' + " Cuenta de predios:  " + value.text + '</option>');
+                            }
+                        });
+                    },
+                    error: function () {
+                        alert('Error al cargar la lista');
+                    }
+                });
+            });
         });
     </script>
 }

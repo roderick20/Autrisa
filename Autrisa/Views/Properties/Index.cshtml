@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Autrisa.Models.Property>
+﻿@model IEnumerable<Autrisa.Models.Account>
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -6,13 +6,8 @@
     var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
 
     ViewData["Title"] = "Lista de Predios";
-    var sumIncomeSoles = Model.Sum(x => x.IncomeSoles);
-    var sumOutcomeSoles = Model.Sum(x => x.OutcomeSoles);
-    var sumSls = sumIncomeSoles - sumOutcomeSoles;
-
-    var sumIncomeDollars = Model.Sum(x => x.IncomeDollars);
-    var sumOutcomeDollars = Model.Sum(x => x.OutcomeDollars);
-    var sumDlls = sumIncomeDollars - sumOutcomeDollars;
+    decimal? sumsol = 0;
+    decimal? sumdlls = 0;
 }
 
 <div class="col-12">
@@ -43,51 +38,26 @@
             <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
                 <thead>
                     <tr>
-                        <th rowspan="2">
-                            @Html.DisplayNameFor(model => model.Address)
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
                         </th>
-                        <th rowspan="2">
-                            @Html.DisplayNameFor(model => model.Number)
+                        <th>
+                            @Html.DisplayNameFor(model => model.BankId)
                         </th>
-                        <th rowspan="2">
-                            @Html.DisplayNameFor(model => model.Participation)
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountType)
                         </th>
-                        <th rowspan="2">
-                            @Html.DisplayNameFor(model => model.Description)
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccountNumber)
                         </th>
-                        <th rowspan="2">
-                            @Html.DisplayNameFor(model => model.Receptor)
-                        </th>
-                        <th rowspan="2">
+                        <th>
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
-                        <th colspan="3" class="text-center">
-                            Soles
-                        </th>
-                        <th colspan="3" class="text-center">
-                            Dolares
-                        </th>
-                        <th rowspan="2">Operaciones</th>
-                        <th></th>
-                    </tr>
-                    <tr>
                         <th class="text-end">
-                            Ingreso
+                            Monto Soles
                         </th>
                         <th class="text-end">
-                            Salida Soles
-                        </th>
-                        <th class="text-end">
-                            Rentabilidad
-                        </th>
-                        <th class="text-end">
-                            Ingreso
-                        </th>
-                        <th class="text-end">
-                            Salida Soles
-                        </th>
-                        <th class="text-end">
-                            Rentabilidad
+                            Monto D&oacutelares
                         </th>
                         <th></th>
                     </tr>
@@ -95,96 +65,89 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Address)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Number)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Participation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Receptor)
-                            </td>
-                            <td>
-                                @if (item.Currency == 0)
-                                {
-                                    <text>Soles</text>
-                                }
-                                else
-                                {
-                                    <text>Dólares</text>
-                                }
-                            </td>
-                            <td class="text-end">
-                                @item.IncomeSoles
-                            </td>
-                            <td class="text-end">
-                                @item.OutcomeSoles
-                            </td>
-                            <td class="text-end">
-                                @{
-                                    var rent = item.IncomeSoles - item.OutcomeSoles;
-                                }
-                                <text>@rent</text>
-                            </td>
-                            <td class="text-end">
-                                @item.IncomeDollars
-                            </td>
-                            <td class="text-end">
-                                @item.OutcomeDollars
-                            </td>
-                            <td class="text-end">
-                                @{
-                                    var rentdlls = item.IncomeDollars - item.OutcomeDollars;
-                                }
-                                <text>@rentdlls</text>
-                            </td>
-                            <td>
-                                <a asp-controller="PropertiesOperations" asp-action="Index" asp-route-PropertyId="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Ver </a>
-                            </td>
-                            <td style="width:1%;">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    }
+                        {
+                            if (item.Currency == 0)
+                            {
+                                sumsol = sumsol + item.Amount;
+                            }
+                            else
+                            {
+                                sumdlls = sumdlls + item.Amount;
+                            }
+                        }
 
+                        if (item.AccountType == "Corriente" || item.AccountType == "Ahorros")
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @item.BankId
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                                </td>
+                                <td>
+                                    @if (item.Currency == 0)
+                                    {
+                                        <text>Soles</text>
+                                    }
+                                    else
+                                    {
+                                        <text>D&oacutelares</text>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (item.Currency == 0)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (item.Currency == 1)
+                                    {
+                                        <text>@item.Amount</text>
+                                    }
+                                    else
+                                    {
+                                        <text>0</text>
+                                    }
+                                </td>
+                                <td style="width:1%;">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
+                                            @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
                 </tbody>
                 <tfoot>
-                    <tr class="font-weight-bold">
-                        <th colspan="6">Total</th>
-
-                        <th class="text-end">
-                            @sumIncomeSoles
+                    <tr>
+                        <th colspan="4">
+                            Total:
                         </th>
                         <th class="text-end">
-                            @sumOutcomeSoles
+                            @sumsol
                         </th>
                         <th class="text-end">
-                            @sumSls
+                            @sumdlls
                         </th>
-                        <th class="text-end">
-                            @sumIncomeDollars
-                        </th>
-                        <th class="text-end">
-                            @sumOutcomeDollars
-                        </th>
-                        <th class="text-end">
-                            @sumDlls
-                        </th>
-                        <th colspan="2"></th>
+                        <th></th>
                     </tr>
                 </tfoot>
             </table>

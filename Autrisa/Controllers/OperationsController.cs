@@ -21,10 +21,9 @@ namespace Autrisa.Controllers
     public class productoCliente
     {
         public int value { get; set; }
-        public string text { get; set; }
+        public string text { get; set; } = null!;
         public int? type { get; set; }
-        public decimal? samount { get; set; }
-        public decimal? damount { get; set; }
+        //public decimal? samount { get; set; }
     }
 
     public class OperationsController : Controller
@@ -85,6 +84,7 @@ namespace Autrisa.Controllers
         public IActionResult Create()
         {
             ViewBag.AccountId = new SelectList(_context.Accounts.Where(m => m.AccountType == "Ahorros" || m.AccountType == "Corriente"), "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
 
@@ -118,10 +118,7 @@ namespace Autrisa.Controllers
                     operation.Outcome = montoTransaccion;
                     operation.Income = 0;
                 }
-                _context.Update(accountEdit);
-                _context.Add(operation);
 
-                
                 if (AccountOper == 0)
                 {
                     accdetail.AccountId = operation.AccountId;
@@ -146,7 +143,11 @@ namespace Autrisa.Controllers
                 accdetail.InitialAmount = accountEdit.Amount;
                 accdetail.Customer = customer;
                 accdetail.OperationType = OperationType;
+                accdetail.OperationDate = DateTime.Now;
 
+                _context.Update(accountEdit);
+                _context.Add(operation);
+                _context.Add(accdetail);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
                 return RedirectToAction(nameof(Index));
@@ -157,6 +158,7 @@ namespace Autrisa.Controllers
                 TempData["Error"] = "Error: " + ex.Message;
             }
             ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "", operation.AccountId);
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "");
 
             return View();
         }
@@ -179,6 +181,17 @@ namespace Autrisa.Controllers
             try
             {
                 var operationEdit = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == operation.UniqueId);
+
+                
+
+
+
+
+
+
+
+
+
 
                 operationEdit.Type = operation.Type;
                 operationEdit.Modality = operation.Modality;
@@ -211,6 +224,7 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Delete(Guid UniqueId)
         {
             var operation = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            
             if (operation == null)
             {
                 return NotFound();
@@ -227,11 +241,26 @@ namespace Autrisa.Controllers
             try
             {
                 var operation = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+                var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+
                 if (operation != null)
                 {
                     _context.Operations.Remove(operation);
                 }
+                
+                if (account != null)
+                {
+                    if (operation.Income != 0)
+                    {
+                        account.Amount = account.Amount - (decimal)operation.Income;
+                    }
+                    else
+                    {
+                        account.Amount = account.Amount + (decimal)operation.Outcome;
+                    }
+                }
 
+                _context.Update(account);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Eliminado exitosamente";
             }
@@ -634,21 +663,37 @@ namespace Autrisa.Controllers
 
 
         [HttpPost]
-        public ActionResult Elementos(int id, int oper)
+        public ActionResult Elementos(int id)
         {
-            var elementos = _context.AccountDetails.Where(m => m.AccountId == id && m.OperationType == oper)
+            var elementos = _context.Accounts.Where(m => m.BankId == id)
                     .Select(m => new productoCliente
                     {
                         value = m.Id,
                         type = m.OperationType,
-                        samount = m.SolesAmount,
-                        damount = m.DollarsAmount,
-                        text = m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
+                        //samount = m.Amount,
+                        //damount = m.DollarsAmount,
+                        text = m.AccountNumber, 
+                        // m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
                     })
                     .ToList();
             return Json(elementos);
         }
 
-
+        [HttpPost]
+        public ActionResult CuentaOperacion(int id, int bank)
+        {
+            var elementos = _context.Accounts.Where(m => m.BankId == bank && m.OperationType == id)
+                    .Select(m => new productoCliente
+                    {
+                        value = m.Id,
+                        type = m.OperationType,
+                        //samount = m.Amount,
+                        //damount = m.DollarsAmount,
+                        text = m.AccountNumber,
+                        // m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
+                    }).Distinct()
+                    .ToList();
+            return Json(elementos);
+        }
     }
 }

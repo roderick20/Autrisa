@@ -27,7 +27,31 @@ namespace Autrisa.Controllers
             var accounts = await _context.Accounts.ToListAsync();
             return View(accounts);
         }
-        
+
+        public async Task<IActionResult> IndexLendings()
+        {
+            var accounts = await _context.Accounts
+                .Where(m => m.OperationType == 1)
+                .ToListAsync();
+            return View(accounts);
+        }
+
+        public async Task<IActionResult> IndexInvestments()
+        {
+            var accounts = await _context.Accounts
+                .Where(m => m.OperationType == 2)
+                .ToListAsync();
+            return View(accounts);
+        }
+
+        public async Task<IActionResult> IndexProperties()
+        {
+            var accounts = await _context.Accounts
+                .Where(m => m.OperationType == 3)
+                .ToListAsync();
+            return View(accounts);
+        }
+
         public async Task<IActionResult> Details(Guid UniqueId)
         {
             var account = await _context.Accounts
@@ -56,13 +80,14 @@ namespace Autrisa.Controllers
         }
         
         public IActionResult Create()
-        {   
+        {
+            ViewBag.bankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Account account, string Created)
+        public async Task<IActionResult> Create(Account account, string Created)//, int BankId)
         {
             try
             {

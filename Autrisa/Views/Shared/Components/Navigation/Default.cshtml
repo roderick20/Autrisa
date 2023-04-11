@@ -11,21 +11,27 @@
         <a class="nav-link" asp-area="" asp-controller="Operations" asp-action="Index">Mov. Bancarios</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Lendings" asp-action="Index">Préstamos</a>
+        <a class="nav-link" asp-area="" asp-controller="Accounts" asp-action="IndexLendings">Préstamos</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Investments" asp-action="Index">Inversiones</a>
+        <a class="nav-link" asp-area="" asp-controller="Accounts" asp-action="IndexInvestments">Inversiones</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Properties" asp-action="Index">Predios</a>
+        <a class="nav-link" asp-area="" asp-controller="Accounts" asp-action="IndexProperties">Predios</a>
     </li>
     @if (ViewBag.UserRole == "admin")
-    {
-        <li class="nav-link">
-            <a class="nav-link" asp-area="Security" asp-controller="Users" asp-action="Index">Usuarios</a>
-        </li>
+    {<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+            <li class="">
+                <a class="dropdown-item" asp-area="Security" asp-controller="Users" asp-action="Index">Usuarios</a>
+            </li>
+            <li class="">
+                <a class="dropdown-item" asp-area="" asp-controller="Banks" asp-action="Index">Bancos</a>
+            </li>
+        </ul>
+    </li>
     }
-
     @*<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
     <ul class="dropdown-menu" aria-labelledby="dropdown04">
