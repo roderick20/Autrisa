@@ -9,10 +9,10 @@ namespace Autrisa.Models
     {
         public Account()
         {
-            Investments = new HashSet<Investment>();
-            Lendings = new HashSet<Lending>();
+            //Investments = new HashSet<Investment>();
+            //Lendings = new HashSet<Lending>();
             Operations = new HashSet<Operation>();
-            Properties = new HashSet<Property>();
+            //Properties = new HashSet<Property>();
         }
 
         public int Id { get; set; }
@@ -52,10 +52,10 @@ namespace Autrisa.Models
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
 
-        public virtual ICollection<Investment> Investments { get; set; }
-        public virtual ICollection<Lending> Lendings { get; set; }
+        //public virtual ICollection<Investment> Investments { get; set; }
+        //public virtual ICollection<Lending> Lendings { get; set; }
         public virtual ICollection<Operation> Operations { get; set; }
-        public virtual ICollection<Property> Properties { get; set; }
+        //public virtual ICollection<Property> Properties { get; set; }
         public virtual ICollection<AccountDetail> AccountDetails { get; set; }
         public virtual ICollection<Bank> Banks { get; set; }
     }

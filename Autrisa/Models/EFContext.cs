@@ -18,14 +18,14 @@ namespace Autrisa.Models
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<Bank> Banks { get; set; } = null!;
-        public virtual DbSet<Investment> Investments { get; set; } = null!;
-        public virtual DbSet<InvestmentsOperation> InvestmentsOperations { get; set; } = null!;
-        public virtual DbSet<Lending> Lendings { get; set; } = null!;
-        public virtual DbSet<LendingOperation> LendingOperations { get; set; } = null!;
+        //public virtual DbSet<Investment> Investments { get; set; } = null!;
+        //public virtual DbSet<InvestmentsOperation> InvestmentsOperations { get; set; } = null!;
+        //public virtual DbSet<Lending> Lendings { get; set; } = null!;
+        //public virtual DbSet<LendingOperation> LendingOperations { get; set; } = null!;
         public virtual DbSet<Operation> Operations { get; set; } = null!;
         public virtual DbSet<AccountDetail> AccountDetails { get; set; } = null!;
-        public virtual DbSet<PropertiesOperation> PropertiesOperations { get; set; } = null!;
-        public virtual DbSet<Property> Properties { get; set; } = null!;
+        //public virtual DbSet<PropertiesOperation> PropertiesOperations { get; set; } = null!;
+        //public virtual DbSet<Property> Properties { get; set; } = null!;
         public virtual DbSet<Resource> Resources { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<RoleResource> RoleResources { get; set; } = null!;
@@ -56,35 +56,35 @@ namespace Autrisa.Models
                 entity.ToTable("Bank");
             });
 
-            modelBuilder.Entity<InvestmentsOperation>(entity =>
-            {
-                entity.ToTable("InvestmentsOperation");
-            });
+            //modelBuilder.Entity<InvestmentsOperation>(entity =>
+            //{
+            //    entity.ToTable("InvestmentsOperation");
+            //});
 
-            modelBuilder.Entity<LendingOperation>(entity =>
-            {
-                entity.ToTable("LendingOperation");
-            });
+            //modelBuilder.Entity<LendingOperation>(entity =>
+            //{
+            //    entity.ToTable("LendingOperation");
+            //});
 
-            modelBuilder.Entity<PropertiesOperation>(entity =>
-            {
-                entity.ToTable("PropertiesOperation");
-            });
+            //modelBuilder.Entity<PropertiesOperation>(entity =>
+            //{
+            //    entity.ToTable("PropertiesOperation");
+            //});
 
-            modelBuilder.Entity<Lending>(entity =>
-            {
-                entity.ToTable("Lending");
-            });
+            //modelBuilder.Entity<Lending>(entity =>
+            //{
+            //    entity.ToTable("Lending");
+            //});
 
-            modelBuilder.Entity<Investment>(entity =>
-            {
-                entity.ToTable("Investment");
-            });
+            //modelBuilder.Entity<Investment>(entity =>
+            //{
+            //    entity.ToTable("Investment");
+            //});
 
-            modelBuilder.Entity<Property>(entity =>
-            {
-                entity.ToTable("Property");
-            });
+            //modelBuilder.Entity<Property>(entity =>
+            //{
+            //    entity.ToTable("Property");
+            //});
 
             modelBuilder.Entity<Operation>(entity =>
             {
