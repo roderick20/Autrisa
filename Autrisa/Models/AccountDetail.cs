@@ -37,6 +37,9 @@ namespace Autrisa.Models
         [Display(Name = "Tipo de operación")]
         public int? OperationType { get; set; }
 
+        [Display(Name = "-")]
+        public int OperationId { get; set; }
+
         public DateTime Created { get; set; }
         public int Author { get; set; }
         public DateTime? Modified { get; set; }

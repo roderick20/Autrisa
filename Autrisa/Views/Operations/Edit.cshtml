@@ -16,62 +16,77 @@
             <div class="card-body">
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="col-md-4">     
+                    <div class="col-md-4">
+                        @*<div class="form-group">
+                            <label class="control-label">Banco</label>
+                            <select id="BankId" name="BankId" class="form-select" asp-items="@ViewBag.BankId">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Tipo de operaci&oacute;n</label>
+                            <select name="OperationType" id="OperationType" class="form-select">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Cuenta de cargo</label>
+                            <select asp-for="AccountId" class="form-select">
+                                <option value=""></option>
+                            </select>
+                            <span asp-validation-for="AccountId" class="text-danger"></span>
+                        </div>*@
                         <div class="form-group">
                             <label asp-for="Type" class="control-label"></label>
-                            <input asp-for="Type" class="form-control"  type="text" />
-                            <span asp-validation-for="Type" class="text-danger"></span>
+                            <select name="Type" id="Type" class="form-select">
+                                <option value="0">Ingreso</option>
+                                <option value="1">Egreso</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label asp-for="Modality" class="control-label"></label>
-                            <input asp-for="Modality" class="form-control"  type="text" />
-                            <span asp-validation-for="Modality" class="text-danger"></span>
+                            <select name="Modality" id="Modality" class="form-select">
+                                <option value="0">Cheque</option>
+                                <option value="1">Transferencia</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label asp-for="Number" class="control-label"></label>
-                            <input asp-for="Number" class="form-control"  type="text" />
+                            <input asp-for="Number" class="form-control" type="text" required />
                             <span asp-validation-for="Number" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="AccountId" class="control-label"></label>
-                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId"></select>
-                            <span asp-validation-for="AccountId" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
                             <label asp-for="OperationDate" class="control-label"></label>
-                            <input asp-for="OperationDate" class="form-control"  type="text" />
+                            <input asp-for="OperationDate" class="form-control" type="text" required />
                             <span asp-validation-for="OperationDate" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Concept" class="control-label"></label>
-                            <input asp-for="Concept" class="form-control"  type="text" />
+                            <input asp-for="Concept" class="form-control" type="text" required />
                             <span asp-validation-for="Concept" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
-                            <input asp-for="Description" class="form-control"  type="text" />
+                            <input asp-for="Description" class="form-control" type="text" required />
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="Income" class="control-label"></label>
-                            <input asp-for="Income" class="form-control"  type="text" />
-                            <span asp-validation-for="Income" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Outcome" class="control-label"></label>
-                            <input asp-for="Outcome" class="form-control"  type="text" />
-                            <span asp-validation-for="Outcome" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Year" class="control-label"></label>
-                            <input asp-for="Year" class="form-control"  type="text" />
-                            <span asp-validation-for="Year" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Month" class="control-label"></label>
-                            <input asp-for="Month" class="form-control"  type="text" />
-                            <span asp-validation-for="Month" class="text-danger"></span>
-                        </div>
+                        @if (Model.Type == 0)
+                        {
+                            <div class="form-group">
+                                <label class="control-label">Monto</label>
+                                <input asp-for="Income" class="form-control" type="text" required />
+                                <span asp-validation-for="Income" class="text-danger"></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label class="control-label">Monto</label>
+                                <input asp-for="Outcome" class="form-control" type="text" required />
+                                <span asp-validation-for="Outcome" class="text-danger"></span>
+                            </div>
+                        }                        
+                        <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
                 </div>
             </div>

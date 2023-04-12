@@ -34,6 +34,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\InvestmentsController.cs" />
+    <Compile Remove="Controllers\InvestmentsOperationsController.cs" />
+    <Compile Remove="Controllers\LendingOperationsController.cs" />
+    <Compile Remove="Controllers\LendingsController.cs" />
+    <Compile Remove="Controllers\PropertiesController.cs" />
+    <Compile Remove="Controllers\PropertiesOperationsController.cs" />
+    <Compile Remove="Models\Autrisa_394Context.cs" />
+    <Compile Remove="Models\Investment.cs" />
+    <Compile Remove="Models\InvestmentsOperation.cs" />
+    <Compile Remove="Models\Lending.cs" />
+    <Compile Remove="Models\LendingOperation.cs" />
+    <Compile Remove="Models\PropertiesOperation.cs" />
+    <Compile Remove="Models\Property.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Accounts\Details.cshtml" />
     <Content Remove="Views\Operations\Details.cshtml" />
   </ItemGroup>

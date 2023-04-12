@@ -46,6 +46,43 @@ namespace Autrisa.Controllers
             return View(operations);
         }
 
+        public async Task<IActionResult> LendingDetails(int Id)
+        {
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.AccountId == Id)
+                .ToListAsync();
+
+            ViewBag.operations = operations;
+            return View(operations);
+        }
+
+        public async Task<IActionResult> InvestmentDetails(int Id)
+        {
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.AccountId == Id)
+                .ToListAsync();
+
+            ViewBag.operations = operations;
+            return View(operations);
+        }
+
+        public async Task<IActionResult> PropertyDetails(int Id)
+        {
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.AccountId == Id)
+                .ToListAsync();
+
+            ViewBag.operations = operations;
+            return View(operations);
+        }
+
+
         public async Task<IActionResult> Details(Guid UniqueId)
         {
             var operation = await _context.Operations
@@ -147,6 +184,9 @@ namespace Autrisa.Controllers
 
                 _context.Update(accountEdit);
                 _context.Add(operation);
+                await _context.SaveChangesAsync();
+
+                accdetail.OperationId = operation.Id;
                 _context.Add(accdetail);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Agregado exitosamente";
@@ -176,39 +216,91 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Operation operation, string OperationDate, string Modified)
+        public async Task<IActionResult> Edit(Operation operation, string Modified)
         {
             try
             {
                 var operationEdit = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == operation.UniqueId);
+                var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operationEdit.AccountId);
+                var accdetailEdit = await _context.AccountDetails.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
+                var check = 0;
 
-                
+                // Modificar tanto Operations, como Account y AccountDetail
+                //--------------------------------------------------------------------------------------------------------------------
+                // Movimiento errado, mismo monto (Ingreso/Salida)
 
+                //operations, type: 0:In, 1:Out
 
+                if (operationEdit.Type == 0 && operation.Type == 1 && operationEdit.Income == operation.Income && check == 0)
+                {
+                    accountEdit.Amount = accountEdit.Amount - (2 * (decimal)operation.Income);
+                    operationEdit.Outcome = operation.Income;
+                    operationEdit.Income = 0;
+                    check++;
+                }
+                else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Outcome == operation.Outcome && check == 0)
+                {
+                    accountEdit.Amount = accountEdit.Amount + (2 * (decimal)operation.Outcome);
+                    operationEdit.Income = operation.Outcome;
+                    operationEdit.Outcome = 0;
+                    check++;
+                }
 
+                // Movimiento errado, diferente monto (Ingreso, Salida)
 
+                if (operationEdit.Type == 0 && operation.Type == 1 && operationEdit.Income != operation.Income && check == 0)// && operation.Outcome != null)
+                {
+                    accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+                    operationEdit.Outcome = operation.Income;
+                    operationEdit.Income = 0;
+                    check++;
+                }
+                else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Income != operation.Outcome && check == 0)// && operation.Income != null)
+                {
+                    accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+                    operationEdit.Income = operation.Outcome;
+                    operationEdit.Outcome = 0;
+                    check++;
+                }
 
+                // Movimiento correcto, diferente monto
 
+                if (operationEdit.Type == operation.Type && operation.Type == 1 && operationEdit.Outcome != operation.Outcome && check == 0)
+                {
+                    accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
+                    check++;
+                }
+                else if (operationEdit.Type == operation.Type && operation.Type == 0 && operationEdit.Income != operation.Income && check == 0)
+                {
+                    accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
+                    check++;
+                }
 
-
-
+                // Movimiento correcto, monto correcto, otro cambio
 
                 operationEdit.Type = operation.Type;
                 operationEdit.Modality = operation.Modality;
                 operationEdit.Number = operation.Number;
-                operationEdit.AccountId = operation.AccountId;
-                operationEdit.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                string operDate = operation.OperationDate.ToString("dd/MM/yyyy");
+                operationEdit.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 //operationEdit.OperationDate = operation.OperationDate;
                 operationEdit.Concept = operation.Concept;
                 operationEdit.Description = operation.Description;
-                operationEdit.Income = operation.Income;
-                operationEdit.Outcome = operation.Outcome;
                 operationEdit.Year = operation.Year;
                 operationEdit.Month = operation.Month;
-                operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //operationEdit.Modified = DateTime.Now;
+                //operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
+
+                if (check == 0)
+                {
+                    operationEdit.Income = operation.Income;
+                    operationEdit.Outcome = operation.Outcome;
+                }
+
                 _context.Update(operationEdit);
+                _context.Update(accdetailEdit);
+                _context.Update(accountEdit);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
                 return RedirectToAction(nameof(Index));
@@ -284,8 +376,9 @@ namespace Autrisa.Controllers
         {
             try
             {
-                var accountData = await _context.Accounts.Where(m => m.AccountType != "Inversión"
-                && m.AccountType != "Préstamo" && m.AccountType != "Predios").ToListAsync();
+                //var accountData = await _context.Accounts.Where(m => m.AccountType != "Inversión"
+                //&& m.AccountType != "Préstamo" && m.AccountType != "Predios").ToListAsync();
+                var accountData = await _context.Accounts.ToListAsync();
                 decimal? accountMoney = 0;
                 decimal? accountIncome = 0;
                 decimal? accountOutcome = 0;
@@ -660,8 +753,6 @@ namespace Autrisa.Controllers
             return wb.Deliver("Estado_cuenta.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
-
-
         [HttpPost]
         public ActionResult Elementos(int id)
         {
@@ -670,11 +761,10 @@ namespace Autrisa.Controllers
                     {
                         value = m.Id,
                         type = m.OperationType,
-                        //samount = m.Amount,
-                        //damount = m.DollarsAmount,
                         text = m.AccountNumber, 
-                        // m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
                     })
+                    .GroupBy(p => p.type)
+                    .Select(g => g.First())
                     .ToList();
             return Json(elementos);
         }
@@ -682,17 +772,13 @@ namespace Autrisa.Controllers
         [HttpPost]
         public ActionResult CuentaOperacion(int id, int bank)
         {
-            var elementos = _context.Accounts.Where(m => m.BankId == bank && m.OperationType == id)
+            var elementos = _context.Accounts.Where(m => m.BankId == bank && m.OperationType == id).Distinct()
                     .Select(m => new productoCliente
                     {
                         value = m.Id,
                         type = m.OperationType,
-                        //samount = m.Amount,
-                        //damount = m.DollarsAmount,
                         text = m.AccountNumber,
-                        // m.Created.ToString("dd/MM/yyyy HH:mm:ss"),
-                    }).Distinct()
-                    .ToList();
+                    }).Distinct().ToList();
             return Json(elementos);
         }
     }
