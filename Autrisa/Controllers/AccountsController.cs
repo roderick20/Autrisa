@@ -132,9 +132,9 @@ namespace Autrisa.Controllers
                 accountEdit.AccountType = account.AccountType; 
                 accountEdit.AccountNumber = account.AccountNumber; 
                 accountEdit.Currency = account.Currency; 
-                accountEdit.Amount = account.Amount; 
-                //accountEdit.Modified = DateTime.Now;
-                accountEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                accountEdit.Amount = account.Amount;
+                accountEdit.Modified = DateTime.Now;
+                //accountEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 accountEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(accountEdit);
                 await _context.SaveChangesAsync();

@@ -7,10 +7,16 @@
 <div class="col-12">
     <form asp-action="Create" enctype="multipart/form-data">
         <div class="card border rounded-3">
-            <div class="card-header  border-bottom p-3">
+            <div class="card-header border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
                     <h5 class="mb-2 mb-sm-0">Agregar Movimientos</h5>
                 </div>
+                @if (ViewBag.Check != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @TempData["Check"] Documento ya existente
+                    </div>
+                }
             </div>
             <div class="card-body">
                 <div class="row">
@@ -101,9 +107,9 @@
 
     <script>
         $.datepicker.setDefaults($.datepicker.regional["es"]);
-    
+
         $(document).ready(function () {
-            $( "#OperationDate" ).datepicker({
+            $("#OperationDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: "dd/mm/yy"
@@ -136,14 +142,14 @@
                 $.ajax({
                     url: '/Operations/Elementos', // La URL del controlador y la acción que manejarán la petición
                     type: 'POST',
-                    data: { id: id}, // Enviar el ID seleccionado como parámetro
+                    data: { id: id }, // Enviar el ID seleccionado como parámetro
                     success: function (response) {
                         // Actualizar el segundo Select con la respuesta del servidor
                         var select = $('#OperationType');
                         select.empty(); // Eliminar todas las opciones anteriores
                         select.append('<option value="">' + " " + '</option>');
                         $.each(response, function (index, value) {
-                            if(value.type == 0){
+                            if (value.type == 0) {
                                 select.append('<option value="' + value.type + '">' + "Operaciones normales " + '</option>');
                             }
                             else if (value.type == 1) {

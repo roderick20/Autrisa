@@ -136,10 +136,10 @@
                                 @item.Description / @item.Concept
                             </td>
                             <td class="text-end">
-                                @item.Income
+                                @string.Format("{0:#,##0.00}", item.Income)
                             </td>
                             <td class="text-end">
-                                @item.Outcome
+                                @string.Format("{0:#,##0.00}", item.Outcome)
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">

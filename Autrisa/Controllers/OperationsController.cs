@@ -120,7 +120,7 @@ namespace Autrisa.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.AccountId = new SelectList(_context.Accounts.Where(m => m.AccountType == "Ahorros" || m.AccountType == "Corriente"), "Id", "Name");
+            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name");
             ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
@@ -132,75 +132,81 @@ namespace Autrisa.Controllers
             try
             {
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
-                AccountDetail accdetail = new AccountDetail();
-
-                operation.UniqueId = Guid.NewGuid();
-                //operation.Created = DateTime.Now;
-                operation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                operation.Author = (int)HttpContext.Session.GetInt32("UserId");
-                DateTime selectedDate = operation.OperationDate;
-                operation.Year = selectedDate.Year;
-                operation.Month = selectedDate.Month;
-
-                var montoInicial = accountEdit.Amount;
-                if (operation.Type == 0)
+                var check = await _context.Operations.Include(m => m.Account).Where(m => m.Account.BankId == accountEdit.BankId &&
+                m.Number == operation.Number).FirstOrDefaultAsync();
+                if (check
+                    == null)
                 {
-                    accountEdit.Amount = montoInicial + montoTransaccion;
-                    operation.Income = montoTransaccion;
-                    operation.Outcome = 0;
-                }
-                else if (operation.Type == 1)
-                {
-                    accountEdit.Amount = montoInicial - montoTransaccion;
-                    operation.Outcome = montoTransaccion;
-                    operation.Income = 0;
-                }
+                    AccountDetail accdetail = new AccountDetail();
 
-                if (AccountOper == 0)
-                {
-                    accdetail.AccountId = operation.AccountId;
-                }
-                else
-                {
-                    accdetail.AccountId = AccountOper;
-                }
-                accdetail.UniqueId = Guid.NewGuid();
-                accdetail.Description = operation.Description;
-                accdetail.Concept = operation.Concept;
-                accdetail.Author = operation.Author;
-                accdetail.Created = DateTime.Now;
-                if(accountEdit.Currency == 0)
-                {
-                    accdetail.SolesAmount = montoTransaccion;
-                }
-                else
-                {
-                    accdetail.DollarsAmount = montoTransaccion;
-                }
-                accdetail.InitialAmount = accountEdit.Amount;
-                accdetail.Customer = customer;
-                accdetail.OperationType = OperationType;
-                accdetail.OperationDate = DateTime.Now;
+                    operation.UniqueId = Guid.NewGuid();
+                    //operation.Created = DateTime.Now;
+                    operation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    DateTime selectedDate = operation.OperationDate;
+                    operation.Year = selectedDate.Year;
+                    operation.Month = selectedDate.Month;
 
-                _context.Update(accountEdit);
-                _context.Add(operation);
-                await _context.SaveChangesAsync();
+                    var montoInicial = accountEdit.Amount;
+                    if (operation.Type == 0)
+                    {
+                        accountEdit.Amount = montoInicial + montoTransaccion;
+                        operation.Income = montoTransaccion;
+                        operation.Outcome = 0;
+                    }
+                    else if (operation.Type == 1)
+                    {
+                        accountEdit.Amount = montoInicial - montoTransaccion;
+                        operation.Outcome = montoTransaccion;
+                        operation.Income = 0;
+                    }
 
-                accdetail.OperationId = operation.Id;
-                _context.Add(accdetail);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Agregado exitosamente";
-                return RedirectToAction(nameof(Index));
+                    if (AccountOper == 0)
+                    {
+                        accdetail.AccountId = operation.AccountId;
+                    }
+                    else
+                    {
+                        accdetail.AccountId = AccountOper;
+                    }
+                    accdetail.UniqueId = Guid.NewGuid();
+                    accdetail.Description = operation.Description;
+                    accdetail.Concept = operation.Concept;
+                    accdetail.Author = operation.Author;
+                    accdetail.Created = DateTime.Now;
+                    if (accountEdit.Currency == 0)
+                    {
+                        accdetail.SolesAmount = montoTransaccion;
+                    }
+                    else
+                    {
+                        accdetail.DollarsAmount = montoTransaccion;
+                    }
+                    accdetail.InitialAmount = accountEdit.Amount;
+                    accdetail.Customer = customer;
+                    accdetail.OperationType = OperationType;
+                    accdetail.OperationDate = DateTime.Now;
 
+                    _context.Update(accountEdit);
+                    _context.Add(operation);
+                    await _context.SaveChangesAsync();
+
+                    accdetail.OperationId = operation.Id;
+                    _context.Add(accdetail);
+                    await _context.SaveChangesAsync();
+                    TempData["Success"] = "Agregado exitosamente";
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag.Check = "Documento ya existente";
             }
             catch (Exception ex)
             {
                 TempData["Error"] = "Error: " + ex.Message;
+                TempData["Check"] = "Documento ya existente";
             }
-            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "", operation.AccountId);
-            ViewBag.BankId = new SelectList(_context.Banks, "Id", "");
-
-            return View();
+            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name", operation.AccountId);
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            return View(operation);
         }
 
         public async Task<IActionResult> Edit(Guid UniqueId)
@@ -291,6 +297,9 @@ namespace Autrisa.Controllers
                 //operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                DateTime operDateTime = Convert.ToDateTime(operDate);
+                operationEdit.Year = operDateTime.Year;
+                operationEdit.Month = operDateTime.Month;
 
                 if (check == 0)
                 {
