@@ -22,24 +22,28 @@
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label class="control-label">Banco</label>
                             <select id="BankId" name="BankId" class="form-select" asp-items="@ViewBag.BankId">
                                 <option value=""></option>
                             </select>
+                        </div>*@
+                        <div class="form-group">
+                            <label class="control-label">Cuenta de cargo</label>
+                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId">
+                                <option value=""></option>
+                            </select>
+                            <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Tipo de operaci&oacute;n</label>
                             <select name="OperationType" id="OperationType" class="form-select">
                                 <option value=""></option>
+                                <option value="1">Operaciones normales</option>
+                                <option value="2">Pr&eacute;stamos</option>
+                                <option value="3">Inversiones</option>
+                                <option value="4">Predios</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Cuenta de cargo</label>
-                            <select asp-for="AccountId" class="form-select">
-                                <option value=""></option>
-                            </select>
-                            <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label name="customer" id="customer" class="control-label">Cliente</label>
@@ -135,73 +139,73 @@
                 event.currentTarget.submit();
             });
 
-            $('#BankId').on('change', function () { // Seguir los cambios de dos o más elementos
-                //alert('cambió');
-                var id = $(this).val(); // Obtener el valor seleccionado
-                // Hacer una petición AJAX al servidor
-                $.ajax({
-                    url: '/Operations/Elementos', // La URL del controlador y la acción que manejarán la petición
-                    type: 'POST',
-                    data: { id: id }, // Enviar el ID seleccionado como parámetro
-                    success: function (response) {
-                        // Actualizar el segundo Select con la respuesta del servidor
-                        var select = $('#OperationType');
-                        select.empty(); // Eliminar todas las opciones anteriores
-                        select.append('<option value="">' + " " + '</option>');
-                        $.each(response, function (index, value) {
-                            if (value.type == 0) {
-                                select.append('<option value="' + value.type + '">' + "Operaciones normales " + '</option>');
-                            }
-                            else if (value.type == 1) {
-                                select.append('<option value="' + value.type + '">' + " Pr&eacute;stamos " + '</option>');
-                            }
-                            else if (value.type == 2) {
-                                select.append('<option value="' + value.type + '">' + " Inversiones " + '</option>');
-                            }
-                            else if (value.type == 3) {
-                                select.append('<option value="' + value.type + '">' + " Predios " + '</option>');
-                            }
-                        });
-                    },
-                    error: function () {
-                        alert('Error al cargar la lista');
-                    }
-                });
-            });
+            //$('#BankId').on('change', function () { // Seguir los cambios de dos o más elementos
+            //    //alert('cambió');
+            //    var id = $(this).val(); // Obtener el valor seleccionado
+            //    // Hacer una petición AJAX al servidor
+            //    $.ajax({
+            //        url: '/Operations/Elementos', // La URL del controlador y la acción que manejarán la petición
+            //        type: 'POST',
+            //        data: { id: id }, // Enviar el ID seleccionado como parámetro
+            //        success: function (response) {
+            //            // Actualizar el segundo Select con la respuesta del servidor
+            //            var select = $('#OperationType');
+            //            select.empty(); // Eliminar todas las opciones anteriores
+            //            select.append('<option value="">' + " " + '</option>');
+            //            $.each(response, function (index, value) {
+            //                if (value.type == 0) {
+            //                    select.append('<option value="' + value.type + '">' + "Operaciones normales " + '</option>');
+            //                }
+            //                else if (value.type == 1) {
+            //                    select.append('<option value="' + value.type + '">' + " Pr&eacute;stamos " + '</option>');
+            //                }
+            //                else if (value.type == 2) {
+            //                    select.append('<option value="' + value.type + '">' + " Inversiones " + '</option>');
+            //                }
+            //                else if (value.type == 3) {
+            //                    select.append('<option value="' + value.type + '">' + " Predios " + '</option>');
+            //                }
+            //            });
+            //        },
+            //        error: function () {
+            //            alert('Error al cargar la lista');
+            //        }
+            //    });
+            //});
 
-            $('#OperationType').on('change', function () { // Seguir los cambios de dos o más elementos
-                var id = $(this).val(); // Obtener el valor seleccionado
-                var bank = $('#BankId').val();
-                // Hacer una petición AJAX al servidor
-                $.ajax({
-                    url: '/Operations/CuentaOperacion', // La URL del controlador y la acción que manejarán la petición
-                    type: 'POST',
-                    data: { id: id, bank: bank }, // Enviar el ID seleccionado como parámetro
-                    success: function (response) {
-                        // Actualizar el segundo Select con la respuesta del servidor
-                        var select = $('#AccountId');
-                        select.empty(); // Eliminar todas las opciones anteriores
-                        select.append('<option value="">' + " " + '</option>');
-                        $.each(response, function (index, value) {
-                            if (value.type == 0) {
-                                select.append('<option value="' + value.value + '">' + "Cuenta regular: " + value.text + '</option>');
-                            }
-                            else if (value.type == 1) {
-                                select.append('<option value="' + value.value + '">' + " Cuenta de pr&eacute;stamo:  " + value.text + '</option>');
-                            }
-                            else if (value.type == 2) {
-                                select.append('<option value="' + value.value + '">' + " Cuenta de inversi&oacute;n:  " + value.text + '</option>');
-                            }
-                            else if (value.type == 3) {
-                                select.append('<option value="' + value.value + '">' + " Cuenta de predios:  " + value.text + '</option>');
-                            }
-                        });
-                    },
-                    error: function () {
-                        alert('Error al cargar la lista');
-                    }
-                });
-            });
+            //$('#OperationType').on('change', function () { // Seguir los cambios de dos o más elementos
+            //    var id = $(this).val(); // Obtener el valor seleccionado
+            //    var bank = $('#BankId').val();
+            //    // Hacer una petición AJAX al servidor
+            //    $.ajax({
+            //        url: '/Operations/CuentaOperacion', // La URL del controlador y la acción que manejarán la petición
+            //        type: 'POST',
+            //        data: { id: id, bank: bank }, // Enviar el ID seleccionado como parámetro
+            //        success: function (response) {
+            //            // Actualizar el segundo Select con la respuesta del servidor
+            //            var select = $('#AccountId');
+            //            select.empty(); // Eliminar todas las opciones anteriores
+            //            select.append('<option value="">' + " " + '</option>');
+            //            $.each(response, function (index, value) {
+            //                if (value.type == 0) {
+            //                    select.append('<option value="' + value.value + '">' + "Cuenta regular: " + value.text + '</option>');
+            //                }
+            //                else if (value.type == 1) {
+            //                    select.append('<option value="' + value.value + '">' + " Cuenta de pr&eacute;stamo:  " + value.text + '</option>');
+            //                }
+            //                else if (value.type == 2) {
+            //                    select.append('<option value="' + value.value + '">' + " Cuenta de inversi&oacute;n:  " + value.text + '</option>');
+            //                }
+            //                else if (value.type == 3) {
+            //                    select.append('<option value="' + value.value + '">' + " Cuenta de predios:  " + value.text + '</option>');
+            //                }
+            //            });
+            //        },
+            //        error: function () {
+            //            alert('Error al cargar la lista');
+            //        }
+            //    });
+            //});
         });
     </script>
 }

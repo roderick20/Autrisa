@@ -48,7 +48,10 @@ namespace Autrisa.Models
         
         [Display(Name = "Mes")]
         public int Month { get; set; }
-        
+
+        [Display(Name = "Clase de operación")]
+        public int? OperationType { get; set; }
+
         public DateTime Created { get; set; }
         public int Author { get; set; }
         public DateTime? Modified { get; set; }

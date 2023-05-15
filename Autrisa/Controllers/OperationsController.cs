@@ -37,7 +37,7 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var operations = await _context.Operations
+            var operations =  await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
                 .ToListAsync();
@@ -46,12 +46,12 @@ namespace Autrisa.Controllers
             return View(operations);
         }
 
-        public async Task<IActionResult> LendingDetails(int Id)
+        public async Task<IActionResult> LendingDetails()
         {
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.AccountId == Id)
+                .Where(m => m.OperationType == 2)
                 .ToListAsync();
 
             ViewBag.operations = operations;
@@ -63,7 +63,7 @@ namespace Autrisa.Controllers
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.AccountId == Id)
+                .Where(m => m.OperationType == 3)
                 .ToListAsync();
 
             ViewBag.operations = operations;
@@ -75,7 +75,7 @@ namespace Autrisa.Controllers
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.AccountId == Id)
+                .Where(m => m.OperationType == 4)
                 .ToListAsync();
 
             ViewBag.operations = operations;
@@ -118,9 +118,10 @@ namespace Autrisa.Controllers
             return View(operation);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name");
+            var accounts = await _context.Accounts.ToListAsync();
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
             ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
@@ -146,6 +147,7 @@ namespace Autrisa.Controllers
                     DateTime selectedDate = operation.OperationDate;
                     operation.Year = selectedDate.Year;
                     operation.Month = selectedDate.Month;
+                    operation.OperationType = OperationType;
 
                     var montoInicial = accountEdit.Amount;
                     if (operation.Type == 0)
@@ -161,14 +163,14 @@ namespace Autrisa.Controllers
                         operation.Income = 0;
                     }
 
-                    if (AccountOper == 0)
-                    {
-                        accdetail.AccountId = operation.AccountId;
-                    }
-                    else
-                    {
-                        accdetail.AccountId = AccountOper;
-                    }
+                                                                            if (AccountOper == 0)
+                                                                            {
+                                                                                accdetail.AccountId = operation.AccountId;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                accdetail.AccountId = AccountOper;
+                                                                            }
                     accdetail.UniqueId = Guid.NewGuid();
                     accdetail.Description = operation.Description;
                     accdetail.Concept = operation.Concept;
@@ -186,6 +188,7 @@ namespace Autrisa.Controllers
                     accdetail.Customer = customer;
                     accdetail.OperationType = OperationType;
                     accdetail.OperationDate = DateTime.Now;
+
 
                     _context.Update(accountEdit);
                     _context.Add(operation);
