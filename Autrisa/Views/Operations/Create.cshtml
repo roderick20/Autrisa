@@ -23,10 +23,10 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="col-md-4">
                         @*<div class="form-group">
-                            <label class="control-label">Banco</label>
-                            <select id="BankId" name="BankId" class="form-select" asp-items="@ViewBag.BankId">
-                                <option value=""></option>
-                            </select>
+                        <label class="control-label">Banco</label>
+                        <select id="BankId" name="BankId" class="form-select" asp-items="@ViewBag.BankId">
+                        <option value=""></option>
+                        </select>
                         </div>*@
                         <div class="form-group">
                             <label class="control-label">Cuenta de cargo</label>
@@ -46,7 +46,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label name="customer" id="customer" class="control-label">Cliente</label>
+                            <label class="control-label">Cliente</label>
                             <input name="customer" id="customer" class="form-control" type="text" required />
                         </div>
                         <div class="form-group">
@@ -137,6 +137,18 @@
                 $("#btnSave").prop('disabled', true);
 
                 event.currentTarget.submit();
+            });
+
+            $(function () {
+                var clientsJson = '@Html.Raw(ViewBag.ClientsJson)';
+                var clientsArray = JSON.parse(clientsJson);
+                var availableClients = clientsArray.map(function (client) {
+                    return client.Name;
+                });
+                //console.log(availableClients);
+                $("#customer").autocomplete({
+                    source: availableClients
+                });
             });
 
             //$('#BankId').on('change', function () { // Seguir los cambios de dos o más elementos

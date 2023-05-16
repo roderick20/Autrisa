@@ -14,6 +14,7 @@ using System.Globalization;
 using ClosedXML.Excel;
 using ClosedXML.Extensions;
 using DocumentFormat.OpenXml.Presentation;
+using Newtonsoft.Json;
 
 namespace Autrisa.Controllers
 {
@@ -121,7 +122,10 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Create()
         {
             var accounts = await _context.Accounts.ToListAsync();
+            var clients = await _context.Clients.ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
             ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.ClientsJson = clientsJson;
             ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
@@ -135,9 +139,18 @@ namespace Autrisa.Controllers
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
                 var check = await _context.Operations.Include(m => m.Account).Where(m => m.Account.BankId == accountEdit.BankId &&
                 m.Number == operation.Number).FirstOrDefaultAsync();
-                if (check
-                    == null)
+                var existentClient = await _context.Clients.Where(m => m.Name == customer).FirstOrDefaultAsync();
+
+                if (check == null)
                 {
+                    if(existentClient == null)
+                    {
+                        Client client = new()
+                        {
+                            Name = customer
+                        };
+                    }
+
                     AccountDetail accdetail = new AccountDetail();
 
                     operation.UniqueId = Guid.NewGuid();
@@ -163,14 +176,14 @@ namespace Autrisa.Controllers
                         operation.Income = 0;
                     }
 
-                                                                            if (AccountOper == 0)
-                                                                            {
-                                                                                accdetail.AccountId = operation.AccountId;
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                accdetail.AccountId = AccountOper;
-                                                                            }
+                    if (AccountOper == 0)
+                    {
+                        accdetail.AccountId = operation.AccountId;
+                    }
+                    else
+                    {
+                        accdetail.AccountId = AccountOper;
+                    }
                     accdetail.UniqueId = Guid.NewGuid();
                     accdetail.Description = operation.Description;
                     accdetail.Concept = operation.Concept;

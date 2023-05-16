@@ -27,6 +27,7 @@ namespace Autrisa.Models
         //public virtual DbSet<PropertiesOperation> PropertiesOperations { get; set; } = null!;
         //public virtual DbSet<Property> Properties { get; set; } = null!;
         public virtual DbSet<Resource> Resources { get; set; } = null!;
+        public virtual DbSet<Client> Clients { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<RoleResource> RoleResources { get; set; } = null!;
         public virtual DbSet<Setting> Settings { get; set; } = null!;
@@ -119,6 +120,11 @@ namespace Autrisa.Models
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.ToTable("UserRole", "auth");
+            });
+
+            modelBuilder.Entity<Client>(entity =>
+            {
+                entity.ToTable("Client");
             });
 
             OnModelCreatingPartial(modelBuilder);
