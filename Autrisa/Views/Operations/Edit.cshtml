@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="OperationDate" class="control-label"></label>
-                            <input asp-for="OperationDate" class="form-control" type="text" required />
+                            <input name="operDate" id="operDate" class="form-control" type="text" required value="@Model.OperationDate.ToString("dd/MM/yyyy")" />
                             <span asp-validation-for="OperationDate" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -112,7 +112,7 @@
     <script>
         $(document).ready(function () {
 
-            $("#OperationDate").datepicker({
+            $("#operDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: "dd/mm/yy"

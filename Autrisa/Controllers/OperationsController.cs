@@ -241,7 +241,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Operation operation, string Modified)
+        public async Task<IActionResult> Edit(Operation operation, string Modified, string operDate)
         {
             try
             {
@@ -306,13 +306,13 @@ namespace Autrisa.Controllers
                 operationEdit.Type = operation.Type;
                 operationEdit.Modality = operation.Modality;
                 operationEdit.Number = operation.Number;
-                string operDate = operation.OperationDate.ToString("dd/MM/yyyy");
                 operationEdit.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 //operationEdit.OperationDate = operation.OperationDate;
                 operationEdit.Concept = operation.Concept;
                 operationEdit.Description = operation.Description;
-                operationEdit.Year = operation.Year;
-                operationEdit.Month = operation.Month;
+                DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operationEdit.Year = selectedDate.Year;
+                operationEdit.Month = selectedDate.Month;               
                 //operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
