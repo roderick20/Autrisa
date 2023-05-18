@@ -316,9 +316,6 @@ namespace Autrisa.Controllers
                 //operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                DateTime operDateTime = Convert.ToDateTime(operDate);
-                operationEdit.Year = operDateTime.Year;
-                operationEdit.Month = operDateTime.Month;
 
                 if (check == 0)
                 {
