@@ -157,9 +157,9 @@ namespace Autrisa.Controllers
                     //string operdate = Convert.ToString(operation.OperationDate);
                     operation.UniqueId = Guid.NewGuid();
                     //operation.Created = DateTime.Now;
-                    operation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.Created = DateTime.Now;
                     operation.Author = (int)HttpContext.Session.GetInt32("UserId");
-                    DateTime selectedDate = operation.OperationDate;
+                    DateTime selectedDate = Convert.ToDateTime(operDate);
                     operation.Year = selectedDate.Year;
                     operation.Month = selectedDate.Month;
                     operation.OperationType = OperationType;
