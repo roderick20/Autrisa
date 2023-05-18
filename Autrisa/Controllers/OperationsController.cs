@@ -132,7 +132,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType, string customer)
+        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType, string customer, string OperationDate)
         {
             try
             {
@@ -154,7 +154,7 @@ namespace Autrisa.Controllers
                     AccountDetail accdetail = new AccountDetail();
 
 
-                    string operdate = Convert.ToString(operation.OperationDate);
+                    //string operdate = Convert.ToString(operation.OperationDate);
                     operation.UniqueId = Guid.NewGuid();
                     //operation.Created = DateTime.Now;
                     operation.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -163,7 +163,7 @@ namespace Autrisa.Controllers
                     operation.Year = selectedDate.Year;
                     operation.Month = selectedDate.Month;
                     operation.OperationType = OperationType;
-                    operation.OperationDate = DateTime.ParseExact(operdate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.OperationDate = DateTime.ParseExact(OperationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                     var montoInicial = accountEdit.Amount;
                     if (operation.Type == 0)
