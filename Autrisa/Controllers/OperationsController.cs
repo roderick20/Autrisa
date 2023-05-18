@@ -159,7 +159,7 @@ namespace Autrisa.Controllers
                     //operation.Created = DateTime.Now;
                     operation.Created = DateTime.Now;
                     operation.Author = (int)HttpContext.Session.GetInt32("UserId");
-                    DateTime selectedDate = Convert.ToDateTime(operDate);
+                    DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     operation.Year = selectedDate.Year;
                     operation.Month = selectedDate.Month;
                     operation.OperationType = OperationType;
