@@ -293,11 +293,15 @@ namespace Autrisa.Controllers
                 if (operationEdit.Type == operation.Type && operation.Type == 1 && operationEdit.Outcome != operation.Outcome && check == 0)
                 {
                     accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
+                    operationEdit.Outcome = operation.Outcome;
+                    operationEdit.Income = 0;
                     check++;
                 }
                 else if (operationEdit.Type == operation.Type && operation.Type == 0 && operationEdit.Income != operation.Income && check == 0)
                 {
                     accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
+                    operationEdit.Income = operation.Income;
+                    operationEdit.Outcome = 0;
                     check++;
                 }
 
@@ -437,7 +441,7 @@ namespace Autrisa.Controllers
                     closhure.Description = "Cierre de mes";
                     closhure.Modality = 100;
                     closhure.Type = 2;
-                    closhure.Number = 0;
+                    closhure.Number = "0";
                     closhure.OperationDate = DateTime.Now;
                     closhure.AccountId = account.Id;
                     _context.Add(closhure);

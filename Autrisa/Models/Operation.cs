@@ -23,7 +23,7 @@ namespace Autrisa.Models
         public int Modality { get; set; }
         
         [Display(Name = "Número")]
-        public int Number { get; set; }
+        public string Number { get; set; }
         
         [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
