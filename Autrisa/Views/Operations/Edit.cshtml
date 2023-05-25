@@ -85,7 +85,12 @@
                                 <input asp-for="Outcome" class="form-control" type="text" required />
                                 <span asp-validation-for="Outcome" class="text-danger"></span>
                             </div>
-                        }                        
+                        }
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label">Receptor</label>
+                            <input name="Receptor" id="Receptor" class="form-control" type="text" />
+                        </div>
                         <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
                 </div>

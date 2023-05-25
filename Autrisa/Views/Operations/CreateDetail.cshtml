@@ -1,11 +1,11 @@
-@model Autrisa.Models.Operation
+Ôªø@model Autrisa.Models.Operation
 
 @{
     ViewData["Title"] = "Agregar Movimientos";
 }
 
 <div class="col-12">
-    <form asp-action="Create" enctype="multipart/form-data">
+    <form asp-action="CreateDetail" enctype="multipart/form-data">
         <div class="card border rounded-3">
             <div class="card-header border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
@@ -30,24 +30,43 @@
                         </div>*@
                         <div class="form-group">
                             <label class="control-label">Cuenta de cargo</label>
-                            <select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId">
-                                <option value=""></option>
-                            </select>
+                            @*<select asp-for="AccountId" class="form-select" asp-items="@ViewBag.AccountId">
+                                <option value="@Model.Account.Name"></option>
+                            </select>*@
+                            <input class="form-control" type="text" value="@ViewBag.AccountId.Name" readonly />
+                            <input class="form-control" type="hidden" value="@ViewBag.AccountId.Id" name="AccountId" id="AccountId" readonly />
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Tipo de operaci&oacute;n</label>
-                            <select name="OperationType" id="OperationType" class="form-select">
+                            @*<select name="OperationType" id="OperationType" class="form-select">
                                 <option value=""></option>
                                 <option value="1">Operaciones normales</option>
                                 <option value="2">Pr&eacute;stamos</option>
                                 <option value="3">Inversiones</option>
                                 <option value="4">Predios</option>
-                            </select>
+                            </select>*@
+                            @{
+                                var tipo = "";
+                                if (ViewBag.Operation.OperationType == 2)
+                                {
+                                    tipo = "Pr√©stamo";
+                                }
+                                else if (ViewBag.Operation.OperationType == 3)
+                                {
+                                    tipo = "Inversiones";
+                                }
+                                else if (ViewBag.Operation.OperationType == 4)
+                                {
+                                    tipo = "Predios";
+                                }
+                            }
+                            <input class="form-control" type="text" value="@tipo" readonly />
+                            <input class="form-control" type="hidden" value="@ViewBag.Operation.OperationType" name="OperationType" id="OperationType" placeholder="@tipo" readonly />
                         </div>
                         <div class="form-group">
                             <label class="control-label">Cliente</label>
-                            <input name="customer" id="customer" class="form-control" type="text" required />
+                            <input name="customer" id="customer" value="@ViewBag.Operation.Customer" class="form-control" type="text" readonly />
                         </div>
                         <div class="form-group">
                             <label asp-for="Type" class="control-label"></label>
@@ -90,11 +109,6 @@
                         <div class="form-group">
                             <label name="Receptor" class="control-label">Receptor</label>
                             <input name="Receptor" id="Receptor" class="form-control" type="text" />
-                        </div>
-                        <hr />
-                        <div class="form-group">
-                            <label name="InitialBalance" class="control-label">Saldo Inicial</label>
-                            <input name="InitialBalance" id="InitialBalance" class="form-control" type="text" />
                         </div>
                         <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                         <input type="hidden" value="@ViewBag.LendingId" id="LendingId" name="LendingId" />
@@ -163,14 +177,14 @@
                 });
             });
 
-            //$('#BankId').on('change', function () { // Seguir los cambios de dos o m·s elementos
-            //    //alert('cambiÛ');
+            //$('#BankId').on('change', function () { // Seguir los cambios de dos o m√°s elementos
+            //    //alert('cambi√≥');
             //    var id = $(this).val(); // Obtener el valor seleccionado
-            //    // Hacer una peticiÛn AJAX al servidor
+            //    // Hacer una petici√≥n AJAX al servidor
             //    $.ajax({
-            //        url: '/Operations/Elementos', // La URL del controlador y la acciÛn que manejar·n la peticiÛn
+            //        url: '/Operations/Elementos', // La URL del controlador y la acci√≥n que manejar√°n la petici√≥n
             //        type: 'POST',
-            //        data: { id: id }, // Enviar el ID seleccionado como par·metro
+            //        data: { id: id }, // Enviar el ID seleccionado como par√°metro
             //        success: function (response) {
             //            // Actualizar el segundo Select con la respuesta del servidor
             //            var select = $('#OperationType');
@@ -197,14 +211,14 @@
             //    });
             //});
 
-            //$('#OperationType').on('change', function () { // Seguir los cambios de dos o m·s elementos
+            //$('#OperationType').on('change', function () { // Seguir los cambios de dos o m√°s elementos
             //    var id = $(this).val(); // Obtener el valor seleccionado
             //    var bank = $('#BankId').val();
-            //    // Hacer una peticiÛn AJAX al servidor
+            //    // Hacer una petici√≥n AJAX al servidor
             //    $.ajax({
-            //        url: '/Operations/CuentaOperacion', // La URL del controlador y la acciÛn que manejar·n la peticiÛn
+            //        url: '/Operations/CuentaOperacion', // La URL del controlador y la acci√≥n que manejar√°n la petici√≥n
             //        type: 'POST',
-            //        data: { id: id, bank: bank }, // Enviar el ID seleccionado como par·metro
+            //        data: { id: id, bank: bank }, // Enviar el ID seleccionado como par√°metro
             //        success: function (response) {
             //            // Actualizar el segundo Select con la respuesta del servidor
             //            var select = $('#AccountId');

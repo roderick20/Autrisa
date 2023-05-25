@@ -23,7 +23,7 @@ namespace Autrisa.Models
         public int Modality { get; set; }
         
         [Display(Name = "Número")]
-        public string Number { get; set; }
+        public string? Number { get; set; }
         
         [Display(Name = "Cuenta")]
         public int AccountId { get; set; }
@@ -51,6 +51,20 @@ namespace Autrisa.Models
 
         [Display(Name = "Clase de operación")]
         public int? OperationType { get; set; }
+
+        [Display(Name = "Cliente")]
+        public string? Customer { get; set; }
+
+        [Display(Name = "Saldo inicial")]
+        public decimal? InitialBalance { get; set; }
+
+        [Display(Name = "Saldo actual")]
+        public decimal? ActualBalance { get; set; }
+
+        [Display(Name = "Saldo final")]
+        public decimal? FinalBalance { get; set; }
+
+        public int? FatherOperation { get; set; }
 
         public DateTime Created { get; set; }
         public int Author { get; set; }

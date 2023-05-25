@@ -42,10 +42,7 @@
     <Compile Remove="Controllers\PropertiesOperationsController.cs" />
     <Compile Remove="Models\Autrisa_394Context.cs" />
     <Compile Remove="Models\Investment.cs" />
-    <Compile Remove="Models\InvestmentsOperation.cs" />
     <Compile Remove="Models\Lending.cs" />
-    <Compile Remove="Models\LendingOperation.cs" />
-    <Compile Remove="Models\PropertiesOperation.cs" />
     <Compile Remove="Models\Property.cs" />
   </ItemGroup>
 

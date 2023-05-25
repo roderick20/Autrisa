@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="card-body" style="min-height:500px">
+        <div class="card-body table-responsive" style="min-height:500px">
             @if (TempData["Success"] != null)
             {
                 <div class="alert alert-success" role="alert">
@@ -49,10 +49,19 @@
                             Cuenta
                         </th>
                         <th>
+                            Cliente
+                        </th>
+                        <th>
                             A&ntilde;o / Mes
                         </th>
                         <th>
-                            Tipo / Movimiento / Modalidad
+                            Tipo
+                        </th>
+                        <th>
+                            Movimiento
+                        </th>
+                        <th>
+                            Modalidad
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Number)
@@ -61,13 +70,22 @@
                             @Html.DisplayNameFor(model => model.OperationDate)
                         </th>
                         <th>
-                            Descripci&oacute;n / Concepto
+                            Descripci&oacute;n
+                        </th>
+                        <th>
+                            Concepto
                         </th>
                         <th class="text-end">
-                            @Html.DisplayNameFor(model => model.Income)
+                            @Html.DisplayNameFor(model => model.Income) (S/)
                         </th>
                         <th class="text-end">
-                            @Html.DisplayNameFor(model => model.Outcome)
+                            @Html.DisplayNameFor(model => model.Outcome) (S/)
+                        </th>
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Income) (USD)
+                        </th>
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Outcome) (USD)
                         </th>
                         <th></th>
                     </tr>
@@ -77,42 +95,48 @@
                     {
                         <tr>
                             <td>
-                                @item.Account.Name - @item.Account.AccountNumber
+                                @item.Account.Name
+                                @*- @item.Account.AccountNumber*@
                             </td>
                             <td>
-                                @item.Year / @item.Month 
+                                @item.Customer
                             </td>
                             <td>
-                               @if (item.Account.OperationType == 0)
+                                @item.Year / @item.Month
+                            </td>
+                            <td>
+                                @if (item.OperationType == 1)
                                 {
                                     <text>Operaci&oacute;n</text>
                                 }
-                                else if (item.Account.OperationType == 1)
+                                else if (item.OperationType == 2)
                                 {
                                     <text>Pr&eacute;stamo</text>
                                 }
-                                else if (item.Account.OperationType == 2)
+                                else if (item.OperationType == 3)
                                 {
-                                    <text>Inversi&oactue;n</text>
+                                    <text>Inversi&oacute;n</text>
                                 }
-                                else if (item.Account.OperationType == 3)
+                                else if (item.OperationType == 4)
                                 {
                                     <text>Predios</text>
                                 }
-                            /
+                            </td>
+                            <td>
                                 @if (item.Type == 0)
                                 {
-                                    <text>Ingreso</text>
+                                    <text>Abono</text>
                                 }
                                 else if (item.Type == 1)
                                 {
-                                    <text>Salida</text>
+                                    <text>Cargo</text>
                                 }
                                 else
                                 {
                                     <text>Cierre de mes</text>
                                 }
-                                /
+                            </td>
+                            <td>
                                 @if (item.Modality == 0)
                                 {
                                     <text>Cheque</text>
@@ -133,13 +157,50 @@
                                 @item.OperationDate.ToString("dd/MM/yyyy")
                             </td>
                             <td>
-                                @item.Description / @item.Concept
+                                @item.Description
+                            </td>
+                            <td>
+                                @item.Concept
                             </td>
                             <td class="text-end">
-                                @string.Format("{0:#,##0.00}", item.Income)
+                                @if (item.Account.Currency == 0)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Income)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
                             </td>
                             <td class="text-end">
-                                @string.Format("{0:#,##0.00}", item.Outcome)
+                                @if (item.Account.Currency == 0)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Outcome)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Account.Currency == 1)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Income)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Account.Currency == 1)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Outcome)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">
@@ -254,6 +315,36 @@
                 },
                 {
                     column_number: 4,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 5,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 6,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 7,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 8,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 9,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 10,
                     filter_type: "select",
                     filter_default_label: ''
                 },

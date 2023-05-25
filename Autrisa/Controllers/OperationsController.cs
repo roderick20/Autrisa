@@ -15,16 +15,16 @@ using ClosedXML.Excel;
 using ClosedXML.Extensions;
 using DocumentFormat.OpenXml.Presentation;
 using Newtonsoft.Json;
+using DocumentFormat.OpenXml.VariantTypes;
+using Microsoft.CodeAnalysis;
 
 namespace Autrisa.Controllers
 {
-
     public class productoCliente
     {
         public int value { get; set; }
         public string text { get; set; } = null!;
         public int? type { get; set; }
-        //public decimal? samount { get; set; }
     }
 
     public class OperationsController : Controller
@@ -38,7 +38,7 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var operations =  await _context.Operations
+            var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
                 .ToListAsync();
@@ -52,37 +52,82 @@ namespace Autrisa.Controllers
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.OperationType == 2)
+                .Where(m => m.OperationType == 2 && m.FatherOperation == 1)
                 .ToListAsync();
 
             ViewBag.operations = operations;
             return View(operations);
         }
 
-        public async Task<IActionResult> InvestmentDetails(int Id)
+        public async Task<IActionResult> InvestmentDetails()
         {
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.OperationType == 3)
+                .Where(m => m.OperationType == 3 && m.FatherOperation == 1)
                 .ToListAsync();
 
             ViewBag.operations = operations;
             return View(operations);
         }
 
-        public async Task<IActionResult> PropertyDetails(int Id)
+        public async Task<IActionResult> PropertyDetails()
         {
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
-                .Where(m => m.OperationType == 4)
+                .Where(m => m.OperationType == 4 && m.FatherOperation == 1)
                 .ToListAsync();
 
             ViewBag.operations = operations;
             return View(operations);
         }
 
+        public async Task<IActionResult> LendingOperations(int Id)
+        {
+            var lendingop = await _context.LendingOperations
+                .Include(m => m.Operation)
+                .ThenInclude(m => m.Account)
+                .Where(m => m.OperationId == Id)
+                .ToListAsync();
+            if (lendingop == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.LendingId = Id;
+            return View(lendingop);
+        }
+
+        public async Task<IActionResult> InvestmentOperations(int Id)
+        {
+            var lendingop = await _context.InvestmentsOperations
+                .Include(m => m.Operation)
+                .ThenInclude(m => m.Account)
+                .Where(m => m.OperationId == Id)
+                .ToListAsync();
+            if (lendingop == null)
+            {
+                return NotFound();
+            }
+            ViewBag.InvestmentId = Id;
+            return View(lendingop);
+        }
+
+        public async Task<IActionResult> PropertyOperations(int Id)
+        {
+            var lendingop = await _context.PropertiesOperations
+                .Include(m => m.Operation)
+                .ThenInclude(m => m.Account)
+                .Where(m => m.OperationId == Id)
+                .ToListAsync();
+            if (lendingop == null)
+            {
+                return NotFound();
+            }
+            ViewBag.PropertyId = Id;
+            return View(lendingop);
+        }
 
         public async Task<IActionResult> Details(Guid UniqueId)
         {
@@ -119,7 +164,7 @@ namespace Autrisa.Controllers
             return View(operation);
         }
 
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int LendingId, int InvestmentId, int PropertyId)
         {
             var accounts = await _context.Accounts.ToListAsync();
             var clients = await _context.Clients.ToListAsync();
@@ -127,12 +172,16 @@ namespace Autrisa.Controllers
             ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
             ViewBag.ClientsJson = clientsJson;
             ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType, string customer, string operDate)
+        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType,
+            string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
         {
             try
             {
@@ -143,7 +192,7 @@ namespace Autrisa.Controllers
 
                 if (check == null)
                 {
-                    if(existentClient == null)
+                    if (existentClient == null)
                     {
                         Client client = new()
                         {
@@ -153,6 +202,215 @@ namespace Autrisa.Controllers
 
                     AccountDetail accdetail = new AccountDetail();
 
+                    operation.UniqueId = Guid.NewGuid();
+                    operation.Created = DateTime.Now;
+                    operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.Year = selectedDate.Year;
+                    operation.Month = selectedDate.Month;
+                    operation.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.OperationType = OperationType;
+
+                    if (operation.Number == null)
+                    {
+                        operation.Number = "0";
+                    }
+
+                    if (operation.InitialBalance != null)
+                    {
+                        operation.InitialBalance = operation.InitialBalance;
+                    }
+
+                    var montoInicial = accountEdit.Amount;
+                    if (OperationType != 1)
+                    {
+                        if (operation.Type == 0)
+                        {
+                            if (montoTransaccion != operation.InitialBalance)
+                            {
+                                accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
+                                operation.Income = montoTransaccion;
+                                operation.Outcome = 0;
+                            }
+                            else
+                            {
+                                accountEdit.Amount = montoInicial + montoTransaccion;
+                                operation.Income = montoTransaccion;
+                                operation.Outcome = 0;
+                            }
+                        }
+                        else if (operation.Type == 1)
+                        {
+                            if (montoTransaccion != operation.InitialBalance)
+                            {
+                                accountEdit.Amount = montoInicial - (decimal)operation.InitialBalance;
+                                operation.Outcome = montoTransaccion;
+                                operation.Income = 0;
+                            }
+                            else
+                            {
+                                accountEdit.Amount = montoInicial - montoTransaccion;
+                                operation.Outcome = montoTransaccion;
+                                operation.Income = 0;
+                            }
+                        }
+                    }
+
+                    if (AccountOper == 0)
+                    {
+                        accdetail.AccountId = operation.AccountId;
+                    }
+                    else
+                    {
+                        accdetail.AccountId = AccountOper;
+                    }
+                    accdetail.UniqueId = Guid.NewGuid();
+                    accdetail.Description = operation.Description;
+                    accdetail.Concept = operation.Concept;
+                    accdetail.Author = operation.Author;
+                    accdetail.Created = DateTime.Now;
+                    if (accountEdit.Currency == 0)
+                    {
+                        accdetail.SolesAmount = montoTransaccion;
+                    }
+                    else
+                    {
+                        accdetail.DollarsAmount = montoTransaccion;
+                    }
+                    accdetail.InitialAmount = accountEdit.Amount;
+                    accdetail.Customer = customer;
+                    accdetail.OperationType = OperationType;
+                    accdetail.OperationDate = DateTime.Now;
+                    accdetail.OperationId = operation.Id;
+
+                    if (OperationType == 2)
+                    {
+                        LendingOperation lendingOp = new();
+                        lendingOp.UniqueId = Guid.NewGuid();
+                        lendingOp.Type = operation.Type;
+                        lendingOp.Modality = operation.Modality;
+                        lendingOp.OperationId = operation.Id;
+                        lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        lendingOp.Description = operation.Description;
+                        lendingOp.Amount = montoTransaccion;
+                        lendingOp.Created = DateTime.Now;
+                        lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        operation.FatherOperation = 1;
+                        _context.Add(lendingOp);
+                    }
+                    else if (OperationType == 3)
+                    {
+                        InvestmentsOperation investmentOp = new();
+                        investmentOp.UniqueId = Guid.NewGuid();
+                        investmentOp.Type = operation.Type;
+                        investmentOp.Modality = operation.Modality;
+                        investmentOp.OperationId = operation.Id;
+                        investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        investmentOp.Description = operation.Description;
+                        investmentOp.Amount = montoTransaccion;
+                        investmentOp.Created = DateTime.Now;
+                        investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        operation.FatherOperation = 1;
+                        _context.Add(investmentOp);
+                    }
+                    else if (OperationType == 4)
+                    {
+                        PropertiesOperation propertiesOp = new();
+                        propertiesOp.UniqueId = Guid.NewGuid();
+                        propertiesOp.Type = operation.Type;
+                        propertiesOp.Modality = operation.Modality;
+                        propertiesOp.OperationId = operation.Id;
+                        propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        propertiesOp.Description = operation.Description;
+                        propertiesOp.Amount = montoTransaccion;
+                        propertiesOp.Created = DateTime.Now;
+                        if (Receptor != null)
+                        {
+                            propertiesOp.Receptor = Receptor;
+                        }
+                        else
+                        {
+                            propertiesOp.Receptor = "-";
+                        }
+                        operation.FatherOperation = 1;
+                        propertiesOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        _context.Add(propertiesOp);
+                        _context.Add(accdetail);
+                        _context.Update(accountEdit);
+                        _context.Add(operation);
+                    }
+
+                    await _context.SaveChangesAsync();
+                    TempData["Success"] = "Agregado exitosamente";
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag.Check = "Documento ya existente";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error: " + ex.Message;
+                TempData["Check"] = "Documento ya existente";
+            }
+            ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "Name", operation.AccountId);
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            return View(operation);
+        }
+
+        public async Task<IActionResult> CreateDetail(int LendingId, int InvestmentId, int PropertyId)
+        {
+            var operation = await _context.Operations.Include(m => m.Account)
+                .FirstOrDefaultAsync(m => m.Id == LendingId || m.Id == InvestmentId || m.Id == PropertyId);
+            var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+            //var accdetail = await _context.AccountDetails.FirstOrDefaultAsync(m => m.AccountId == account.Id);
+            //var clients = await _context.Clients.ToListAsync();
+            //var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.Operation = operation;
+            ViewBag.AccountId = account;
+            //ViewBag.AccountDetail = accdetail;
+            //ViewBag.ClientsJson = clientsJson;
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateDetail(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType,
+            string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
+        {
+            try
+            {
+                var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+                var check = await _context.Operations.Include(m => m.Account).Where(m => m.Account.BankId == accountEdit.BankId &&
+                m.Number == operation.Number).FirstOrDefaultAsync();
+                var existentClient = await _context.Clients.Where(m => m.Name == customer).FirstOrDefaultAsync();
+                var specialOp = 0;
+                if (LendingId != 0)
+                {
+                    specialOp = 1;
+                }
+                else if (InvestmentId != 0)
+                {
+                    specialOp = 2;
+                }
+                else if (InvestmentId != 0)
+                {
+                    specialOp = 3;
+                }
+
+                if (check == null)
+                {
+                    if (existentClient == null)
+                    {
+                        Client client = new()
+                        {
+                            Name = customer
+                        };
+                    }
+
+                    AccountDetail accdetail = new AccountDetail();
 
                     //string operdate = Convert.ToString(operation.OperationDate);
                     operation.UniqueId = Guid.NewGuid();
@@ -162,8 +420,95 @@ namespace Autrisa.Controllers
                     DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     operation.Year = selectedDate.Year;
                     operation.Month = selectedDate.Month;
-                    operation.OperationType = OperationType;
                     operation.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.OperationType = OperationType;
+                    if (operation.Number == null)
+                    {
+                        operation.Number = "0";
+                    }
+                    if (specialOp == 1)
+                    {
+                        var oper = await _context.Operations.FirstOrDefaultAsync(m => m.Id == LendingId);
+                        if (operation.Type == 0)
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = 0 - montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance - montoTransaccion;
+                            }
+                        }
+                        _context.Update(oper);
+                    }
+
+                    if (specialOp == 2)
+                    {
+                        var oper = await _context.Operations.FirstOrDefaultAsync(m => m.Id == InvestmentId);
+                        if (operation.Type == 0)
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = 0 - montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance - montoTransaccion;
+                            }
+                        }
+                        _context.Update(oper);
+                    }
+
+                    if (specialOp == 3)
+                    {
+                        var oper = await _context.Operations.FirstOrDefaultAsync(m => m.Id == PropertyId);
+                        if (operation.Type == 0)
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (oper.InitialBalance == null)
+                            {
+                                oper.ActualBalance = 0 - montoTransaccion;
+                            }
+                            else
+                            {
+                                oper.ActualBalance = oper.InitialBalance - montoTransaccion;
+                            }
+                        }
+                        _context.Update(oper);
+                    }
 
                     var montoInicial = accountEdit.Amount;
                     if (operation.Type == 0)
@@ -212,6 +557,58 @@ namespace Autrisa.Controllers
 
                     accdetail.OperationId = operation.Id;
                     _context.Add(accdetail);
+
+                    if (OperationType == 2)
+                    {
+                        LendingOperation lendingOp = new();
+                        lendingOp.UniqueId = Guid.NewGuid();
+                        lendingOp.Amount = montoTransaccion;
+                        lendingOp.Type = operation.Type;
+                        lendingOp.Modality = operation.Modality;
+                        lendingOp.OperationId = LendingId;
+                        lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        lendingOp.Description = operation.Description;
+                        lendingOp.Created = DateTime.Now;
+                        operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        _context.Add(lendingOp);
+                    }
+                    else if (OperationType == 3)
+                    {
+                        InvestmentsOperation investmentOp = new();
+                        investmentOp.UniqueId = Guid.NewGuid();
+                        investmentOp.Amount = montoTransaccion;
+                        investmentOp.Type = operation.Type;
+                        investmentOp.Modality = operation.Modality;
+                        investmentOp.OperationId = InvestmentId;
+                        investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        investmentOp.Description = operation.Description;
+                        investmentOp.Created = DateTime.Now;
+                        operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        _context.Add(investmentOp);
+                    }
+                    else if (OperationType == 4)
+                    {
+                        PropertiesOperation propertiesOp = new();
+                        propertiesOp.UniqueId = Guid.NewGuid();
+                        propertiesOp.Amount = montoTransaccion;
+                        propertiesOp.Type = operation.Type;
+                        propertiesOp.Modality = operation.Modality;
+                        propertiesOp.OperationId = PropertyId;
+                        propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        propertiesOp.Description = operation.Description;
+                        propertiesOp.Created = DateTime.Now;
+                        if (Receptor != null)
+                        {
+                            propertiesOp.Receptor = Receptor;
+                        }
+                        else
+                        {
+                            propertiesOp.Receptor = "-";
+                        }
+                        operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        _context.Add(propertiesOp);
+                    }
+
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Agregado exitosamente";
                     return RedirectToAction(nameof(Index));
@@ -241,13 +638,16 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Operation operation, string Modified, string operDate)
+        public async Task<IActionResult> Edit(Operation operation, string Modified, string operDate, string Receptor)
         {
             try
             {
                 var operationEdit = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == operation.UniqueId);
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operationEdit.AccountId);
                 var accdetailEdit = await _context.AccountDetails.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
+                var specialOpL = await _context.LendingOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
+                var specialOpI = await _context.InvestmentsOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
+                var specialOpP = await _context.PropertiesOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
                 var check = 0;
 
                 // Modificar tanto Operations, como Account y AccountDetail
@@ -261,6 +661,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount - (2 * (decimal)operation.Income);
                     operationEdit.Outcome = operation.Income;
                     operationEdit.Income = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Outcome;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Outcome;
+                    }
                     check++;
                 }
                 else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Outcome == operation.Outcome && check == 0)
@@ -268,6 +681,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount + (2 * (decimal)operation.Outcome);
                     operationEdit.Income = operation.Outcome;
                     operationEdit.Outcome = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Income;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Income;
+                    }
                     check++;
                 }
 
@@ -278,6 +704,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
                     operationEdit.Outcome = operation.Income;
                     operationEdit.Income = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Outcome;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Outcome;
+                    }
                     check++;
                 }
                 else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Income != operation.Outcome && check == 0)// && operation.Income != null)
@@ -285,6 +724,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
                     operationEdit.Income = operation.Outcome;
                     operationEdit.Outcome = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Income;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Income;
+                    }
                     check++;
                 }
 
@@ -295,6 +747,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
                     operationEdit.Outcome = operation.Outcome;
                     operationEdit.Income = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Outcome;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Outcome;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Outcome;
+                    }
                     check++;
                 }
                 else if (operationEdit.Type == operation.Type && operation.Type == 0 && operationEdit.Income != operation.Income && check == 0)
@@ -302,6 +767,19 @@ namespace Autrisa.Controllers
                     accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
                     operationEdit.Income = operation.Income;
                     operationEdit.Outcome = 0;
+                    operationEdit.InitialBalance = (decimal)operationEdit.Income;
+                    if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    {
+                        specialOpL.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    {
+                        specialOpI.Amount = (decimal)operationEdit.Income;
+                    }
+                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    {
+                        specialOpP.Amount = (decimal)operationEdit.Income;
+                    }
                     check++;
                 }
 
@@ -316,10 +794,39 @@ namespace Autrisa.Controllers
                 operationEdit.Description = operation.Description;
                 DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Year = selectedDate.Year;
-                operationEdit.Month = selectedDate.Month;               
+                operationEdit.Month = selectedDate.Month;
                 //operationEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 operationEdit.Modified = DateTime.Now;
                 operationEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
+
+                if (specialOpL != null && specialOpI == null && specialOpP == null)
+                {
+                    specialOpL.Type = operation.Type;
+                    specialOpL.Modality = operation.Modality;
+                    specialOpL.Description = operation.Description;
+                    specialOpL.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                    specialOpL.Modified = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                {
+                    specialOpI.Type = operation.Type;
+                    specialOpI.Modality = operation.Modality;
+                    specialOpI.Description = operation.Description;
+                    specialOpI.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                    specialOpI.Modified = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                {
+                    specialOpP.Type = operation.Type;
+                    specialOpP.Modality = operation.Modality;
+                    specialOpP.Description = operation.Description;
+                    if (Receptor != null)
+                    {
+                        specialOpP.Receptor = Receptor;
+                    }
+                    specialOpP.Editor = (int)HttpContext.Session.GetInt32("UserId");
+                    specialOpP.Modified = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
 
                 if (check == 0)
                 {
@@ -345,7 +852,7 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Delete(Guid UniqueId)
         {
             var operation = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-            
+
             if (operation == null)
             {
                 return NotFound();
@@ -368,16 +875,16 @@ namespace Autrisa.Controllers
                 {
                     _context.Operations.Remove(operation);
                 }
-                
+
                 if (account != null)
                 {
                     if (operation.Income != 0)
                     {
-                        account.Amount = account.Amount - (decimal)operation.Income;
+                        account.Amount = account.Amount - (decimal)operation.ActualBalance;
                     }
                     else
                     {
-                        account.Amount = account.Amount + (decimal)operation.Outcome;
+                        account.Amount = account.Amount + (decimal)operation.ActualBalance;
                     }
                 }
 
@@ -417,7 +924,7 @@ namespace Autrisa.Controllers
                 foreach (var account in accountData)
                 {
                     accountMoney = account.PreviousRemaining;
-                    var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month 
+                    var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month
                     && m.AccountId == account.Id && m.Type != 2).ToListAsync();
 
                     foreach (var operation in operationsData)
@@ -478,7 +985,7 @@ namespace Autrisa.Controllers
             var years = await _context.Operations.Select(m => m.Year).Distinct().ToListAsync();
             ViewBag.YearList = years;
 
-            var accounts = await _context.Accounts.Where(m => m.AccountType == "Corriente" || m.AccountType == "Ahorros")
+            var accounts = await _context.Accounts.Where(m => m.AccountType == "Corriente" || m.AccountType == "Ahorros" || m.AccountType == "Maestra")
             .Select(m => m.Name).Distinct().ToListAsync();
             ViewBag.AccountId = accounts;
             return View();
@@ -790,7 +1297,7 @@ namespace Autrisa.Controllers
                     {
                         value = m.Id,
                         type = m.OperationType,
-                        text = m.AccountNumber, 
+                        text = m.AccountNumber,
                     })
                     .GroupBy(p => p.type)
                     .Select(g => g.First())

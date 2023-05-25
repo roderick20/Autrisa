@@ -17,7 +17,7 @@ namespace Autrisa.Models
         public int Modality { get; set; }
 
         [Display(Name = "Propiedad")]
-        public int PropertyId { get; set; }
+        public int OperationId { get; set; }
 
         [Display(Name = "Receptor")]
         public string Receptor { get; set; } = null!;
@@ -37,6 +37,6 @@ namespace Autrisa.Models
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
 
-        public virtual Property Property { get; set; } = null!;
+        public virtual Operation Operation { get; set; } = null!;
     }
 }

@@ -17,7 +17,7 @@ namespace Autrisa.Models
         public int Modality { get; set; }
 
         [Display(Name = "Inversión")]
-        public int InvestmentId { get; set; }
+        public int OperationId { get; set; }
 
         [Display(Name = "Fecha de operación")]
         public DateTime OperationDate { get; set; }
@@ -34,6 +34,6 @@ namespace Autrisa.Models
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
 
-        public virtual Investment Investment { get; set; } = null!;
+        public virtual Operation Operation { get; set; } = null!;
     }
 }

@@ -23,7 +23,7 @@ namespace Autrisa.Models
         public int Modality { get; set; }
 
         [Display(Name = "Préstamo")]
-        public int LendingId { get; set; }
+        public int OperationId { get; set; }
 
         [Display(Name = "Fecha de operación")]
         public DateTime OperationDate { get; set; }
@@ -40,6 +40,6 @@ namespace Autrisa.Models
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
 
-        public virtual Lending Lending { get; set; } = null!;
+        public virtual Operation Operation { get; set; } = null!;
     }
 }

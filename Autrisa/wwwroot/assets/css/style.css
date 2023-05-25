@@ -85,6 +85,15 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+td {
+    border: 1px solid #000;
+}
+
+tr td:last-child {
+    width: 1%;
+    white-space: nowrap;
+}
+
 hr {
   margin: 1rem 0;
   color: #a1a1a8;

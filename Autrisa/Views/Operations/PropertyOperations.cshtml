@@ -21,14 +21,14 @@
                     </form>*@
                     @if (UserRole == "admin")
                     {
-                        <a class="btn btn-sm btn-primary" asp-action="Create" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
+                        <a class="btn btn-sm btn-primary" asp-action="CreateDetail" asp-route-PropertyId="@ViewBag.PropertyId"><i class="fa-solid fa-plus"></i> Agregar </a>
                     }
                     <a class="btn btn-sm btn-success" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes </a>
                     
                 </div>
             </div>
         </div>
-        <div class="card-body" style="min-height:500px">
+        <div class="card-body table-responsive" style="min-height:500px">
             @if (TempData["Success"] != null)
             {
                 <div class="alert alert-success" role="alert">
@@ -46,35 +46,50 @@
                 <thead>
                     <tr>
                         <th>
-                            Año
+                            Cliente
                         </th>
                         <th>
-                            Mes
+                            Cuenta
+                        </th>
+                        <th>
+                            A&ntilde;o / Mes
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Movimiento
+                        </th>
+                        <th>
+                            Modalidad
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Operation.Number)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.OperationDate)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Type)
+                            Descripci&oacute;n
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Modality)
+                            Concepto
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                            Receptor
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Receptor)
+                            Saldo Inicial
+                        </th>
+                        <th>
+                            Saldo Actual
                         </th>
                         <th class="text-end">
-                            Monto Soles
+                            @Html.DisplayNameFor(model => model.Operation.Income)
                         </th>
                         <th class="text-end">
-                            Monto Dólares
+                            @Html.DisplayNameFor(model => model.Operation.Outcome)
                         </th>
-                        @*<th>
-                        @Html.DisplayNameFor(model => model.PreviousRemaining)
-                        </th>*@
                         <th></th>
                     </tr>
                 </thead>
@@ -83,74 +98,95 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.OperationDate.Year)
+                                @item.Operation.Customer
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.OperationDate.Month)
+                                @item.Operation.Account.Name
+                                @*- @item.Account.AccountNumber*@
                             </td>
                             <td>
-                                @item.OperationDate.ToString("dd/MM/yyyy")
+                                @item.Operation.Year / @item.Operation.Month
+                            </td>
+                            <td>
+                                @if (item.Operation.Account.OperationType == 0)
+                                {
+                                    <text>Operaci&oacute;n</text>
+                                }
+                                else if (item.Operation.Account.OperationType == 1)
+                                {
+                                    <text>Pr&eacute;stamo</text>
+                                }
+                                else if (item.Operation.Account.OperationType == 2)
+                                {
+                                    <text>Inversi&oactue;n</text>
+                                }
+                                else if (item.Operation.Account.OperationType == 3)
+                                {
+                                    <text>Predios</text>
+                                }
                             </td>
                             <td>
                                 @if (item.Type == 0)
                                 {
-                                    <text>Salida de dinero</text>
+                                    <text>Ingreso</text>
+                                }
+                                else if (item.Type == 1)
+                                {
+                                    <text>Salida</text>
                                 }
                                 else
                                 {
-                                    <text>Ingreso de dinero</text>
+                                    <text>Cierre de mes</text>
                                 }
                             </td>
                             <td>
                                 @if (item.Modality == 0)
                                 {
-                                    <text>Transferencia</text>
+                                    <text>Cheque</text>
                                 }
                                 else if (item.Modality == 1)
                                 {
-                                    <text>Cheque</text>
+                                    <text>Transferencia</text>
                                 }
-                                else
+                                else if (item.Modality == 100)
                                 {
-                                    <text>Efectivo</text>
+                                    <text>Cierre de mes</text>
                                 }
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Description)
+                                @item.Operation.Number
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Receptor)
+                                @item.OperationDate.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @item.Description
+                            </td>
+                            <td>
+                                @item.Operation.Concept
+                            </td>
+                            <td>
+                                @item.Receptor
+                            </td>
+                            <td>
+                                @item.Operation.InitialBalance
+                            </td>
+                            <td>
+                                @item.Operation.ActualBalance
                             </td>
                             <td class="text-end">
-                                @if (item.Property.Currency == 0)
-                                {
-                                    @item.Amount
-                                }
-                                else
-                                {
-                                    <text>0</text>
-                                }
+                                @item.Operation.Income
                             </td>
                             <td class="text-end">
-                                @if (item.Property.Currency == 1)
-                                {
-                                    @item.Amount
-                                }
-                                else
-                                {
-                                    <text>0</text>
-                                }
+                                @item.Operation.Outcome
                             </td>
-                            @* <td>
-                        @Html.DisplayFor(modelItem => item.PreviousRemaining)
-                        </td>*@
                             <td style="width:1%;">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
-                                        <li><hr class="dropdown-divider"></li>
+                                        @*<li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>*@
+                                        @*<li><a asp-action="LendingOperations" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                        @*<li><hr class="dropdown-divider"></li>*@
                                         <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
                                     </ul>
                                 </div>
@@ -159,6 +195,7 @@
                     }
                 </tbody>
             </table>
+            
         </div>
     </div>
 </div>
@@ -243,21 +280,46 @@
                     filter_type: "select",
                     filter_default_label: ''
                 },
-                //{
-                //    column_number: 2,
-                //    filter_type: "select",
-                //    filter_default_label: ''
-                //},
+                {
+                    column_number: 2,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
                 {
                     column_number: 3,
                     filter_type: "select",
                     filter_default_label: ''
                 },
-                //{
-                //    column_number: 4,
-                //    filter_type: "select",
-                //    filter_default_label: ''
-                //},
+                {
+                    column_number: 4,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 5,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 6,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 7,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 8,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 9,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
 
             ],
                 {

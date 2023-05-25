@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="card-body" style="min-height:500px">
+        <div class="card-body table-responsive" style="min-height:500px">
             @if (TempData["Success"] != null)
             {
                 <div class="alert alert-success" role="alert">
@@ -46,13 +46,22 @@
                 <thead>
                     <tr>
                         <th>
+                            Cliente
+                        </th>
+                        <th>
                             Cuenta
                         </th>
                         <th>
                             A&ntilde;o / Mes
                         </th>
                         <th>
-                            Tipo / Movimiento / Modalidad
+                            Tipo
+                        </th>
+                        <th>
+                            Movimiento
+                        </th>
+                        <th>
+                            Modalidad
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Number)
@@ -61,14 +70,23 @@
                             @Html.DisplayNameFor(model => model.OperationDate)
                         </th>
                         <th>
-                            Descripci&oacute;n / Concepto
+                            Descripci&oacute;n
                         </th>
-                        <th class="text-end">
+                        <th>
+                            Concepto
+                        </th>
+                        <th>
+                            Saldo Inicial
+                        </th>
+                        <th>
+                            Saldo Actual
+                        </th>
+                        @*<th class="text-end">
                             @Html.DisplayNameFor(model => model.Income)
                         </th>
                         <th class="text-end">
                             @Html.DisplayNameFor(model => model.Outcome)
-                        </th>
+                        </th>*@
                         <th></th>
                     </tr>
                 </thead>
@@ -77,7 +95,11 @@
                     {
                         <tr>
                             <td>
-                                @item.Account.Name - @item.Account.AccountNumber
+                                @item.Customer
+                            </td>
+                            <td>
+                                @item.Account.Name
+                                @*- @item.Account.AccountNumber*@
                             </td>
                             <td>
                                 @item.Year / @item.Month
@@ -99,7 +121,8 @@
                                 {
                                     <text>Predios</text>
                                 }
-                                /
+                            </td>
+                            <td>
                                 @if (item.Type == 0)
                                 {
                                     <text>Ingreso</text>
@@ -112,7 +135,8 @@
                                 {
                                     <text>Cierre de mes</text>
                                 }
-                                /
+                            </td>
+                            <td>
                                 @if (item.Modality == 0)
                                 {
                                     <text>Cheque</text>
@@ -133,20 +157,29 @@
                                 @item.OperationDate.ToString("dd/MM/yyyy")
                             </td>
                             <td>
-                                @item.Description / @item.Concept
+                                @item.Description
                             </td>
-                            <td class="text-end">
+                            <td>
+                                @item.Concept
+                            </td>
+                            <td>
+                                @item.InitialBalance
+                            </td>
+                            <td>
+                                @item.ActualBalance
+                            </td>
+                            @*<td class="text-end">
                                 @item.Income
                             </td>
                             <td class="text-end">
                                 @item.Outcome
-                            </td>
+                            </td>*@
                             <td style="width:1%;">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        @*<li><a asp-action="Details" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
+                                        <li><a asp-action="LendingOperations" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
                                     </ul>
@@ -156,7 +189,6 @@
                     }
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
@@ -257,6 +289,36 @@
                     filter_type: "select",
                     filter_default_label: ''
                 },
+                {
+                    column_number: 5,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 6,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 7,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 8,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                {
+                    column_number: 9,
+                    filter_type: "select",
+                    filter_default_label: ''
+                },
+                //{
+                //    column_number: 10,
+                //    filter_type: "select",
+                //    filter_default_label: ''
+                //},
 
             ],
                 {
