@@ -216,17 +216,28 @@ namespace Autrisa.Controllers
                         operation.Number = "0";
                     }
 
-                    if (operation.InitialBalance != null)
-                    {
-                        operation.InitialBalance = operation.InitialBalance;
-                    }
+                    //if (operation.InitialBalance != null)
+                    //{
+                    //    operation.InitialBalance = operation.InitialBalance;
+                    //}
+                    //else
+                    //{
+                    //    if (operation.Type == 0)
+                    //    {
+                    //        operation.InitialBalance = montoTransaccion;
+                    //    }
+                    //    else
+                    //    {
+                    //        operation.InitialBalance = -montoTransaccion;
+                    //    }
+                    //}
 
                     var montoInicial = accountEdit.Amount;
                     if (OperationType != 1)
                     {
                         if (operation.Type == 0)
                         {
-                            if (montoTransaccion != operation.InitialBalance)
+                            if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
                             {
                                 accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
                                 operation.Income = montoTransaccion;
@@ -241,7 +252,7 @@ namespace Autrisa.Controllers
                         }
                         else if (operation.Type == 1)
                         {
-                            if (montoTransaccion != operation.InitialBalance)
+                            if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
                             {
                                 accountEdit.Amount = montoInicial - (decimal)operation.InitialBalance;
                                 operation.Outcome = montoTransaccion;
@@ -277,11 +288,20 @@ namespace Autrisa.Controllers
                     {
                         accdetail.DollarsAmount = montoTransaccion;
                     }
+
                     accdetail.InitialAmount = accountEdit.Amount;
                     accdetail.Customer = customer;
                     accdetail.OperationType = OperationType;
                     accdetail.OperationDate = DateTime.Now;
-                    accdetail.OperationId = operation.Id;
+                    _context.Update(accountEdit);
+
+                    if (OperationType != 1)
+                    {
+                        operation.FatherOperation = 1;
+                    }
+
+                    _context.Add(operation);
+                    await _context.SaveChangesAsync();
 
                     if (OperationType == 2)
                     {
@@ -295,7 +315,6 @@ namespace Autrisa.Controllers
                         lendingOp.Amount = montoTransaccion;
                         lendingOp.Created = DateTime.Now;
                         lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
-                        operation.FatherOperation = 1;
                         _context.Add(lendingOp);
                     }
                     else if (OperationType == 3)
@@ -310,7 +329,6 @@ namespace Autrisa.Controllers
                         investmentOp.Amount = montoTransaccion;
                         investmentOp.Created = DateTime.Now;
                         investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
-                        operation.FatherOperation = 1;
                         _context.Add(investmentOp);
                     }
                     else if (OperationType == 4)
@@ -332,14 +350,11 @@ namespace Autrisa.Controllers
                         {
                             propertiesOp.Receptor = "-";
                         }
-                        operation.FatherOperation = 1;
                         propertiesOp.Author = (int)HttpContext.Session.GetInt32("UserId");
                         _context.Add(propertiesOp);
-                        _context.Add(accdetail);
-                        _context.Update(accountEdit);
-                        _context.Add(operation);
                     }
-
+                    accdetail.OperationId = operation.Id;
+                    _context.Add(accdetail);
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Agregado exitosamente";
                     return RedirectToAction(nameof(Index));
@@ -1016,15 +1031,21 @@ namespace Autrisa.Controllers
             ws.Cell("B" + cont).Value = "Número de cuenta";
             ws.Cell("C" + cont).Value = "Tipo de cuenta";
             ws.Cell("D" + cont).Value = "Moneda";
-            ws.Cell("E" + cont).Value = "Saldo mes anterior";
-            ws.Cell("F" + cont).Value = "Movimiento";
-            ws.Cell("G" + cont).Value = "Concepto";
-            ws.Cell("H" + cont).Value = "Descripción";
-            ws.Cell("I" + cont).Value = "Monto";
-            ws.Cell("J" + cont).Value = "Modalidad";
-            ws.Cell("K" + cont).Value = "Número";
-            ws.Cell("L" + cont).Value = "Fecha";
+            //ws.Cell("E" + cont).Value = "Saldo mes anterior";
+            ws.Cell("E" + cont).Value = "Movimiento";
+            ws.Cell("F" + cont).Value = "Concepto";
+            ws.Cell("G" + cont).Value = "Descripción";
+            //ws.Cell("H" + cont).Value = "Monto";
+            ws.Cell("H" + cont).Value = "Modalidad";
+            ws.Cell("I" + cont).Value = "Número";
+            ws.Cell("J" + cont).Value = "Fecha";
             //ws.Cell("M" + cont).Value = "Monto";
+            ws.Cell("K" + cont).Value = "Ingreso (S/)";
+            ws.Cell("L" + cont).Value = "Salida (S/)";
+            ws.Cell("M" + cont).Value = "Ingreso (USD)";
+            ws.Cell("N" + cont).Value = "Salida (USD)";
+
+
             cont++;
 
             if (AccountId == "none")
@@ -1051,46 +1072,94 @@ namespace Autrisa.Controllers
                                 ws.Cell("D" + cont).Value = "Dólares";
                             }
 
-                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
+                            //ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
                             if (obj.Type == 0)
                             {
-                                ws.Cell("F" + cont).Value = "Ingreso";
-                                ws.Cell("I" + cont).Value = obj.Income;
+                                ws.Cell("E" + cont).Value = "Ingreso";
+                                //ws.Cell("H" + cont).Value = obj.Income;
                             }
                             else if (obj.Type == 1)
                             {
-                                ws.Cell("F" + cont).Value = "Egreso";
-                                ws.Cell("I" + cont).Value = obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Egreso";
+                                //ws.Cell("H" + cont).Value = obj.Outcome;
                             }
                             else
                             {
-                                ws.Cell("F" + cont).Value = "Cierre de mes";
-                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Cierre de mes";
+                                //ws.Cell("H" + cont).Value = obj.Income - obj.Outcome;
                             }
 
-                            ws.Cell("G" + cont).Value = obj.Concept;
-                            ws.Cell("H" + cont).Value = obj.Description;
+                            ws.Cell("F" + cont).Value = obj.Concept;
+                            ws.Cell("G" + cont).Value = obj.Description;
 
                             if (obj.Modality == 0)
                             {
-                                ws.Cell("J" + cont).Value = "Cheque";
+                                ws.Cell("H" + cont).Value = "Cheque";
 
                             }
                             else if (obj.Modality == 1)
                             {
-                                ws.Cell("J" + cont).Value = "Transferencia";
+                                ws.Cell("H" + cont).Value = "Transferencia";
                             }
                             else if (obj.Modality == 100)
                             {
-                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                                ws.Cell("H" + cont).Value = "Cierre de mes";
                             }
-                            ws.Cell("K" + cont).Value = obj.Number;
-                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            ws.Cell("I" + cont).Value = obj.Number;
+                            ws.Cell("J" + cont).Value = obj.OperationDate;
+                            if (item.Currency == 0 && obj.Type == 0)
+                            {
+                                ws.Cell("K" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("K" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 0 && obj.Type == 1)
+                            {
+                                ws.Cell("L" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("L" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 0)
+                            {
+                                ws.Cell("M" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("M" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 0 && obj.Type == 0)
+                            {
+                                ws.Cell("N" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("N" + cont).Value = "-";
+                            }
                             cont++;
                         }
                     }
 
+                    cont = cont + 3;
+                    var cont_a = cont + 2;
+                    foreach (var item in account)
+                    {
+                        ws.Cell("A" + cont_a).Value = "Cuenta";
+                        ws.Cell("B" + cont_a).Value = "Saldo Previo";
+                        ws.Cell("C" + cont_a).Value = "Saldo Actual";
+
+                        ws.Cell("A" + cont).Value = item.Name;
+                        ws.Cell("B" + cont).Value = item.PreviousRemaining;
+                        ws.Cell("C" + cont).Value = item.Amount;
+                        cont++;
+                    }
                 }
                 else
                 {
@@ -1114,42 +1183,77 @@ namespace Autrisa.Controllers
                                 ws.Cell("D" + cont).Value = "Dólares";
                             }
 
-                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
+                            //ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
                             if (obj.Type == 0)
                             {
-                                ws.Cell("F" + cont).Value = "Ingreso";
-                                ws.Cell("I" + cont).Value = obj.Income;
+                                ws.Cell("E" + cont).Value = "Ingreso";
+                                //ws.Cell("H" + cont).Value = obj.Income;
                             }
                             else if (obj.Type == 1)
                             {
-                                ws.Cell("F" + cont).Value = "Egreso";
-                                ws.Cell("I" + cont).Value = obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Egreso";
+                                //ws.Cell("H" + cont).Value = obj.Outcome;
                             }
                             else
                             {
-                                ws.Cell("F" + cont).Value = "Cierre de mes";
-                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Cierre de mes";
+                                //ws.Cell("H" + cont).Value = obj.Income - obj.Outcome;
                             }
 
-                            ws.Cell("G" + cont).Value = obj.Concept;
-                            ws.Cell("H" + cont).Value = obj.Description;
+                            ws.Cell("F" + cont).Value = obj.Concept;
+                            ws.Cell("G" + cont).Value = obj.Description;
 
                             if (Modality == 0)
                             {
-                                ws.Cell("J" + cont).Value = "Cheque";
+                                ws.Cell("H" + cont).Value = "Cheque";
 
                             }
                             else if (Modality == 1)
                             {
-                                ws.Cell("J" + cont).Value = "Transferencia";
+                                ws.Cell("H" + cont).Value = "Transferencia";
                             }
                             else if (Modality == 100)
                             {
-                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                                ws.Cell("H" + cont).Value = "Cierre de mes";
                             }
-                            ws.Cell("K" + cont).Value = obj.Number;
-                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            ws.Cell("I" + cont).Value = obj.Number;
+                            ws.Cell("J" + cont).Value = obj.OperationDate;
+                            if (item.Currency == 0 && obj.Type == 0)
+                            {
+                                ws.Cell("K" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("K" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 0 && obj.Type == 1)
+                            {
+                                ws.Cell("L" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("L" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 0)
+                            {
+                                ws.Cell("M" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("M" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 1)
+                            {
+                                ws.Cell("N" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("N" + cont).Value = "-";
+                            }
                             cont++;
                         }
                     }
@@ -1180,42 +1284,77 @@ namespace Autrisa.Controllers
                                 ws.Cell("D" + cont).Value = "Dólares";
                             }
 
-                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
+                            //ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
                             if (obj.Type == 0)
                             {
-                                ws.Cell("F" + cont).Value = "Ingreso";
-                                ws.Cell("I" + cont).Value = obj.Income;
+                                ws.Cell("E" + cont).Value = "Ingreso";
+                                //ws.Cell("H" + cont).Value = obj.Income;
                             }
                             else if (obj.Type == 1)
                             {
-                                ws.Cell("F" + cont).Value = "Egreso";
-                                ws.Cell("I" + cont).Value = obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Egreso";
+                                //ws.Cell("H" + cont).Value = obj.Outcome;
                             }
                             else
                             {
-                                ws.Cell("F" + cont).Value = "Cierre de mes";
-                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Cierre de mes";
+                                //ws.Cell("H" + cont).Value = obj.Income - obj.Outcome;
                             }
 
-                            ws.Cell("G" + cont).Value = obj.Concept;
-                            ws.Cell("H" + cont).Value = obj.Description;
+                            ws.Cell("F" + cont).Value = obj.Concept;
+                            ws.Cell("G" + cont).Value = obj.Description;
 
                             if (obj.Modality == 0)
                             {
-                                ws.Cell("J" + cont).Value = "Cheque";
+                                ws.Cell("H" + cont).Value = "Cheque";
 
                             }
                             else if (obj.Modality == 1)
                             {
-                                ws.Cell("J" + cont).Value = "Transferencia";
+                                ws.Cell("H" + cont).Value = "Transferencia";
                             }
                             else if (obj.Modality == 100)
                             {
-                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                                ws.Cell("H" + cont).Value = "Cierre de mes";
                             }
-                            ws.Cell("K" + cont).Value = obj.Number;
-                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            ws.Cell("I" + cont).Value = obj.Number;
+                            ws.Cell("J" + cont).Value = obj.OperationDate;
+                            if (item.Currency == 0 && obj.Type == 0)
+                            {
+                                ws.Cell("K" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("K" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 0 && obj.Type == 1)
+                            {
+                                ws.Cell("L" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("L" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 0)
+                            {
+                                ws.Cell("M" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("M" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 1)
+                            {
+                                ws.Cell("N" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("N" + cont).Value = "-";
+                            }
                             cont++;
                         }
                     }
@@ -1243,42 +1382,77 @@ namespace Autrisa.Controllers
                                 ws.Cell("D" + cont).Value = "Dólares";
                             }
 
-                            ws.Cell("E" + cont).Value = item.PreviousRemaining;
+                            //ws.Cell("E" + cont).Value = item.PreviousRemaining;
 
                             if (obj.Type == 0)
                             {
-                                ws.Cell("F" + cont).Value = "Ingreso";
-                                ws.Cell("I" + cont).Value = obj.Income;
+                                ws.Cell("E" + cont).Value = "Ingreso";
+                                //ws.Cell("H" + cont).Value = obj.Income;
                             }
                             else if (obj.Type == 1)
                             {
-                                ws.Cell("F" + cont).Value = "Egreso";
-                                ws.Cell("I" + cont).Value = obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Egreso";
+                                //ws.Cell("H" + cont).Value = obj.Outcome;
                             }
                             else
                             {
-                                ws.Cell("F" + cont).Value = "Cierre de mes";
-                                ws.Cell("I" + cont).Value = obj.Income - obj.Outcome;
+                                ws.Cell("E" + cont).Value = "Cierre de mes";
+                                //ws.Cell("H" + cont).Value = obj.Income - obj.Outcome;
                             }
 
-                            ws.Cell("G" + cont).Value = obj.Concept;
-                            ws.Cell("H" + cont).Value = obj.Description;
+                            ws.Cell("F" + cont).Value = obj.Concept;
+                            ws.Cell("G" + cont).Value = obj.Description;
 
                             if (Modality == 0)
                             {
-                                ws.Cell("J" + cont).Value = "Cheque";
+                                ws.Cell("H" + cont).Value = "Cheque";
 
                             }
                             else if (Modality == 1)
                             {
-                                ws.Cell("J" + cont).Value = "Transferencia";
+                                ws.Cell("H" + cont).Value = "Transferencia";
                             }
                             else if (Modality == 100)
                             {
-                                ws.Cell("J" + cont).Value = "Cierre de mes";
+                                ws.Cell("H" + cont).Value = "Cierre de mes";
                             }
-                            ws.Cell("K" + cont).Value = obj.Number;
-                            ws.Cell("L" + cont).Value = obj.OperationDate;
+                            ws.Cell("I" + cont).Value = obj.Number;
+                            ws.Cell("J" + cont).Value = obj.OperationDate;
+                            if (item.Currency == 0 && obj.Type == 0)
+                            {
+                                ws.Cell("K" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("K" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 0 && obj.Type == 1)
+                            {
+                                ws.Cell("L" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("L" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 0)
+                            {
+                                ws.Cell("M" + cont).Value = obj.Income;
+                            }
+                            else
+                            {
+                                ws.Cell("M" + cont).Value = "-";
+                            }
+
+                            if (item.Currency == 1 && obj.Type == 1)
+                            {
+                                ws.Cell("N" + cont).Value = obj.Outcome;
+                            }
+                            else
+                            {
+                                ws.Cell("N" + cont).Value = "-";
+                            }
                             cont++;
                         }
                     }
