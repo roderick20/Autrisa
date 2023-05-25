@@ -266,6 +266,21 @@ namespace Autrisa.Controllers
                             }
                         }
                     }
+                    else
+                    {
+                        if (operation.Type == 0)
+                        {
+                            accountEdit.Amount = montoInicial + montoTransaccion;
+                            operation.Income = montoTransaccion;
+                            operation.Outcome = 0;
+                        }
+                        else if (operation.Type == 1)
+                        {
+                            accountEdit.Amount = montoInicial - montoTransaccion;
+                            operation.Outcome = montoTransaccion;
+                            operation.Income = 0;
+                        }
+                    }
 
                     if (AccountOper == 0)
                     {
