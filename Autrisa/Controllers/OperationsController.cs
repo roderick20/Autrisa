@@ -1148,7 +1148,12 @@ namespace Autrisa.Controllers
                     }
 
                     cont = cont + 3;
-                    var cont_a = cont + 2;
+                    var cont_a = cont - 1;
+
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Font.SetFontColor(XLColor.White);
                     foreach (var item in account)
                     {
                         ws.Cell("A" + cont_a).Value = "Cuenta";
@@ -1257,6 +1262,25 @@ namespace Autrisa.Controllers
                             cont++;
                         }
                     }
+
+                    cont = cont + 3;
+                    var cont_a = cont - 1;
+
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Font.SetFontColor(XLColor.White);
+                    foreach (var item in account)
+                    {
+                        ws.Cell("A" + cont_a).Value = "Cuenta";
+                        ws.Cell("B" + cont_a).Value = "Saldo Previo";
+                        ws.Cell("C" + cont_a).Value = "Saldo Actual";
+
+                        ws.Cell("A" + cont).Value = item.Name;
+                        ws.Cell("B" + cont).Value = item.PreviousRemaining;
+                        ws.Cell("C" + cont).Value = item.Amount;
+                        cont++;
+                    }
                 }
             }
 
@@ -1359,6 +1383,25 @@ namespace Autrisa.Controllers
                         }
                     }
 
+                    cont = cont + 3;
+                    var cont_a = cont - 1;
+
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Font.SetFontColor(XLColor.White);
+                    foreach (var item in account)
+                    {
+                        ws.Cell("A" + cont_a).Value = "Cuenta";
+                        ws.Cell("B" + cont_a).Value = "Saldo Previo";
+                        ws.Cell("C" + cont_a).Value = "Saldo Actual";
+
+                        ws.Cell("A" + cont).Value = item.Name;
+                        ws.Cell("B" + cont).Value = item.PreviousRemaining;
+                        ws.Cell("C" + cont).Value = item.Amount;
+                        cont++;
+                    }
+
                 }
                 else
                 {
@@ -1455,6 +1498,25 @@ namespace Autrisa.Controllers
                             }
                             cont++;
                         }
+                    }
+
+                    cont = cont + 3;
+                    var cont_a = cont - 1;
+
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
+                    ws.Range("A" + cont_a, "C" + cont_a).Style.Font.SetFontColor(XLColor.White);
+                    foreach (var item in account)
+                    {
+                        ws.Cell("A" + cont_a).Value = "Cuenta";
+                        ws.Cell("B" + cont_a).Value = "Saldo Previo";
+                        ws.Cell("C" + cont_a).Value = "Saldo Actual";
+
+                        ws.Cell("A" + cont).Value = item.Name;
+                        ws.Cell("B" + cont).Value = item.PreviousRemaining;
+                        ws.Cell("C" + cont).Value = item.Amount;
+                        cont++;
                     }
                 }
             }
