@@ -162,13 +162,27 @@
                                 @item.Operation.InitialBalance
                             </td>
                             <td>
-                                @item.Operation.ActualBalance
+                                @item.FinalAmount
                             </td>
                             <td class="text-end">
-                                @item.Operation.Income
+                                @if(item.Type == 0)
+                                {
+                                    <text>@item.Amount</text>
+                                }
+                                else
+                                {
+                                    <text>0.00</text>
+                                }
                             </td>
                             <td class="text-end">
-                                @item.Operation.Outcome
+                                @if (item.Type == 1)
+                                {
+                                    <text>@item.Amount</text>
+                                }
+                                else
+                                {
+                                    <text>0.00</text>
+                                }
                             </td>
                             <td style="width:1%;">
                                 <div class="dropdown">

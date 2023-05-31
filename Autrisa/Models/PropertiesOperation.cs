@@ -31,6 +31,9 @@ namespace Autrisa.Models
         [Display(Name = "Monto")]
         public decimal Amount { get; set; }
         
+        [Display(Name = "Monto Final")]
+        public decimal? FinalAmount { get; set; }
+        
         
         public DateTime Created { get; set; }
         public int Author { get; set; }

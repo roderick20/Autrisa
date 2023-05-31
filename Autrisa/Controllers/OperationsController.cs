@@ -169,8 +169,8 @@ namespace Autrisa.Controllers
             var accounts = await _context.Accounts.ToListAsync();
             var clients = await _context.Clients.ToListAsync();
             var clientsJson = JsonConvert.SerializeObject(clients);
-            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
             ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
             ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
             ViewBag.LendingId = LendingId;
             ViewBag.InvestmentId = InvestmentId;
@@ -239,15 +239,26 @@ namespace Autrisa.Controllers
                         {
                             if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
                             {
-                                accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
-                                operation.Income = montoTransaccion;
-                                operation.Outcome = 0;
+                                if (operation.InitialBalance < montoTransaccion)
+                                {
+                                    accountEdit.Amount = montoInicial + montoTransaccion;
+                                    operation.Income = montoTransaccion;
+                                    operation.Outcome = 0;
+                                }
+                                else
+                                {
+                                    accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
+                                    operation.Income = montoTransaccion;
+                                    operation.Outcome = 0;
+                                }
+
                             }
                             else
                             {
                                 accountEdit.Amount = montoInicial + montoTransaccion;
                                 operation.Income = montoTransaccion;
                                 operation.Outcome = 0;
+                                operation.InitialBalance = montoTransaccion;
                             }
                         }
                         else if (operation.Type == 1)
@@ -263,6 +274,7 @@ namespace Autrisa.Controllers
                                 accountEdit.Amount = montoInicial - montoTransaccion;
                                 operation.Outcome = montoTransaccion;
                                 operation.Income = 0;
+                                operation.InitialBalance = -montoTransaccion;
                             }
                         }
                     }
@@ -330,6 +342,7 @@ namespace Autrisa.Controllers
                         lendingOp.Amount = montoTransaccion;
                         lendingOp.Created = DateTime.Now;
                         lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        lendingOp.FinalAmount = operation.InitialBalance;
                         _context.Add(lendingOp);
                     }
                     else if (OperationType == 3)
@@ -344,6 +357,7 @@ namespace Autrisa.Controllers
                         investmentOp.Amount = montoTransaccion;
                         investmentOp.Created = DateTime.Now;
                         investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                        investmentOp.FinalAmount = operation.InitialBalance;
                         _context.Add(investmentOp);
                     }
                     else if (OperationType == 4)
@@ -357,6 +371,7 @@ namespace Autrisa.Controllers
                         propertiesOp.Description = operation.Description;
                         propertiesOp.Amount = montoTransaccion;
                         propertiesOp.Created = DateTime.Now;
+                        propertiesOp.FinalAmount = operation.InitialBalance;
                         if (Receptor != null)
                         {
                             propertiesOp.Receptor = Receptor;
@@ -425,7 +440,7 @@ namespace Autrisa.Controllers
                 {
                     specialOp = 2;
                 }
-                else if (InvestmentId != 0)
+                else if (PropertyId != 0)
                 {
                     specialOp = 3;
                 }
@@ -590,6 +605,8 @@ namespace Autrisa.Controllers
 
                     if (OperationType == 2)
                     {
+                        var father = await _context.Operations.FirstOrDefaultAsync(m => m.Id == LendingId);
+
                         LendingOperation lendingOp = new();
                         lendingOp.UniqueId = Guid.NewGuid();
                         lendingOp.Amount = montoTransaccion;
@@ -599,11 +616,35 @@ namespace Autrisa.Controllers
                         lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                         lendingOp.Description = operation.Description;
                         lendingOp.Created = DateTime.Now;
+                        if (lendingOp.Type == 0)
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                lendingOp.FinalAmount = father.ActualBalance + montoTransaccion;
+                            }
+                            else
+                            {
+                                lendingOp.FinalAmount = father.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                lendingOp.FinalAmount = father.ActualBalance - montoTransaccion;
+                            }
+                            else
+                            {
+                                lendingOp.FinalAmount = father.InitialBalance - montoTransaccion;
+                            }
+                        }
                         operation.Author = (int)HttpContext.Session.GetInt32("UserId");
                         _context.Add(lendingOp);
                     }
                     else if (OperationType == 3)
                     {
+                        var father = await _context.Operations.FirstOrDefaultAsync(m => m.Id == InvestmentId);
+
                         InvestmentsOperation investmentOp = new();
                         investmentOp.UniqueId = Guid.NewGuid();
                         investmentOp.Amount = montoTransaccion;
@@ -613,11 +654,35 @@ namespace Autrisa.Controllers
                         investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                         investmentOp.Description = operation.Description;
                         investmentOp.Created = DateTime.Now;
+                        if (investmentOp.Type == 0)
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                investmentOp.FinalAmount = father.ActualBalance + montoTransaccion;
+                            }
+                            else
+                            {
+                                investmentOp.FinalAmount = father.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                investmentOp.FinalAmount = father.ActualBalance - montoTransaccion;
+                            }
+                            else
+                            {
+                                investmentOp.FinalAmount = father.InitialBalance - montoTransaccion;
+                            }
+                        }
                         operation.Author = (int)HttpContext.Session.GetInt32("UserId");
                         _context.Add(investmentOp);
                     }
                     else if (OperationType == 4)
                     {
+                        var father = await _context.Operations.FirstOrDefaultAsync(m => m.Id == PropertyId);
+
                         PropertiesOperation propertiesOp = new();
                         propertiesOp.UniqueId = Guid.NewGuid();
                         propertiesOp.Amount = montoTransaccion;
@@ -627,6 +692,28 @@ namespace Autrisa.Controllers
                         propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                         propertiesOp.Description = operation.Description;
                         propertiesOp.Created = DateTime.Now;
+                        if (propertiesOp.Type == 0)
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                propertiesOp.FinalAmount = father.ActualBalance + montoTransaccion;
+                            }
+                            else
+                            {
+                                propertiesOp.FinalAmount = father.InitialBalance + montoTransaccion;
+                            }
+                        }
+                        else
+                        {
+                            if (father.ActualBalance != null)
+                            {
+                                propertiesOp.FinalAmount = father.ActualBalance - montoTransaccion;
+                            }
+                            else
+                            {
+                                propertiesOp.FinalAmount = father.InitialBalance - montoTransaccion;
+                            }
+                        }
                         if (Receptor != null)
                         {
                             propertiesOp.Receptor = Receptor;
@@ -662,13 +749,16 @@ namespace Autrisa.Controllers
             {
                 return NotFound();
             }
+            var clients = await _context.Clients.ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
             ViewBag.AccountId = new SelectList(_context.Accounts, "Id", "", operation.AccountId);
             return View(operation);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Operation operation, string Modified, string operDate, string Receptor)
+        public async Task<IActionResult> Edit(Operation operation, string Modified, string operDate, string Receptor, string customer)
         {
             try
             {
@@ -686,6 +776,7 @@ namespace Autrisa.Controllers
 
                 //operations, type: 0:In, 1:Out
 
+                // Era abono, pero ahora es cargo
                 if (operationEdit.Type == 0 && operation.Type == 1 && operationEdit.Income == operation.Income && check == 0)
                 {
                     accountEdit.Amount = accountEdit.Amount - (2 * (decimal)operation.Income);
@@ -695,17 +786,21 @@ namespace Autrisa.Controllers
                     if (specialOpL != null && specialOpI == null && specialOpP == null)
                     {
                         specialOpL.Amount = (decimal)operationEdit.Outcome;
+                        specialOpL.FinalAmount = specialOpL.Amount - (2 * (decimal)(operation.Income));
                     }
                     else if (specialOpL == null && specialOpI != null && specialOpP == null)
                     {
                         specialOpI.Amount = (decimal)operationEdit.Outcome;
+                        specialOpI.FinalAmount = specialOpL.Amount - (2 * (decimal)(operation.Income));
                     }
                     else if (specialOpL == null && specialOpI == null && specialOpP != null)
                     {
                         specialOpP.Amount = (decimal)operationEdit.Outcome;
+                        specialOpP.FinalAmount = specialOpL.Amount - (2 * (decimal)(operation.Income));
                     }
                     check++;
                 }
+                //Era cargo, pero ahora es abono
                 else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Outcome == operation.Outcome && check == 0)
                 {
                     accountEdit.Amount = accountEdit.Amount + (2 * (decimal)operation.Outcome);
@@ -714,14 +809,17 @@ namespace Autrisa.Controllers
                     operationEdit.InitialBalance = (decimal)operationEdit.Income;
                     if (specialOpL != null && specialOpI == null && specialOpP == null)
                     {
+                        specialOpL.FinalAmount = specialOpL.Amount + (2 * (decimal)(operation.Outcome));
                         specialOpL.Amount = (decimal)operationEdit.Income;
                     }
                     else if (specialOpL == null && specialOpI != null && specialOpP == null)
                     {
+                        specialOpI.FinalAmount = specialOpL.Amount + (2 * (decimal)(operation.Outcome));
                         specialOpI.Amount = (decimal)operationEdit.Income;
                     }
                     else if (specialOpL == null && specialOpI == null && specialOpP != null)
                     {
+                        specialOpP.FinalAmount = specialOpL.Amount + (2 * (decimal)(operation.Outcome));
                         specialOpP.Amount = (decimal)operationEdit.Income;
                     }
                     check++;
@@ -729,85 +827,174 @@ namespace Autrisa.Controllers
 
                 // Movimiento errado, diferente monto (Ingreso, Salida)
 
+                //Era abono, ahora es cargo
                 if (operationEdit.Type == 0 && operation.Type == 1 && operationEdit.Income != operation.Income && check == 0)// && operation.Outcome != null)
                 {
-                    accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+                    if (operationEdit.Income != null)
+                    {
+                        accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+
+                        if (specialOpL != null && specialOpI == null && specialOpP == null)
+                        {
+                            specialOpL.FinalAmount = specialOpL.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+                            specialOpL.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                        {
+                            specialOpI.FinalAmount = specialOpI.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+                            specialOpI.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                        {
+                            specialOpP.FinalAmount = specialOpP.Amount + (decimal)operationEdit.Income - (decimal)operation.Income;
+                            specialOpP.Amount = (decimal)operationEdit.Outcome;
+                        }
+                    }
+                    else
+                    {
+                        accountEdit.Amount = accountEdit.Amount - (decimal)operation.Income;
+
+                        if (specialOpL != null && specialOpI == null && specialOpP == null)
+                        {
+                            specialOpL.FinalAmount = specialOpL.Amount - (decimal)operation.Income;
+                            specialOpL.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                        {
+                            specialOpI.FinalAmount = specialOpI.Amount - (decimal)operation.Income;
+                            specialOpI.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                        {
+                            specialOpP.FinalAmount = specialOpP.Amount - (decimal)operation.Income;
+                            specialOpP.Amount = (decimal)operationEdit.Outcome;
+                        }
+                    }
+
                     operationEdit.Outcome = operation.Income;
                     operationEdit.Income = 0;
                     operationEdit.InitialBalance = (decimal)operationEdit.Outcome;
-                    if (specialOpL != null && specialOpI == null && specialOpP == null)
-                    {
-                        specialOpL.Amount = (decimal)operationEdit.Outcome;
-                    }
-                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
-                    {
-                        specialOpI.Amount = (decimal)operationEdit.Outcome;
-                    }
-                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
-                    {
-                        specialOpP.Amount = (decimal)operationEdit.Outcome;
-                    }
                     check++;
                 }
+                //Era cargo, pero ahora es abono
                 else if (operationEdit.Type == 1 && operation.Type == 0 && operationEdit.Income != operation.Outcome && check == 0)// && operation.Income != null)
                 {
-                    accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+                    if (operationEdit.Outcome != null)
+                    {
+                        accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+
+                        if (specialOpL != null && specialOpI == null && specialOpP == null)
+                        {
+                            specialOpL.FinalAmount = specialOpL.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+                            specialOpL.Amount = (decimal)operationEdit.Income;
+                        }
+                        else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                        {
+                            specialOpI.FinalAmount = specialOpI.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+                            specialOpI.Amount = (decimal)operationEdit.Income;
+                        }
+                        else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                        {
+                            specialOpP.FinalAmount = specialOpP.Amount - (decimal)operationEdit.Outcome + (decimal)operation.Outcome;
+                            specialOpP.Amount = (decimal)operationEdit.Income;
+                        }
+                    }
+                    else
+                    {
+                        accountEdit.Amount = accountEdit.Amount + (decimal)operation.Outcome;
+
+                        if (specialOpL != null && specialOpI == null && specialOpP == null)
+                        {
+                            specialOpL.FinalAmount = specialOpL.Amount + (decimal)operation.Outcome;
+                            specialOpL.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                        {
+                            specialOpI.FinalAmount = specialOpI.Amount + (decimal)operation.Outcome;
+                            specialOpI.Amount = (decimal)operationEdit.Outcome;
+                        }
+                        else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                        {
+                            specialOpP.FinalAmount = specialOpP.Amount + (decimal)operation.Outcome;
+                            specialOpP.Amount = (decimal)operationEdit.Outcome;
+                        }
+                    }
                     operationEdit.Income = operation.Outcome;
                     operationEdit.Outcome = 0;
                     operationEdit.InitialBalance = (decimal)operationEdit.Income;
-                    if (specialOpL != null && specialOpI == null && specialOpP == null)
-                    {
-                        specialOpL.Amount = (decimal)operationEdit.Income;
-                    }
-                    else if (specialOpL == null && specialOpI != null && specialOpP == null)
-                    {
-                        specialOpI.Amount = (decimal)operationEdit.Income;
-                    }
-                    else if (specialOpL == null && specialOpI == null && specialOpP != null)
-                    {
-                        specialOpP.Amount = (decimal)operationEdit.Income;
-                    }
+                    //if (specialOpL != null && specialOpI == null && specialOpP == null)
+                    //{
+                    //    specialOpL.Amount = (decimal)operationEdit.Income;
+                    //}
+                    //else if (specialOpL == null && specialOpI != null && specialOpP == null)
+                    //{
+                    //    specialOpI.Amount = (decimal)operationEdit.Income;
+                    //}
+                    //else if (specialOpL == null && specialOpI == null && specialOpP != null)
+                    //{
+                    //    specialOpP.Amount = (decimal)operationEdit.Income;
+                    //}
                     check++;
                 }
 
                 // Movimiento correcto, diferente monto
-
                 if (operationEdit.Type == operation.Type && operation.Type == 1 && operationEdit.Outcome != operation.Outcome && check == 0)
                 {
-                    accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
+                    if (operationEdit.Outcome != null)
+                    {
+                        accountEdit.Amount = accountEdit.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
+                    }
+                    else
+                    {
+                        accountEdit.Amount = accountEdit.Amount - (decimal)operation.Outcome;
+                    }
                     operationEdit.Outcome = operation.Outcome;
                     operationEdit.Income = 0;
                     operationEdit.InitialBalance = (decimal)operationEdit.Outcome;
                     if (specialOpL != null && specialOpI == null && specialOpP == null)
                     {
+                        specialOpL.FinalAmount = specialOpL.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
                         specialOpL.Amount = (decimal)operationEdit.Outcome;
                     }
                     else if (specialOpL == null && specialOpI != null && specialOpP == null)
                     {
+                        specialOpI.FinalAmount = specialOpL.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
                         specialOpI.Amount = (decimal)operationEdit.Outcome;
                     }
                     else if (specialOpL == null && specialOpI == null && specialOpP != null)
                     {
+                        specialOpP.FinalAmount = specialOpL.Amount + (decimal)operationEdit.Outcome - (decimal)operation.Outcome;
                         specialOpP.Amount = (decimal)operationEdit.Outcome;
                     }
                     check++;
                 }
                 else if (operationEdit.Type == operation.Type && operation.Type == 0 && operationEdit.Income != operation.Income && check == 0)
                 {
-                    accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
+                    if (operationEdit.Income != null)
+                    {
+                        accountEdit.Amount = accountEdit.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
+                    }
+                    else
+                    {
+                        accountEdit.Amount = accountEdit.Amount + (decimal)operation.Income;
+                    }
+
                     operationEdit.Income = operation.Income;
                     operationEdit.Outcome = 0;
                     operationEdit.InitialBalance = (decimal)operationEdit.Income;
                     if (specialOpL != null && specialOpI == null && specialOpP == null)
                     {
+                        specialOpL.FinalAmount = specialOpL.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
                         specialOpL.Amount = (decimal)operationEdit.Income;
                     }
                     else if (specialOpL == null && specialOpI != null && specialOpP == null)
                     {
+                        specialOpI.FinalAmount = specialOpL.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
                         specialOpI.Amount = (decimal)operationEdit.Income;
                     }
                     else if (specialOpL == null && specialOpI == null && specialOpP != null)
                     {
+                        specialOpP.FinalAmount = specialOpL.Amount - (decimal)operationEdit.Income + (decimal)operation.Income;
                         specialOpP.Amount = (decimal)operationEdit.Income;
                     }
                     check++;
@@ -815,6 +1002,7 @@ namespace Autrisa.Controllers
 
                 // Movimiento correcto, monto correcto, otro cambio
 
+                operationEdit.Customer = customer;
                 operationEdit.Type = operation.Type;
                 operationEdit.Modality = operation.Modality;
                 operationEdit.Number = operation.Number;
@@ -882,8 +1070,12 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Delete(Guid UniqueId)
         {
             var operation = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            var specialopL = await _context.LendingOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            var specialopI = await _context.InvestmentsOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+            var specialopP = await _context.PropertiesOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
 
-            if (operation == null)
+
+            if (operation == null && specialopL == null && specialopI == null && specialopP == null)
             {
                 return NotFound();
             }
@@ -899,26 +1091,138 @@ namespace Autrisa.Controllers
             try
             {
                 var operation = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
-                var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+                var specialopL = await _context.LendingOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+                var specialopI = await _context.InvestmentsOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
+                var specialopP = await _context.PropertiesOperations.Include(m => m.Operation).FirstOrDefaultAsync(m => m.UniqueId == UniqueId);
 
                 if (operation != null)
                 {
+                    var account = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operation.AccountId);
+                    if (account != null && operation != null)
+                    {
+                        if (operation.Type == 0)
+                        {
+                            if (operation.ActualBalance != null)
+                            {
+                                account.Amount = account.Amount - (decimal)operation.ActualBalance;
+                            }
+                            else
+                            {
+                                account.Amount = account.Amount - (decimal)operation.Income;
+                            }
+                        }
+                        else
+                        {
+                            if (operation.ActualBalance != null)
+                            {
+                                account.Amount = account.Amount + (decimal)operation.ActualBalance;
+                            }
+                            else
+                            {
+                                account.Amount = account.Amount + (decimal)operation.Outcome;
+                            }
+                        }
+                        _context.Update(account);
+                    }
                     _context.Operations.Remove(operation);
                 }
 
-                if (account != null)
+                if (specialopL != null)
                 {
-                    if (operation.Income != 0)
+                    var accountL = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == specialopL.Operation.AccountId);
+                    if (accountL != null && specialopL != null)
                     {
-                        account.Amount = account.Amount - (decimal)operation.ActualBalance;
+                        if (specialopL.Type == 0)
+                        {
+                            if (specialopL.FinalAmount != null)
+                            {
+                                accountL.Amount = accountL.Amount - (decimal)specialopL.FinalAmount;
+                            }
+                            else
+                            {
+                                accountL.Amount = accountL.Amount - (decimal)specialopL.Amount;
+                            }
+                        }
+                        else
+                        {
+                            if (operation.ActualBalance != null)
+                            {
+                                accountL.Amount = accountL.Amount + (decimal)specialopL.FinalAmount;
+                            }
+                            else
+                            {
+                                accountL.Amount = accountL.Amount + (decimal)specialopL.Amount;
+                            }
+                        }
+                        _context.Update(accountL);
                     }
-                    else
-                    {
-                        account.Amount = account.Amount + (decimal)operation.ActualBalance;
-                    }
+                    _context.LendingOperations.Remove(specialopL);
                 }
 
-                _context.Update(account);
+                if (specialopI != null)
+                {
+                    var accountI = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == specialopI.Operation.AccountId); ;
+                    if (accountI != null && specialopI != null)
+                    {
+                        if (specialopI.Type == 0)
+                        {
+                            if (specialopI.FinalAmount != null)
+                            {
+                                accountI.Amount = accountI.Amount - (decimal)specialopI.FinalAmount;
+                            }
+                            else
+                            {
+                                accountI.Amount = accountI.Amount - (decimal)specialopI.Amount;
+                            }
+                        }
+                        else
+                        {
+                            if (operation.ActualBalance != null)
+                            {
+                                accountI.Amount = accountI.Amount + (decimal)specialopI.FinalAmount;
+                            }
+                            else
+                            {
+                                accountI.Amount = accountI.Amount + (decimal)specialopI.Amount;
+                            }
+                        }
+                        _context.Update(accountI);
+                    }
+                    _context.InvestmentsOperations.Remove(specialopI);
+                }
+
+                if (specialopP != null)
+                {
+                    var accountP = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == specialopP.Operation.AccountId);
+                    if (accountP != null && specialopP != null)
+                    {
+                        if (specialopL.Type == 0)
+                        {
+                            if (specialopP.FinalAmount != null)
+                            {
+                                accountP.Amount = accountP.Amount - (decimal)specialopP.FinalAmount;
+                            }
+                            else
+                            {
+                                accountP.Amount = accountP.Amount - (decimal)specialopP.Amount;
+                            }
+                        }
+                        else
+                        {
+                            if (operation.ActualBalance != null)
+                            {
+                                accountP.Amount = accountP.Amount + (decimal)specialopP.FinalAmount;
+                            }
+                            else
+                            {
+                                accountP.Amount = accountP.Amount + (decimal)specialopP.Amount;
+                            }
+                        }
+                        _context.Update(accountP);
+                    }
+                    _context.PropertiesOperations.Remove(specialopP);
+                }
+                
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Eliminado exitosamente";
             }
@@ -1537,7 +1841,7 @@ namespace Autrisa.Controllers
             }
 
             ws.Columns("A", "T").AdjustToContents();
-            return wb.Deliver("Estado_cuenta.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            return wb.Deliver("Reporte.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
         [HttpPost]

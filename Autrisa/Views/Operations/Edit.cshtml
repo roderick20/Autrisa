@@ -37,10 +37,14 @@
                             <span asp-validation-for="AccountId" class="text-danger"></span>
                         </div>*@
                         <div class="form-group">
+                            <label class="control-label">Cliente</label>
+                            <input name="customer" id="customer" class="form-control" type="text" required />
+                        </div>
+                        <div class="form-group">
                             <label asp-for="Type" class="control-label"></label>
                             <select name="Type" id="Type" class="form-select">
-                                <option value="0">Ingreso</option>
-                                <option value="1">Egreso</option>
+                                <option value="0">Abono</option>
+                                <option value="1">Cargo</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -87,10 +91,10 @@
                             </div>
                         }
                         <hr />
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label class="control-label">Receptor</label>
                             <input name="Receptor" id="Receptor" class="form-control" type="text" />
-                        </div>
+                        </div>*@
                         <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                     </div>
                 </div>
@@ -126,6 +130,18 @@
             $("form").submit(function (event) {
                 $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
                 $("#btnSave").prop('disabled', true);
+            });
+
+            $(function () {
+                var clientsJson = '@Html.Raw(ViewBag.ClientsJson)';
+                var clientsArray = JSON.parse(clientsJson);
+                var availableClients = clientsArray.map(function (client) {
+                    return client.Name;
+                });
+                //console.log(availableClients);
+                $("#customer").autocomplete({
+                    source: availableClients
+                });
             });
         });
     </script>
