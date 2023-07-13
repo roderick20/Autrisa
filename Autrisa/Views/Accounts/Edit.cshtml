@@ -16,17 +16,41 @@
             <div class="card-body">
                 <div class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="col-md-4">     
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control"  type="text" />
+                            <input asp-for="Name" class="form-control" type="text" required />
                             <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label name="BankId" id="BankId" class="control-label"></label>
+                            <select name="BankId" id="BankId" class="form-select" asp-items="@ViewBag.bankId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label name="DateAccount" id="DateAccount" class="control-label">Fecha</label>
+                            <input name="DateAccountStr" id="DateAccountStr" class="form-control" type="text" value="@Model.DateAccount.ToString("dd/MM/yyyy")" required />
                         </div>
                         <div class="form-group">
                             <label asp-for="AccountType" class="control-label"></label>
                             <select name="AccountType" id="AccountType" class="form-select">
-                                <option value="Corriente">Corriente</option>
-                                <option value="Ahorros">Ahorros</option>
+                                @{
+                                    if (Model.AccountType == "Corriente")
+                                    {
+                                        <option value="Corriente" selected>Corriente</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Corriente">Corriente</option>
+                                    }
+                                    if (Model.AccountType == "Ahorros")
+                                    {
+                                        <option value="Ahorros" selected>Ahorros</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Ahorros">Ahorros</option>
+                                    }
+                                }
                             </select>
                             <span asp-validation-for="AccountType" class="text-danger"></span>
                         </div>
@@ -38,13 +62,29 @@
                         <div class="form-group">
                             <label asp-for="Currency" class="control-label"></label>
                             <select name="Currency" id="Currency" class="form-select">
-                                <option value="0">Soles</option>
-                                <option value="1">D&oacutelares</option>
+                                @{
+                                    if (Model.Currency == 0)
+                                    {
+                                        <option value="0" selected>Soles</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="0">Soles</option>
+                                    }
+                                    if (Model.Currency == 1)
+                                    {
+                                        <option value="1" selected>D&oacutelares</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">D&oacutelares</option>
+                                    }
+                                }                               
                             </select>
                             <span asp-validation-for="Currency" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Amount" class="control-label"></label>
+                            <label asp-for="Amount" class="control-label">Saldo</label>
                             <input asp-for="Amount" class="form-control"  type="text" />
                             <span asp-validation-for="Amount" class="text-danger"></span>
                         </div>
@@ -53,7 +93,7 @@
             </div>
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+                    <a class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                     <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Grabar </button>
                 </div>
             </div>
@@ -65,12 +105,19 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link href="~/assets/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/assets/vendor/jquery-ui/jquery.ui.datepicker-es.js"></script>
 
     <script>
+        $.datepicker.setDefaults($.datepicker.regional["es"]);
+
         $(document).ready(function () {
-            $("form").submit(function (event) {
-                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
-                $("#btnSave").prop('disabled', true);
+
+            $("#DateAccountStr").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
             });
 
             $("form").submit(function (event) {

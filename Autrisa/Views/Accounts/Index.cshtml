@@ -9,6 +9,8 @@
 
     decimal? sumsol = 0;
     decimal? sumdlls = 0;
+
+    var Operations = (List<Operation>)ViewBag.Operations;
 }
 
 <div class="col-12">
@@ -52,10 +54,10 @@
                             @Html.DisplayNameFor(model => model.Currency)
                         </th>
                         <th class="text-end">
-                            Monto Soles
+                            Saldo Soles
                         </th>
                         <th class="text-end">
-                            Monto D&oacutelares
+                            Saldo D&oacutelares
                         </th>
                         <th></th>
                     </tr>
@@ -63,16 +65,22 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
+
+                        var Income = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Income).Sum();
+                        var Outcome = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Outcome).Sum();
+                        var Amount = item.Amount + Income - Outcome;
+
+                        if (item.Currency == 0)
                         {
-                            if (item.Currency == 0)
-                            {
-                                sumsol = sumsol + item.Amount;
-                            }
-                            else
-                            {
-                                sumdlls = sumdlls + item.Amount;
-                            }
+                            sumsol = sumsol + Amount;
                         }
+                        else
+                        {
+                            sumdlls = sumdlls + Amount;
+                        }
+
+
+
 
                         if (item.AccountType == "Corriente" || item.AccountType == "Ahorros")
                         {
@@ -99,7 +107,7 @@
                                 <td class="text-end">
                                     @if (item.Currency == 0)
                                     {
-                                        <text>@string.Format("{0:#,##0.00}", item.Amount)</text>
+                                        <text>@string.Format("{0:#,##0.00}", Amount)</text>
                                     }
                                     else
                                     {
@@ -109,7 +117,7 @@
                                 <td class="text-end">
                                     @if (item.Currency == 1)
                                     {
-                                        <text>@string.Format("{0:#,##0.00}", item.Amount)</text>
+                                        <text>@string.Format("{0:#,##0.00}", Amount)</text>
                                     }
                                     else
                                     {
@@ -152,8 +160,8 @@
 
 @section Scripts {
     <link href="~/assets/vendor/datatables/datatables-1.13.1/css/datatables.bootstrap5.min.css" rel="stylesheet" />
-    <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
-    <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />
+    @*    <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
+    <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />*@
     <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js"></script>
 
     <style>
@@ -174,7 +182,17 @@
                 },
                 dom: 'Bfrtip',
                 buttons: [
-                    'excel'
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        filename: 'Lista de cuentas',
+                        customize: function (xlsx) {
+                            var sheet = xlsx.xl.worksheets['Lista de cuentas'];
+                        },
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    }
                 ]
             });
 

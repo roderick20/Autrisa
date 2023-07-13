@@ -14,17 +14,12 @@
     <div class="card border rounded-3">
         <div class="card-header  border-bottom p-3">
             <div class="d-sm-flex justify-content-between align-items-center">
-                <h5 class="mb-2 mb-sm-0">Movimientos</h5>
-                @*<div class="row">
+                <h5 class="mb-2 mb-sm-0">Prestamos</h5>
+                <div class="row">
                     <div class="col">
-                        @if (UserRole == "admin")
-                        {
-                            <a class="btn btn-sm btn-primary text-end" asp-action="Create"> <i class="fa-solid fa-plus"></i> Agregar</a>
-                            <a class="btn btn-sm btn-secondary text-end" asp-action="MonthClosure">Cerrar mes</a>
-                        }
-                        <a class="btn btn-sm btn-success text-end" asp-action="Reportes"><i class="fa-solid fa-file-export"></i> Reportes</a>
+                        <a class="btn btn-sm btn-success text-end" asp-action="ReportesPrestamos"><i class="fa-solid fa-file-export"></i> Reportes</a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
 
@@ -75,18 +70,18 @@
                         <th>
                             Concepto
                         </th>
-                        <th>
-                            Saldo Inicial
-                        </th>
-                        <th>
-                            Saldo Actual
-                        </th>
-                        @*<th class="text-end">
-                            @Html.DisplayNameFor(model => model.Income)
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Income) (S/)
                         </th>
                         <th class="text-end">
-                            @Html.DisplayNameFor(model => model.Outcome)
-                        </th>*@
+                            @Html.DisplayNameFor(model => model.Outcome) (S/)
+                        </th>
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Income) (USD)
+                        </th>
+                        <th class="text-end">
+                            @Html.DisplayNameFor(model => model.Outcome) (USD)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -131,9 +126,9 @@
                                 {
                                     <text>Salida</text>
                                 }
-                                else
+                                else if (item.Type == 2)
                                 {
-                                    <text>Cierre de mes</text>
+                                    <text>Saldo Inicial</text>
                                 }
                             </td>
                             <td>
@@ -162,24 +157,53 @@
                             <td>
                                 @item.Concept
                             </td>
-                            <td>
-                                @item.InitialBalance
-                            </td>
-                            <td>
-                                @item.ActualBalance
-                            </td>
-                            @*<td class="text-end">
-                                @item.Income
+                            <td class="text-end">
+                                @if (item.Account.Currency == 0)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Income)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
                             </td>
                             <td class="text-end">
-                                @item.Outcome
-                            </td>*@
+                                @if (item.Account.Currency == 0)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Outcome)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Account.Currency == 1)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Income)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (item.Account.Currency == 1)
+                                {
+                                    <text>@string.Format("{0:#,##0.00}", item.Outcome)</text>
+                                }
+                                else
+                                {
+                                    <text>-</text>
+                                }
+                            </td>
+
                             <td style="width:1%;">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v fa-lg"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a asp-action="Edit" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-primary"><i class="fa-solid fa-pen-to-square"></i> Editar </a></li>
-                                        <li><a asp-action="LendingOperations" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>
+                                        @*<li><a asp-action="LendingOperations" asp-route-Id="@item.Id" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i> Detalle</a></li>*@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a asp-action="Delete" asp-route-UniqueId="@item.UniqueId" class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Eliminar </a></li>
                                     </ul>
@@ -258,7 +282,70 @@
                 },
                 dom: 'Bfrtip',
                 buttons: [
-                    'excel'
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        filename: 'Movimientos Bancarios',
+                        customize: function (xlsx) {
+                            var sheet = xlsx.xl.worksheets['Movimientos Bancarios'];
+                            $('c[r=A2] t', sheet).text('Custom text');
+                        },
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13],
+                            format: {
+                                header: function (content, index) {
+                                    let rst = "";
+                                    if (index === 0) {
+                                        rst = 'Cuenta';
+                                    }
+                                    else if (index === 1) {
+                                        rst = 'Cliente';
+                                    }
+                                    else if (index === 2) {
+                                        rst = 'Año/Mes';
+                                    }
+                                    else if (index === 3) {
+                                        rst = 'Tipo';
+                                    }
+                                    else if (index === 4) {
+                                        rst = 'Movimiento';
+                                    }
+                                    else if (index === 5) {
+                                        rst = 'Modalidad';
+                                    }
+                                    else if (index === 6) {
+                                        rst = 'Número';
+                                    }
+                                    else if (index === 7) {
+                                        rst = 'Fecha';
+                                    }
+                                    else if (index === 8) {
+                                        rst = 'Descripción';
+                                    }
+                                    else if (index === 9) {
+                                        rst = 'Concepto';
+                                    }
+                                    else if (index === 10) {
+                                        rst = 'Ingreso S/';
+                                    }
+                                    else if (index === 11) {
+                                        rst = 'Salida S/';
+                                    }
+                                    else if (index === 12) {
+                                        rst = 'Ingreso $';
+                                    }
+                                    else if (index === 13) {
+                                        rst = 'Salida $';
+                                    }
+
+
+                                    return rst;
+                                }
+                            }
+                        }
+
+
+                    }
                 ]
             });
 
@@ -335,4 +422,5 @@
             });
         });
     </script>
+
 }

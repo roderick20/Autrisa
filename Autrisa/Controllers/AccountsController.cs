@@ -24,6 +24,7 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.Operations = await _context.Operations.Where(m => m.Type < 2).ToListAsync();
             var accounts = await _context.Accounts.ToListAsync();
             return View(accounts);
         }
@@ -87,18 +88,17 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Account account, string Created)//, int BankId)
+        public async Task<IActionResult> Create(Account account, string DateAccountStr)//, int BankId)
         {
             try
             {
                 account.UniqueId = Guid.NewGuid();
                 account.PreviousRemaining = account.Amount;
-                //account.Created = DateTime.Now;
-                account.Created = DateTime.ParseExact(Created, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                account.Created = DateTime.Now;
+                account.DateAccount = DateTime.ParseExact(DateAccountStr, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 account.Author = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Add(account);
                 await _context.SaveChangesAsync();
-                TempData["Success"] = "Agregado exitosamente";
 
                 return RedirectToAction(nameof(Index));
             }
@@ -106,7 +106,7 @@ namespace Autrisa.Controllers
             {
                 TempData["Error"] = "Error: " + ex.Message;
             }
-           
+            ViewBag.bankId = new SelectList(_context.Banks, "Id", "Name");
             return View();
         }
         
@@ -117,24 +117,25 @@ namespace Autrisa.Controllers
             {
                 return NotFound();
             }
+            ViewBag.bankId = new SelectList(_context.Banks, "Id", "Name", account.BankId);
             return View(account);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Account account, string Modified)
+        public async Task<IActionResult> Edit(Account account, string Modified,string DateAccountStr)
         {
             try
             {
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.UniqueId == account.UniqueId);
-
-                accountEdit.Name = account.Name; 
+                accountEdit.Name = account.Name;
+                accountEdit.BankId = account.BankId;
+                accountEdit.DateAccount = DateTime.ParseExact(DateAccountStr, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 accountEdit.AccountType = account.AccountType; 
                 accountEdit.AccountNumber = account.AccountNumber; 
                 accountEdit.Currency = account.Currency; 
                 accountEdit.Amount = account.Amount;
-                accountEdit.Modified = DateTime.Now;
-                //accountEdit.Modified = DateTime.ParseExact(Modified, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                accountEdit.Modified = DateTime.Now;                
                 accountEdit.Editor = (int)HttpContext.Session.GetInt32("UserId");
                 _context.Update(accountEdit);
                 await _context.SaveChangesAsync();
@@ -145,6 +146,7 @@ namespace Autrisa.Controllers
             {
                 TempData["Error"] = "Error: " + ex.Message;    
             }
+            ViewBag.bankId = new SelectList(_context.Banks, "Id", "Name", account.BankId);
             return View(account);
         }
         

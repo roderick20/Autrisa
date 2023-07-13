@@ -26,6 +26,10 @@
                             <select name="BankId" id="BankId" class="form-select" asp-items="@ViewBag.bankId"></select>
                         </div>
                         <div class="form-group">
+                            <label name="DateAccount" id="DateAccount" class="control-label">Fecha</label>
+                            <input name="DateAccountStr" id="DateAccountStr" class="form-control" type="text" required />
+                        </div>
+                        <div class="form-group">
                             <label asp-for="AccountType" class="control-label"></label>
                             <select name="AccountType" id="AccountType" class="form-select">
                                 <option value="Corriente">Corriente</option>
@@ -45,17 +49,17 @@
                                 <option value="1">Dolares ($)</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none;">
                             <label asp-for="OperationType" class="control-label"></label>
                             <select name="OperationType" id="OperationType" class="form-select">
-                                <option value="0">Operaci&oacute;n normal</option>
+                                <option value="0">Cuentas Bancarias</option>
                                 <option value="1">Pr&eacute;stamo</option>
                                 <option value="2">Inversi&oacute;n</option>
                                 <option value="3">Predio</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Amount" class="control-label"></label>
+                            <label asp-for="Amount" class="control-label">Saldo</label>
                             <input asp-for="Amount" class="form-control" type="text" required />
                             <span asp-validation-for="Amount" class="text-danger"></span>
                         </div>
@@ -65,8 +69,8 @@
             </div>
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
-                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
+                    <a class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                    <button class="btn btn-sm btn-primary" type="submit" id="btnSave"><i class="fa-solid fa-floppy-disk"></i>  Grabar </button>
                 </div>
             </div>
         </div>
@@ -86,13 +90,14 @@
     
         $(document).ready(function () {
 
-            $("form").submit(function (event) {
-                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
-                $("#btnSave").prop('disabled', true);
+            $("#DateAccountStr").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
             });
 
             $("form").submit(function (event) {
-                event.preventDefault();
+                event.preventDefault();               
 
                 if (!/^[0-9]+(\.)?[0-9]*$/.test($("#Amount").val())) {
 

@@ -14,7 +14,7 @@
                 @if (ViewBag.Check != null)
                 {
                     <div class="alert alert-danger" role="alert">
-                        @TempData["Check"] Documento ya existente
+                        @ViewBag.Check 
                     </div>
                 }
             </div>
@@ -38,9 +38,9 @@
                         <div class="form-group">
                             <label class="control-label">Tipo de operaci&oacute;n</label>
                             <select name="OperationType" id="OperationType" class="form-select">
-                                <option value=""></option>
-                                <option value="1">Operaciones normales</option>
-                                <option value="2">Pr&eacute;stamos</option>
+                                @*//<option value=""></option>*@
+                                <option value="1">Operaciones</option>
+                                <option value="2">Préstamos</option>
                                 <option value="3">Inversiones</option>
                                 <option value="4">Predios</option>
                             </select>
@@ -52,8 +52,9 @@
                         <div class="form-group">
                             <label asp-for="Type" class="control-label">Operación</label>
                             <select name="Type" id="Type" class="form-select">
-                                <option value="0">Abono</option>
-                                <option value="1">Cargo</option>
+                                <option value="0">Ingreso</option>
+                                <option value="1">Salida</option>
+                                <option value="2">Monto Inicial</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -84,18 +85,18 @@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label name="montoTransaccion" class="control-label">Monto de movimiento</label>
+                            <label name="montoTransaccion" class="control-label">Monto</label>
                             <input name="montoTransaccion" id="montoTransaccion" class="form-control" type="text" required />
                         </div>
                         @*<div class="form-group">
                             <label name="Receptor" class="control-label">Receptor</label>
                             <input name="Receptor" id="Receptor" class="form-control" type="text" />
-                        </div>*@
+                        </div>
                         <hr />
                         <div class="form-group">
                             <label name="InitialBalance" class="control-label">Saldo Inicial</label>
                             <input name="InitialBalance" id="InitialBalance" class="form-control" type="text" />
-                        </div>
+                        </div>*@
                         <input type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="Created" name="Created" />
                         <input type="hidden" value="@ViewBag.LendingId" id="LendingId" name="LendingId" />
                         <input type="hidden" value="@ViewBag.InvestmentId" id="InvestmentId" name="InvestmentId" />
@@ -105,7 +106,7 @@
             </div>
             <div class="card-footer  border-bottom p-3">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <button class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+                    <a class="btn btn-sm btn-info" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                     <button class="btn btn-sm btn-primary" type="submit" id="btnSave" asp-route-Monto="montoTransaccion"><i class="fa-solid fa-floppy-disk"></i>  Agregar </button>
                 </div>
             </div>
@@ -124,6 +125,12 @@
     <script>
         $.datepicker.setDefaults($.datepicker.regional["es"]);
 
+        var clientsJson = @Html.Raw(ViewBag.ClientsJson);
+        //var clientsArray = JSON.parse(clientsJson);
+        //var availableClients = clientsArray.map(function (client) {
+        //    return client.Name;
+        //});
+
         $(document).ready(function () {
             $("#operDate").datepicker({
                 changeMonth: true,
@@ -131,10 +138,10 @@
                 dateFormat: "dd/mm/yy"
             });
 
-            $("form").submit(function (event) {
-                $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
-                $("#btnSave").prop('disabled', true);
-            });
+            //$("form").submit(function (event) {
+            //    $("#btnSave").html('<i class="fa-solid fa-spinner fa-spin-pulse"></i> Procesando');
+            //    $("#btnSave").prop('disabled', true);
+            //});
 
             $("form").submit(function (event) {
                 event.preventDefault();
@@ -151,17 +158,12 @@
                 event.currentTarget.submit();
             });
 
-            $(function () {
-                var clientsJson = '@Html.Raw(ViewBag.ClientsJson)';
-                var clientsArray = JSON.parse(clientsJson);
-                var availableClients = clientsArray.map(function (client) {
-                    return client.Name;
-                });
+               
                 //console.log(availableClients);
                 $("#customer").autocomplete({
-                    source: availableClients
+                source: clientsJson
                 });
-            });
+            
 
             //$('#BankId').on('change', function () { // Seguir los cambios de dos o más elementos
             //    //alert('cambió');

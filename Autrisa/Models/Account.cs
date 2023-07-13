@@ -52,6 +52,9 @@ namespace Autrisa.Models
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
 
+        public DateTime DateAccount { get; set; }
+        
+
         //public virtual ICollection<Investment> Investments { get; set; }
         //public virtual ICollection<Lending> Lendings { get; set; }
         public virtual ICollection<Operation> Operations { get; set; }

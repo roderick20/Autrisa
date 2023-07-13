@@ -58,11 +58,17 @@ namespace Autrisa.Controllers
         [Route("UpdatePassword")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdatePassword(String password)
+        public async Task<IActionResult> UpdatePassword(String password, String password2)
         {
             if (String.IsNullOrEmpty(password))
             {
                 ModelState.AddModelError("", "Contraseña es obligarotio");
+                return View();
+            }
+
+            if (password != password2)
+            {
+                ModelState.AddModelError("", "Password deben ser iguales");
                 return View();
             }
 
