@@ -48,3 +48,6 @@ app.MapControllerRoute(name: "areas", pattern: "{area:exists}/{controller=App}/{
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+//Scaffold-DbContext "server=3.131.217.111;Database=Autrisa_394;user id=user_Autrisa_394;password=!g78Z8-H;Encrypt=false" "Microsoft.EntityFrameworkCore.SqlServer" -OutputDir Models -Context EFContext -force

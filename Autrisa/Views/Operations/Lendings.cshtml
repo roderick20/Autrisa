@@ -1,0 +1,94 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
+
+    ViewData["Title"] = "Lista de Prestamos";
+    var today = DateTime.Today;
+    var lastDayOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
+
+    decimal TotalSoles = 0;
+    decimal TotalDolares = 0;
+}
+
+<div class="col-12">
+    <div class="card border rounded-3">
+        <div class="card-header  border-bottom p-3">
+            <div class="d-sm-flex justify-content-between align-items-center">
+                <h5 class="mb-2 mb-sm-0">Prestamos</h5>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-sm btn-primary text-end" asp-action="CreateLending"> <i class="fa-solid fa-plus"></i> Agregar Prestamos</a>
+                        @* <a class="btn btn-sm btn-success text-end" asp-action="ReportesPrestamos"><i class="fa-solid fa-file-export"></i> Reportes</a> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body table-responsive" style="min-height:500px">
+
+            <table id="listTable" class="table table-sm table-bordered align-middle table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Cliente
+                        </th>
+                        <th>
+                            Moneda
+                        </th>
+                        <th class="text-end">
+                            S/
+                        </th>
+
+                        <th class="text-end">
+                            USD
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.operations)
+                    {
+                        TotalSoles = TotalSoles + item.TotalSoles;
+                        TotalDolares = TotalDolares + item.TotalDolares;
+                        <tr>
+                            <td>
+                                @item.Customer
+                            </td>
+                            <td>
+                                @item.Currency
+                            </td>
+                            <td class="text-end" style="width:15%">
+                                @string.Format("{0:#,##0.00}", item.TotalSoles)
+                            </td>
+                            <td class="text-end" style="width:15%">
+                                @string.Format("{0:#,##0.00}", item.TotalDolares)
+                            </td>
+                            <td style="width:1%;">
+                                <a asp-action="LendingDetails" asp-route-Customer="@item.Customer" asp-route-Currency="@item.Currency" class="dropdown-item text-primary"><i class="fa-solid fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2">Total</th>
+                        <th class="text-end">@string.Format("{0:#,##0.00}", @TotalSoles)</th>
+                        <th class="text-end">@string.Format("{0:#,##0.00}", TotalDolares)</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <link href="~/assets/vendor/datatables/datatables-1.13.1/css/datatables.bootstrap5.min.css" rel="stylesheet" />
+    <script src="~/assets/vendor/yadcf/jquery.datatables.yadcf.js"></script>
+    <link href="~/assets/vendor/yadcf/jquery.datatables.yadcf.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js"></script>
+
+
+}

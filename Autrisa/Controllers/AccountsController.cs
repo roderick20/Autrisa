@@ -25,7 +25,7 @@ namespace Autrisa.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Operations = await _context.Operations.Where(m => m.Type < 2).ToListAsync();
-            var accounts = await _context.Accounts.ToListAsync();
+            var accounts = await _context.Accounts.Where(m => m.Visible == null || m.Visible == 0).ToListAsync();
             return View(accounts);
         }
 

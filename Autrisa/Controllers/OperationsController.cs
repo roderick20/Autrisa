@@ -17,6 +17,7 @@ using DocumentFormat.OpenXml.Presentation;
 using Newtonsoft.Json;
 using DocumentFormat.OpenXml.VariantTypes;
 using Microsoft.CodeAnalysis;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
 
 namespace Autrisa.Controllers
 {
@@ -25,6 +26,37 @@ namespace Autrisa.Controllers
         public int value { get; set; }
         public string text { get; set; } = null!;
         public int? type { get; set; }
+    }
+
+    public class CustomerTotal
+    {
+        public string Customer { get; set; }
+        public string Currency { get; set; }
+        public string AccountName { get; set; }
+        public decimal TotalSoles { get; set; }
+        public decimal TotalDolares { get; set; }
+    }
+
+    class OperationComparer : IEqualityComparer<Operation>
+    {
+        public bool Equals(Operation x, Operation y)
+        {
+            if (ReferenceEquals(x, y))
+                return true;
+
+            if (x is null || y is null)
+                return false;
+
+            return x.Customer == y.Customer && x.Account.Currency == y.Account.Currency;
+        }
+
+        public int GetHashCode(Operation obj)
+        {
+            if (obj is null)
+                throw new ArgumentNullException(nameof(obj));
+
+            return obj.Customer.GetHashCode();
+        }
     }
 
     public class OperationsController : Controller
@@ -47,36 +79,129 @@ namespace Autrisa.Controllers
             return View(operations);
         }
 
-        public async Task<IActionResult> LendingDetails()//Prestamos
+        public async Task<IActionResult> Lendings()//Prestamos
         {
+            List<CustomerTotal> list = new List<CustomerTotal>();
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
                 .Where(m => m.OperationType == 2 && m.FatherOperation == 1)
                 .ToListAsync();
 
-            ViewBag.operations = operations;
-            return View(operations);
+            var operationDistintas = operations.Distinct(new OperationComparer()).ToList();
+
+            foreach (var operation in operationDistintas)
+            {
+                decimal total = (decimal)(operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Income) - operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Outcome));
+
+                total = Math.Abs(total);
+
+                list.Add(new CustomerTotal()
+                {
+                    Customer = operation.Customer,
+                    AccountName = operation.Account.Name,
+                    Currency = operation.Account.Currency == 0 ? "Soles" : "Dolares",
+                    TotalSoles = operation.Account.Currency == 0 ? total : 0,
+                    TotalDolares = operation.Account.Currency == 1 ? total : 0,
+                });
+            }
+            ViewBag.operations = list;
+            return View();
         }
 
-        public async Task<IActionResult> InvestmentDetails()
+        public async Task<IActionResult> Investments()
         {
+            List<CustomerTotal> list = new List<CustomerTotal>();
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
                 .Where(m => m.OperationType == 3 && m.FatherOperation == 1)
                 .ToListAsync();
 
-            ViewBag.operations = operations;
-            return View(operations);
+            var operationDistintas = operations.Distinct(new OperationComparer()).ToList();
+
+            foreach (var operation in operationDistintas)
+            {
+                decimal total = (decimal)(operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Income) - operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Outcome));
+
+                total = Math.Abs(total);
+
+                list.Add(new CustomerTotal()
+                {
+                    Customer = operation.Customer,
+                    AccountName = operation.Account.Name,
+                    Currency = operation.Account.Currency == 0 ? "Soles" : "Dolares",
+                    TotalSoles = operation.Account.Currency == 0 ? total : 0,
+                    TotalDolares = operation.Account.Currency == 1 ? total : 0,
+                });
+            }
+            ViewBag.operations = list;
+            return View();
         }
 
-        public async Task<IActionResult> PropertyDetails()
+        public async Task<IActionResult> Propertys()
         {
+            List<CustomerTotal> list = new List<CustomerTotal>();
             var operations = await _context.Operations
                 .Include(m => m.Account)
                 .ThenInclude(m => m.AccountDetails)
                 .Where(m => m.OperationType == 4 && m.FatherOperation == 1)
+                .ToListAsync();
+
+            var operationDistintas = operations.Distinct(new OperationComparer()).ToList();
+
+            foreach (var operation in operationDistintas)
+            {
+                decimal total = (decimal)(operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Income) - operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Outcome));
+
+                total = Math.Abs(total);
+
+                list.Add(new CustomerTotal()
+                {
+                    Customer = operation.Customer,
+                    AccountName = operation.Account.Name,
+                    Currency = operation.Account.Currency == 0 ? "Soles" : "Dolares",
+                    TotalSoles = operation.Account.Currency == 0 ? total : 0,
+                    TotalDolares = operation.Account.Currency == 1 ? total : 0,
+                });
+            }
+            ViewBag.operations = list;
+            return View();
+        }
+
+        public async Task<IActionResult> LendingDetails(String Customer, String Currency)//Prestamos
+        {
+            int CurrencyInt = Currency == "Soles" ? 0 : 1;
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.OperationType == 2 && m.FatherOperation == 1 && m.Customer == Customer && m.Account.Currency == CurrencyInt)
+                .ToListAsync();
+
+            ViewBag.operations = operations;
+            return View(operations);
+        }
+
+        public async Task<IActionResult> InvestmentDetails(String Customer, String Currency)
+        {
+            int CurrencyInt = Currency == "Soles" ? 0 : 1;
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.OperationType == 3 && m.FatherOperation == 1 && m.Customer == Customer && m.Account.Currency == CurrencyInt)
+                .ToListAsync();
+
+            ViewBag.operations = operations;
+            return View(operations);
+        }
+
+        public async Task<IActionResult> PropertyDetails(String Customer, String Currency)
+        {
+            int CurrencyInt = Currency == "Soles" ? 0 : 1;
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.OperationType == 4 && m.FatherOperation == 1 && m.Customer == Customer && m.Account.Currency == CurrencyInt)
                 .ToListAsync();
 
             ViewBag.operations = operations;
@@ -166,6 +291,256 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Create(int LendingId, int InvestmentId, int PropertyId)
         {
+            var accounts = await _context.Accounts.Where(m => m.Visible == 0).ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Operation operation, decimal montoTransaccion, string Created, int AccountOper, int OperationType,
+            string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
+        {
+            try
+            {
+                //var check = await _context.Operations.Include(m => m.Account)
+                //    .Where(m => m.Account.Id == operation.AccountId && m.Number == operation.Number)
+                //    .FirstOrDefaultAsync();
+
+                var existentClient = await _context.Clients.Where(m => m.Name == customer).FirstOrDefaultAsync();
+
+                //if (check == null)
+                //{
+                if (existentClient == null)
+                {
+                    Client client = new()
+                    {
+                        Name = customer
+                    };
+                    _context.Add(client);
+                    await _context.SaveChangesAsync();
+                }
+
+                //AccountDetail accdetail = new AccountDetail();
+
+                operation.UniqueId = Guid.NewGuid();
+                operation.Created = DateTime.Now;
+                operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operation.Year = selectedDate.Year;
+                operation.Month = selectedDate.Month;
+                operation.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operation.OperationType = OperationType;
+
+                if (operation.Number == null)
+                {
+                    operation.Number = "0";
+                }
+
+                //if (operation.InitialBalance != null)
+                //{
+                //    operation.InitialBalance = operation.InitialBalance;
+                //}
+                //else
+                //{
+                //    if (operation.Type == 0)
+                //    {
+                //        operation.InitialBalance = montoTransaccion;
+                //    }
+                //    else
+                //    {
+                //        operation.InitialBalance = -montoTransaccion;
+                //    }
+                //}
+
+                //var montoInicial = accountEdit.Amount;
+                //if (OperationType != 1)
+                //{
+                //    if (operation.Type == 0)
+                //    {
+                //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                //        {
+                //            if (operation.InitialBalance < montoTransaccion)
+                //            {
+                //                //accountEdit.Amount = montoInicial + montoTransaccion;
+                //                operation.Income = montoTransaccion;
+                //                operation.Outcome = 0;
+                //            }
+                //            else
+                //            {
+                //                //accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
+                //                operation.Income = montoTransaccion;
+                //                operation.Outcome = 0;
+                //            }
+
+                //        }
+                //        else
+                //        {
+                //            //accountEdit.Amount = montoInicial + montoTransaccion;
+                //            operation.Income = montoTransaccion;
+                //            operation.Outcome = 0;
+                //            operation.InitialBalance = montoTransaccion;
+                //        }
+                //    }
+                //    else if (operation.Type == 1)
+                //    {
+                //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                //        {
+                //            //accountEdit.Amount = montoInicial - (decimal)operation.InitialBalance;
+                //            operation.Outcome = montoTransaccion;
+                //            operation.Income = 0;
+                //        }
+                //        else
+                //        {
+                //            //accountEdit.Amount = montoInicial - montoTransaccion;
+                //            operation.Outcome = montoTransaccion;
+                //            operation.Income = 0;
+                //            operation.InitialBalance = -montoTransaccion;
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                if (operation.Type == 0)
+                {
+                    //accountEdit.Amount = montoInicial + montoTransaccion;
+                    operation.Income = montoTransaccion;
+                    operation.Outcome = 0;
+                }
+                else if (operation.Type == 1 || operation.Type == 2)
+                {
+                    //accountEdit.Amount = montoInicial - montoTransaccion;
+                    operation.Outcome = montoTransaccion;
+                    operation.Income = 0;
+                }
+                //}
+
+                //if (AccountOper == 0)
+                //{
+                //    accdetail.AccountId = operation.AccountId;
+                //}
+                //else
+                //{
+                //    accdetail.AccountId = AccountOper;
+                //}
+                //accdetail.UniqueId = Guid.NewGuid();
+                //accdetail.Description = operation.Description;
+                //accdetail.Concept = operation.Concept;
+                //accdetail.Author = operation.Author;
+                //accdetail.Created = DateTime.Now;
+                //if (accountEdit.Currency == 0)
+                //{
+                //    accdetail.SolesAmount = montoTransaccion;
+                //}
+                //else
+                //{
+                //    accdetail.DollarsAmount = montoTransaccion;
+                //}
+                //accdetail.InitialAmount = accountEdit.Amount;
+                //accdetail.Customer = customer;
+                //accdetail.OperationType = OperationType;
+                //accdetail.OperationDate = DateTime.Now;
+                //_context.Update(accountEdit);
+
+                if (OperationType != 1)
+                {
+                    operation.FatherOperation = 1;
+                }
+
+                _context.Add(operation);
+                await _context.SaveChangesAsync();
+
+                //if (OperationType == 2)
+                //{
+                //    LendingOperation lendingOp = new();
+                //    lendingOp.UniqueId = Guid.NewGuid();
+                //    lendingOp.Type = operation.Type;
+                //    lendingOp.Modality = operation.Modality;
+                //    lendingOp.OperationId = operation.Id;
+                //    lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    lendingOp.Description = operation.Description;
+                //    lendingOp.Amount = montoTransaccion;
+                //    lendingOp.Created = DateTime.Now;
+                //    lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    lendingOp.FinalAmount = operation.InitialBalance;
+                //    _context.Add(lendingOp);
+                //}
+                //else if (OperationType == 3)
+                //{
+                //    InvestmentsOperation investmentOp = new();
+                //    investmentOp.UniqueId = Guid.NewGuid();
+                //    investmentOp.Type = operation.Type;
+                //    investmentOp.Modality = operation.Modality;
+                //    investmentOp.OperationId = operation.Id;
+                //    investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    investmentOp.Description = operation.Description;
+                //    investmentOp.Amount = montoTransaccion;
+                //    investmentOp.Created = DateTime.Now;
+                //    investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    investmentOp.FinalAmount = operation.InitialBalance;
+                //    _context.Add(investmentOp);
+                //}
+                //else if (OperationType == 4)
+                //{
+                //    PropertiesOperation propertiesOp = new();
+                //    propertiesOp.UniqueId = Guid.NewGuid();
+                //    propertiesOp.Type = operation.Type;
+                //    propertiesOp.Modality = operation.Modality;
+                //    propertiesOp.OperationId = operation.Id;
+                //    propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    propertiesOp.Description = operation.Description;
+                //    propertiesOp.Amount = montoTransaccion;
+                //    propertiesOp.Created = DateTime.Now;
+                //    propertiesOp.FinalAmount = operation.InitialBalance;
+                //    if (Receptor != null)
+                //    {
+                //        propertiesOp.Receptor = Receptor;
+                //    }
+                //    else
+                //    {
+                //        propertiesOp.Receptor = "-";
+                //    }
+                //    propertiesOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    _context.Add(propertiesOp);
+                //}
+                //accdetail.OperationId = operation.Id;
+                //_context.Add(accdetail);
+                //await _context.SaveChangesAsync();
+                TempData["Success"] = "Agregado exitosamente";
+                return RedirectToAction(nameof(Index));
+                //}
+                //ViewBag.Check = "Documento ya existente";
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error: " + ex.Message;
+                TempData["Check"] = "Documento ya existente";
+            }
+
+            var accounts = await _context.Accounts.ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View(operation);
+        }
+
+        //, , 
+
+        public async Task<IActionResult> CreateProperty(int LendingId, int InvestmentId, int PropertyId)
+        {
             var accounts = await _context.Accounts.ToListAsync();
             var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
             var clientsJson = JsonConvert.SerializeObject(clients);
@@ -180,7 +555,7 @@ namespace Autrisa.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Operation operation, int montoTransaccion, string Created, int AccountOper, int OperationType,
+        public async Task<IActionResult> CreateProperty(Operation operation, decimal montoTransaccion, string Created, int AccountOper, int OperationType,
             string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
         {
             try
@@ -412,6 +787,507 @@ namespace Autrisa.Controllers
             return View(operation);
         }
 
+
+        public async Task<IActionResult> CreateInvestment(int LendingId, int InvestmentId, int PropertyId)
+        {
+            var accounts = await _context.Accounts.ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateInvestment(Operation operation, decimal montoTransaccion, string Created, int AccountOper, int OperationType,
+            string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
+        {
+            try
+            {
+                var check = await _context.Operations.Include(m => m.Account)
+                    .Where(m => m.Account.Id == operation.AccountId && m.Number == operation.Number)
+                    .FirstOrDefaultAsync();
+
+                var existentClient = await _context.Clients.Where(m => m.Name == customer).FirstOrDefaultAsync();
+
+                if (check == null)
+                {
+                    if (existentClient == null)
+                    {
+                        Client client = new()
+                        {
+                            Name = customer
+                        };
+                        _context.Add(client);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    //AccountDetail accdetail = new AccountDetail();
+
+                    operation.UniqueId = Guid.NewGuid();
+                    operation.Created = DateTime.Now;
+                    operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.Year = selectedDate.Year;
+                    operation.Month = selectedDate.Month;
+                    operation.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    operation.OperationType = OperationType;
+
+                    if (operation.Number == null)
+                    {
+                        operation.Number = "0";
+                    }
+
+                    //if (operation.InitialBalance != null)
+                    //{
+                    //    operation.InitialBalance = operation.InitialBalance;
+                    //}
+                    //else
+                    //{
+                    //    if (operation.Type == 0)
+                    //    {
+                    //        operation.InitialBalance = montoTransaccion;
+                    //    }
+                    //    else
+                    //    {
+                    //        operation.InitialBalance = -montoTransaccion;
+                    //    }
+                    //}
+
+                    //var montoInicial = accountEdit.Amount;
+                    //if (OperationType != 1)
+                    //{
+                    //    if (operation.Type == 0)
+                    //    {
+                    //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                    //        {
+                    //            if (operation.InitialBalance < montoTransaccion)
+                    //            {
+                    //                //accountEdit.Amount = montoInicial + montoTransaccion;
+                    //                operation.Income = montoTransaccion;
+                    //                operation.Outcome = 0;
+                    //            }
+                    //            else
+                    //            {
+                    //                //accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
+                    //                operation.Income = montoTransaccion;
+                    //                operation.Outcome = 0;
+                    //            }
+
+                    //        }
+                    //        else
+                    //        {
+                    //            //accountEdit.Amount = montoInicial + montoTransaccion;
+                    //            operation.Income = montoTransaccion;
+                    //            operation.Outcome = 0;
+                    //            operation.InitialBalance = montoTransaccion;
+                    //        }
+                    //    }
+                    //    else if (operation.Type == 1)
+                    //    {
+                    //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                    //        {
+                    //            //accountEdit.Amount = montoInicial - (decimal)operation.InitialBalance;
+                    //            operation.Outcome = montoTransaccion;
+                    //            operation.Income = 0;
+                    //        }
+                    //        else
+                    //        {
+                    //            //accountEdit.Amount = montoInicial - montoTransaccion;
+                    //            operation.Outcome = montoTransaccion;
+                    //            operation.Income = 0;
+                    //            operation.InitialBalance = -montoTransaccion;
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    if (operation.Type == 0)
+                    {
+                        //accountEdit.Amount = montoInicial + montoTransaccion;
+                        operation.Income = montoTransaccion;
+                        operation.Outcome = 0;
+                    }
+                    else if (operation.Type == 1 || operation.Type == 2)
+                    {
+                        //accountEdit.Amount = montoInicial - montoTransaccion;
+                        operation.Outcome = montoTransaccion;
+                        operation.Income = 0;
+                    }
+                    //}
+
+                    //if (AccountOper == 0)
+                    //{
+                    //    accdetail.AccountId = operation.AccountId;
+                    //}
+                    //else
+                    //{
+                    //    accdetail.AccountId = AccountOper;
+                    //}
+                    //accdetail.UniqueId = Guid.NewGuid();
+                    //accdetail.Description = operation.Description;
+                    //accdetail.Concept = operation.Concept;
+                    //accdetail.Author = operation.Author;
+                    //accdetail.Created = DateTime.Now;
+                    //if (accountEdit.Currency == 0)
+                    //{
+                    //    accdetail.SolesAmount = montoTransaccion;
+                    //}
+                    //else
+                    //{
+                    //    accdetail.DollarsAmount = montoTransaccion;
+                    //}
+                    //accdetail.InitialAmount = accountEdit.Amount;
+                    //accdetail.Customer = customer;
+                    //accdetail.OperationType = OperationType;
+                    //accdetail.OperationDate = DateTime.Now;
+                    //_context.Update(accountEdit);
+
+                    if (OperationType != 1)
+                    {
+                        operation.FatherOperation = 1;
+                    }
+
+                    _context.Add(operation);
+                    await _context.SaveChangesAsync();
+
+                    //if (OperationType == 2)
+                    //{
+                    //    LendingOperation lendingOp = new();
+                    //    lendingOp.UniqueId = Guid.NewGuid();
+                    //    lendingOp.Type = operation.Type;
+                    //    lendingOp.Modality = operation.Modality;
+                    //    lendingOp.OperationId = operation.Id;
+                    //    lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //    lendingOp.Description = operation.Description;
+                    //    lendingOp.Amount = montoTransaccion;
+                    //    lendingOp.Created = DateTime.Now;
+                    //    lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    //    lendingOp.FinalAmount = operation.InitialBalance;
+                    //    _context.Add(lendingOp);
+                    //}
+                    //else if (OperationType == 3)
+                    //{
+                    //    InvestmentsOperation investmentOp = new();
+                    //    investmentOp.UniqueId = Guid.NewGuid();
+                    //    investmentOp.Type = operation.Type;
+                    //    investmentOp.Modality = operation.Modality;
+                    //    investmentOp.OperationId = operation.Id;
+                    //    investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //    investmentOp.Description = operation.Description;
+                    //    investmentOp.Amount = montoTransaccion;
+                    //    investmentOp.Created = DateTime.Now;
+                    //    investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    //    investmentOp.FinalAmount = operation.InitialBalance;
+                    //    _context.Add(investmentOp);
+                    //}
+                    //else if (OperationType == 4)
+                    //{
+                    //    PropertiesOperation propertiesOp = new();
+                    //    propertiesOp.UniqueId = Guid.NewGuid();
+                    //    propertiesOp.Type = operation.Type;
+                    //    propertiesOp.Modality = operation.Modality;
+                    //    propertiesOp.OperationId = operation.Id;
+                    //    propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //    propertiesOp.Description = operation.Description;
+                    //    propertiesOp.Amount = montoTransaccion;
+                    //    propertiesOp.Created = DateTime.Now;
+                    //    propertiesOp.FinalAmount = operation.InitialBalance;
+                    //    if (Receptor != null)
+                    //    {
+                    //        propertiesOp.Receptor = Receptor;
+                    //    }
+                    //    else
+                    //    {
+                    //        propertiesOp.Receptor = "-";
+                    //    }
+                    //    propertiesOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                    //    _context.Add(propertiesOp);
+                    //}
+                    //accdetail.OperationId = operation.Id;
+                    //_context.Add(accdetail);
+                    //await _context.SaveChangesAsync();
+                    TempData["Success"] = "Agregado exitosamente";
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag.Check = "Documento ya existente";
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error: " + ex.Message;
+                TempData["Check"] = "Documento ya existente";
+            }
+
+            var accounts = await _context.Accounts.ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View(operation);
+        }
+
+
+        public async Task<IActionResult> CreateLending(int LendingId, int InvestmentId, int PropertyId)
+        {
+            var accounts = await _context.Accounts.Where(m => m.Visible == 1).ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateLending(Operation operation, decimal montoTransaccion, string Created, int AccountOper, int OperationType,
+            string customer, string operDate, int LendingId, int InvestmentId, int PropertyId, string Receptor)
+        {
+            try
+            {
+                //var check = await _context.Operations.Include(m => m.Account)
+                //    .Where(m => m.Account.Id == operation.AccountId && m.Number == operation.Number)
+                //    .FirstOrDefaultAsync();
+                var existentClient = await _context.Clients.Where(m => m.Name == customer).FirstOrDefaultAsync();
+
+
+
+                //if (check == null)
+                //{
+                if (existentClient == null)
+                {
+                    Client client = new()
+                    {
+                        Name = customer
+                    };
+                    _context.Add(client);
+                    await _context.SaveChangesAsync();
+                }
+
+                //AccountDetail accdetail = new AccountDetail();
+
+                operation.UniqueId = Guid.NewGuid();
+                operation.Created = DateTime.Now;
+                operation.Author = (int)HttpContext.Session.GetInt32("UserId");
+                DateTime selectedDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operation.Year = selectedDate.Year;
+                operation.Month = selectedDate.Month;
+                operation.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                operation.OperationType = OperationType;
+
+                if (operation.Number == null)
+                {
+                    operation.Number = "0";
+                }
+
+                //if (operation.InitialBalance != null)
+                //{
+                //    operation.InitialBalance = operation.InitialBalance;
+                //}
+                //else
+                //{
+                //    if (operation.Type == 0)
+                //    {
+                //        operation.InitialBalance = montoTransaccion;
+                //    }
+                //    else
+                //    {
+                //        operation.InitialBalance = -montoTransaccion;
+                //    }
+                //}
+
+                //var montoInicial = accountEdit.Amount;
+                //if (OperationType != 1)
+                //{
+                //    if (operation.Type == 0)
+                //    {
+                //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                //        {
+                //            if (operation.InitialBalance < montoTransaccion)
+                //            {
+                //                //accountEdit.Amount = montoInicial + montoTransaccion;
+                //                operation.Income = montoTransaccion;
+                //                operation.Outcome = 0;
+                //            }
+                //            else
+                //            {
+                //                //accountEdit.Amount = montoInicial + (decimal)operation.InitialBalance;
+                //                operation.Income = montoTransaccion;
+                //                operation.Outcome = 0;
+                //            }
+
+                //        }
+                //        else
+                //        {
+                //            //accountEdit.Amount = montoInicial + montoTransaccion;
+                //            operation.Income = montoTransaccion;
+                //            operation.Outcome = 0;
+                //            operation.InitialBalance = montoTransaccion;
+                //        }
+                //    }
+                //    else if (operation.Type == 1)
+                //    {
+                //        if (montoTransaccion != operation.InitialBalance && operation.InitialBalance != null)
+                //        {
+                //            //accountEdit.Amount = montoInicial - (decimal)operation.InitialBalance;
+                //            operation.Outcome = montoTransaccion;
+                //            operation.Income = 0;
+                //        }
+                //        else
+                //        {
+                //            //accountEdit.Amount = montoInicial - montoTransaccion;
+                //            operation.Outcome = montoTransaccion;
+                //            operation.Income = 0;
+                //            operation.InitialBalance = -montoTransaccion;
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                if (operation.Type == 0)
+                {
+                    //accountEdit.Amount = montoInicial + montoTransaccion;
+                    operation.Income = montoTransaccion;
+                    operation.Outcome = 0;
+                }
+                else if (operation.Type == 1 || operation.Type == 2)
+                {
+                    //accountEdit.Amount = montoInicial - montoTransaccion;
+                    operation.Outcome = montoTransaccion;
+                    operation.Income = 0;
+                }
+                //}
+
+                //if (AccountOper == 0)
+                //{
+                //    accdetail.AccountId = operation.AccountId;
+                //}
+                //else
+                //{
+                //    accdetail.AccountId = AccountOper;
+                //}
+                //accdetail.UniqueId = Guid.NewGuid();
+                //accdetail.Description = operation.Description;
+                //accdetail.Concept = operation.Concept;
+                //accdetail.Author = operation.Author;
+                //accdetail.Created = DateTime.Now;
+                //if (accountEdit.Currency == 0)
+                //{
+                //    accdetail.SolesAmount = montoTransaccion;
+                //}
+                //else
+                //{
+                //    accdetail.DollarsAmount = montoTransaccion;
+                //}
+                //accdetail.InitialAmount = accountEdit.Amount;
+                //accdetail.Customer = customer;
+                //accdetail.OperationType = OperationType;
+                //accdetail.OperationDate = DateTime.Now;
+                //_context.Update(accountEdit);
+
+                if (OperationType != 1)
+                {
+                    operation.FatherOperation = 1;
+                }
+
+                _context.Add(operation);
+                await _context.SaveChangesAsync();
+
+                //if (OperationType == 2)
+                //{
+                //    LendingOperation lendingOp = new();
+                //    lendingOp.UniqueId = Guid.NewGuid();
+                //    lendingOp.Type = operation.Type;
+                //    lendingOp.Modality = operation.Modality;
+                //    lendingOp.OperationId = operation.Id;
+                //    lendingOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    lendingOp.Description = operation.Description;
+                //    lendingOp.Amount = montoTransaccion;
+                //    lendingOp.Created = DateTime.Now;
+                //    lendingOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    lendingOp.FinalAmount = operation.InitialBalance;
+                //    _context.Add(lendingOp);
+                //}
+                //else if (OperationType == 3)
+                //{
+                //    InvestmentsOperation investmentOp = new();
+                //    investmentOp.UniqueId = Guid.NewGuid();
+                //    investmentOp.Type = operation.Type;
+                //    investmentOp.Modality = operation.Modality;
+                //    investmentOp.OperationId = operation.Id;
+                //    investmentOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    investmentOp.Description = operation.Description;
+                //    investmentOp.Amount = montoTransaccion;
+                //    investmentOp.Created = DateTime.Now;
+                //    investmentOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    investmentOp.FinalAmount = operation.InitialBalance;
+                //    _context.Add(investmentOp);
+                //}
+                //else if (OperationType == 4)
+                //{
+                //    PropertiesOperation propertiesOp = new();
+                //    propertiesOp.UniqueId = Guid.NewGuid();
+                //    propertiesOp.Type = operation.Type;
+                //    propertiesOp.Modality = operation.Modality;
+                //    propertiesOp.OperationId = operation.Id;
+                //    propertiesOp.OperationDate = DateTime.ParseExact(operDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //    propertiesOp.Description = operation.Description;
+                //    propertiesOp.Amount = montoTransaccion;
+                //    propertiesOp.Created = DateTime.Now;
+                //    propertiesOp.FinalAmount = operation.InitialBalance;
+                //    if (Receptor != null)
+                //    {
+                //        propertiesOp.Receptor = Receptor;
+                //    }
+                //    else
+                //    {
+                //        propertiesOp.Receptor = "-";
+                //    }
+                //    propertiesOp.Author = (int)HttpContext.Session.GetInt32("UserId");
+                //    _context.Add(propertiesOp);
+                //}
+                //accdetail.OperationId = operation.Id;
+                //_context.Add(accdetail);
+                //await _context.SaveChangesAsync();
+                TempData["Success"] = "Agregado exitosamente";
+                return RedirectToAction(nameof(Index));
+                //}
+                //ViewBag.Check = "Documento ya existente";
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error: " + ex.Message;
+                TempData["Check"] = "Documento ya existente";
+            }
+
+            var accounts = await _context.Accounts.ToListAsync();
+            var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
+            var clientsJson = JsonConvert.SerializeObject(clients);
+            ViewBag.ClientsJson = clientsJson;
+            ViewBag.AccountId = new SelectList(accounts, "Id", "Name");
+            ViewBag.BankId = new SelectList(_context.Banks, "Id", "Name");
+            ViewBag.LendingId = LendingId;
+            ViewBag.InvestmentId = InvestmentId;
+            ViewBag.PropertyId = PropertyId;
+            return View(operation);
+        }
+
+
+
         public async Task<IActionResult> CreateDetail(int LendingId, int InvestmentId, int PropertyId)
         {
             var operation = await _context.Operations.Include(m => m.Account)
@@ -582,7 +1458,7 @@ namespace Autrisa.Controllers
 
                     if (AccountOper == 0)
                     {
-                        accdetail.AccountId = operation.AccountId;
+                        accdetail.AccountId = (int)operation.AccountId;
                     }
                     else
                     {
@@ -775,7 +1651,7 @@ namespace Autrisa.Controllers
             {
                 var operationEdit = await _context.Operations.FirstOrDefaultAsync(m => m.UniqueId == operation.UniqueId);
                 var accountEdit = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == operationEdit.AccountId);
-                var accdetailEdit = await _context.AccountDetails.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
+                //var accdetailEdit = await _context.AccountDetails.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
                 var specialOpL = await _context.LendingOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
                 var specialOpI = await _context.InvestmentsOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
                 var specialOpP = await _context.PropertiesOperations.FirstOrDefaultAsync(m => m.OperationId == operationEdit.Id);
@@ -1064,7 +1940,7 @@ namespace Autrisa.Controllers
                 }
 
                 _context.Update(operationEdit);
-                _context.Update(accdetailEdit);
+                //_context.Update(accdetailEdit);
                 _context.Update(accountEdit);
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Editado exitosamente";
@@ -1433,7 +2309,7 @@ namespace Autrisa.Controllers
                 decimal suma2 = 0;
                 foreach (var obj in operation)
                 {
-                    if (obj.OperationDate >= fechaInicioDT && obj.OperationDate<= fechaFinDT)
+                    if (obj.OperationDate >= fechaInicioDT && obj.OperationDate <= fechaFinDT)
                     {
                         if (obj.Type == 2)
                         {
@@ -1558,7 +2434,7 @@ namespace Autrisa.Controllers
 
                     }
 
-                   
+
                 }
 
                 rptas.Add(new Rpta()

@@ -51,6 +51,7 @@ namespace Autrisa.Models
         public int Author { get; set; }
         public DateTime? Modified { get; set; }
         public int? Editor { get; set; }
+        public int? Visible { get; set; }
 
         public DateTime DateAccount { get; set; }
         

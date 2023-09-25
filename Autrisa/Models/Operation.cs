@@ -26,7 +26,7 @@ namespace Autrisa.Models
         public string? Number { get; set; }
         
         [Display(Name = "Cuenta")]
-        public int AccountId { get; set; }
+        public int? AccountId { get; set; }
 
         [Display(Name = "Fecha de operación")]
         public DateTime OperationDate { get; set; }

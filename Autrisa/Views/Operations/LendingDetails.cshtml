@@ -5,7 +5,7 @@
 @{
     var UserRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole"); ;
 
-    ViewData["Title"] = "Lista de Movimientos";
+    ViewData["Title"] = "Lista de Prestamos";
     var today = DateTime.Today;
     var lastDayOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
 }
@@ -17,6 +17,7 @@
                 <h5 class="mb-2 mb-sm-0">Prestamos</h5>
                 <div class="row">
                     <div class="col">
+                        @* <a class="btn btn-sm btn-primary text-end" asp-action="CreateLending"> <i class="fa-solid fa-plus"></i> Agregar Prestamos</a> *@
                         <a class="btn btn-sm btn-success text-end" asp-action="ReportesPrestamos"><i class="fa-solid fa-file-export"></i> Reportes</a>
                     </div>
                 </div>
@@ -93,26 +94,34 @@
                                 @item.Customer
                             </td>
                             <td>
-                                @item.Account.Name
+                                @if (@item.Account == null)
+                                {
+                                    <text></text>
+                                }
+                                else
+                                {
+                                    <text>@item.Account.Name</text>
+                                }
+                                
                                 @*- @item.Account.AccountNumber*@
                             </td>
                             <td>
                                 @item.Year / @item.Month
                             </td>
                             <td>
-                                @if (item.Account.OperationType == 0)
+                                @if (item.OperationType == 0)
                                 {
-                                    <text>Operaci&oacute;n</text>
+                                    <text>Operación</text>
                                 }
-                                else if (item.Account.OperationType == 1)
+                                else if (item.OperationType == 1)
                                 {
-                                    <text>Pr&eacute;stamo</text>
+                                    <text>Préstamo</text>
                                 }
-                                else if (item.Account.OperationType == 2)
+                                else if (item.OperationType == 2)
                                 {
-                                    <text>Inversi&oactue;n</text>
+                                    <text>Inversión</text>
                                 }
-                                else if (item.Account.OperationType == 3)
+                                else if (item.OperationType == 3)
                                 {
                                     <text>Predios</text>
                                 }
