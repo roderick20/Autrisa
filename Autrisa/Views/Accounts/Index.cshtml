@@ -68,7 +68,7 @@
 
                         var Income = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Income).Sum();
                         var Outcome = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Outcome).Sum();
-                        var Amount = item.Amount + Income - Outcome;
+                        var Amount = item.PreviousRemaining + Income - Outcome;
 
                         if (item.Currency == 0)
                         {
