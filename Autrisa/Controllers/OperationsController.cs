@@ -18,6 +18,8 @@ using Newtonsoft.Json;
 using DocumentFormat.OpenXml.VariantTypes;
 using Microsoft.CodeAnalysis;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace Autrisa.Controllers
 {
@@ -2130,101 +2132,101 @@ namespace Autrisa.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MonthClosure(int Month, int Year)
         {
-            try
-            {
-                //var accountData = await _context.Accounts.Where(m => m.AccountType != "Inversión"
-                //&& m.AccountType != "Préstamo" && m.AccountType != "Predios").ToListAsync();
-                var accountData = await _context.Accounts.ToListAsync();
-                decimal? accountMoney = 0;
-                decimal? accountIncome = 0;
-                decimal? accountOutcome = 0;
-                decimal? totalIncome = 0;
-                decimal? totalOutcome = 0;
+            //try
+            //{
+            //    //var accountData = await _context.Accounts.Where(m => m.AccountType != "Inversión"
+            //    //&& m.AccountType != "Préstamo" && m.AccountType != "Predios").ToListAsync();
+            //    var accountData = await _context.Accounts.ToListAsync();
+            //    decimal? accountMoney = 0;
+            //    decimal? accountIncome = 0;
+            //    decimal? accountOutcome = 0;
+            //    decimal? totalIncome = 0;
+            //    decimal? totalOutcome = 0;
 
-                foreach (var account in accountData)
-                {
-                    accountMoney = account.PreviousRemaining;
-                    var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month
-                    && m.AccountId == account.Id && m.Type != 2).ToListAsync();
+            //    foreach (var account in accountData)
+            //    {
+            //        accountMoney = account.PreviousRemaining;
+            //        var operationsData = await _context.Operations.Where(m => m.Year == Year && m.Month == Month
+            //        && m.AccountId == account.Id && m.Type != 2).ToListAsync();
 
-                    foreach (var operation in operationsData)
-                    {
-                        accountIncome = operation.Income;
-                        accountOutcome = operation.Outcome;
-                        totalIncome = totalIncome + accountIncome;
-                        totalOutcome = totalOutcome + accountOutcome;
-                    }
+            //        foreach (var operation in operationsData)
+            //        {
+            //            accountIncome = operation.Income;
+            //            accountOutcome = operation.Outcome;
+            //            totalIncome = totalIncome + accountIncome;
+            //            totalOutcome = totalOutcome + accountOutcome;
+            //        }
 
-                    var closhure = await _context.Operations.Where(m => m.Year == Year && m.Month == Month
-                   && m.AccountId == account.Id && m.Type == 2).FirstOrDefaultAsync();
+            //        var closhure = await _context.Operations.Where(m => m.Year == Year && m.Month == Month
+            //       && m.AccountId == account.Id && m.Type == 2).FirstOrDefaultAsync();
 
-                    if (closhure == null)
-                    {
-                        closhure = new Operation();
-                        closhure.UniqueId = Guid.NewGuid();
-                        closhure.Created = DateTime.Now;
-                        closhure.Author = (int)HttpContext.Session.GetInt32("UserId");
-                        DateTime selectedDate = closhure.Created;
-                        closhure.Year = Year;
-                        closhure.Month = Month;
-                        closhure.Income = totalIncome;
-                        closhure.Outcome = totalOutcome;
-                        closhure.Concept = "Cierre de mes";
-                        closhure.Description = "Cierre de mes";
-                        closhure.Modality = 100;
-                        closhure.Type = 2;
-                        closhure.Number = "0";
-                        closhure.OperationDate = DateTime.Now;
-                        closhure.AccountId = account.Id;
-                        closhure.OperationType = 5;
-                        _context.Add(closhure);
-                    }
-                    else
-                    {
+            //        if (closhure == null)
+            //        {
+            //            closhure = new Operation();
+            //            closhure.UniqueId = Guid.NewGuid();
+            //            closhure.Created = DateTime.Now;
+            //            closhure.Author = (int)HttpContext.Session.GetInt32("UserId");
+            //            DateTime selectedDate = closhure.Created;
+            //            closhure.Year = Year;
+            //            closhure.Month = Month;
+            //            closhure.Income = totalIncome;
+            //            closhure.Outcome = totalOutcome;
+            //            closhure.Concept = "Cierre de mes";
+            //            closhure.Description = "Cierre de mes";
+            //            closhure.Modality = 100;
+            //            closhure.Type = 2;
+            //            closhure.Number = "0";
+            //            closhure.OperationDate = DateTime.Now;
+            //            closhure.AccountId = account.Id;
+            //            closhure.OperationType = 5;
+            //            _context.Add(closhure);
+            //        }
+            //        else
+            //        {
 
-                        closhure.Modified = DateTime.Now;
-                        closhure.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                        DateTime selectedDate = closhure.Created;
-                        closhure.Year = Year;
-                        closhure.Month = Month;
-                        closhure.Income = totalIncome;
-                        closhure.Outcome = totalOutcome;
-                        closhure.Concept = "Cierre de mes";
-                        closhure.Description = "Cierre de mes";
-                        closhure.Modality = 100;
-                        closhure.Type = 2;
-                        closhure.Number = "0";
-                        closhure.OperationDate = DateTime.Now;
-                        closhure.AccountId = account.Id;
-                        closhure.OperationType = 5;
-                        _context.Update(closhure);
-                    }
+            //            closhure.Modified = DateTime.Now;
+            //            closhure.Editor = (int)HttpContext.Session.GetInt32("UserId");
+            //            DateTime selectedDate = closhure.Created;
+            //            closhure.Year = Year;
+            //            closhure.Month = Month;
+            //            closhure.Income = totalIncome;
+            //            closhure.Outcome = totalOutcome;
+            //            closhure.Concept = "Cierre de mes";
+            //            closhure.Description = "Cierre de mes";
+            //            closhure.Modality = 100;
+            //            closhure.Type = 2;
+            //            closhure.Number = "0";
+            //            closhure.OperationDate = DateTime.Now;
+            //            closhure.AccountId = account.Id;
+            //            closhure.OperationType = 5;
+            //            _context.Update(closhure);
+            //        }
 
 
 
-                    if (accountMoney + totalIncome - totalOutcome == account.Amount)
-                    {
-                        account.PreviousRemaining = account.Amount;
-                        account.Modified = DateTime.Now;
-                        account.Editor = (int)HttpContext.Session.GetInt32("UserId");
-                        _context.Update(account);
-                    }
-                    accountMoney = 0;
-                    accountIncome = 0;
-                    accountOutcome = 0;
-                    totalIncome = 0;
-                    totalOutcome = 0;
-                }
+            //        if (accountMoney + totalIncome - totalOutcome == account.Amount)
+            //        {
+            //            account.PreviousRemaining = account.Amount;
+            //            account.Modified = DateTime.Now;
+            //            account.Editor = (int)HttpContext.Session.GetInt32("UserId");
+            //            _context.Update(account);
+            //        }
+            //        accountMoney = 0;
+            //        accountIncome = 0;
+            //        accountOutcome = 0;
+            //        totalIncome = 0;
+            //        totalOutcome = 0;
+            //    }
 
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Agregado exitosamente";
-                return RedirectToAction(nameof(Index));
+            //    await _context.SaveChangesAsync();
+            //    TempData["Success"] = "Agregado exitosamente";
+            //    return RedirectToAction(nameof(Index));
 
-            }
-            catch (Exception ex)
-            {
-                TempData["Error"] = "Error: " + ex.Message;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    TempData["Error"] = "Error: " + ex.Message;
+            //}
 
             return View();
         }
@@ -2243,6 +2245,7 @@ namespace Autrisa.Controllers
         class Rpta
         {
             public string Name { get; set; }
+            public int Moneda { get; set; }
             public decimal SaldoInicial { get; set; }
             public decimal Suma { get; set; }
             public decimal Suma2 { get; set; }
@@ -2295,17 +2298,25 @@ namespace Autrisa.Controllers
 
             if (AccountId == "none")
             {
-                accounts = _context.Accounts.ToList();
+                accounts = _context.Accounts.Where(m => m.Id != 49 && m.Id != 50).ToList();
             }
             else
             {
                 accounts = _context.Accounts.Where(m => m.Name.Equals(AccountId)).ToList();
             }
 
+            decimal sumaL = 0;
+            decimal sumaM = 0;
+            decimal sumaN = 0;
+            decimal sumaO = 0;
+
             foreach (var item in accounts)
             {
                 var operation = _context.Operations.Include(m => m.Account).Where(m => m.AccountId == item.Id && m.Type < 2).ToList();
                 decimal suma = 0;
+
+
+
                 decimal suma2 = 0;
                 foreach (var obj in operation)
                 {
@@ -2367,8 +2378,15 @@ namespace Autrisa.Controllers
 
                         if (obj.Account.Currency == 0 && obj.Type == 0)
                         {
+
                             ws.Cell("L" + cont).Value = obj.Income;
+                            ws.Cell("L" + cont).Style.NumberFormat.Format = "#,##0.00";
+                            ws.Cell("L" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+
+
                             suma = suma + Convert.ToDecimal(obj.Income);
+                            sumaL = sumaL + Convert.ToDecimal(obj.Income);
                             //_ = (obj.OperationDate > fechaInicioDT) ? (suma2 = suma2 + Convert.ToDecimal(obj.Outcome)) : 0;
                         }
                         else
@@ -2378,8 +2396,14 @@ namespace Autrisa.Controllers
 
                         if (obj.Account.Currency == 0 && obj.Type == 1)
                         {
+
                             ws.Cell("M" + cont).Value = obj.Outcome;
+                            ws.Cell("M" + cont).Style.NumberFormat.Format = "#,##0.00";
+                            ws.Cell("M" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+
                             suma = suma - Convert.ToDecimal(obj.Outcome);
+                            sumaM = sumaM + Convert.ToDecimal(obj.Outcome);
                             //_ = (fechaInicioDT > obj.OperationDate) ? (suma2 = suma2 - Convert.ToDecimal(obj.Outcome)) : 0;
                         }
                         else
@@ -2389,8 +2413,14 @@ namespace Autrisa.Controllers
 
                         if (obj.Account.Currency == 1 && obj.Type == 0)
                         {
+
                             ws.Cell("N" + cont).Value = obj.Income;
+                            ws.Cell("N" + cont).Style.NumberFormat.Format = "#,##0.00";
+                            ws.Cell("N" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+
                             suma = suma + Convert.ToDecimal(obj.Income);
+                            sumaN = sumaN + Convert.ToDecimal(obj.Income);
                             //_ = (fechaInicioDT > obj.OperationDate) ? (suma2 = suma2 + Convert.ToDecimal(obj.Outcome)) : 0;
                         }
                         else
@@ -2400,8 +2430,14 @@ namespace Autrisa.Controllers
 
                         if (obj.Account.Currency == 1 && obj.Type == 1)
                         {
+
                             ws.Cell("O" + cont).Value = obj.Outcome;
+                            ws.Cell("O" + cont).Style.NumberFormat.Format = "#,##0.00";
+                            ws.Cell("O" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+
                             suma = suma - Convert.ToDecimal(obj.Outcome);
+                            sumaO = sumaO + Convert.ToDecimal(obj.Outcome);
                             // _ = (fechaInicioDT > obj.OperationDate) ? (suma2 = suma2 - Convert.ToDecimal(obj.Outcome)) : 0;
                         }
                         else
@@ -2440,11 +2476,36 @@ namespace Autrisa.Controllers
                 rptas.Add(new Rpta()
                 {
                     Name = item.Name,
+                    Moneda = item.Currency,
                     Suma2 = item.Amount + suma2,
                     Suma = item.Amount + suma2 + suma,
 
-                });
+                }); ;
             }
+            cont = cont + 1;
+
+            ws.Cell("L" + cont).Value = sumaL;
+            ws.Cell("L" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("L" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("L" + cont).Style.Font.Bold = true;
+
+            ws.Cell("M" + cont).Value = sumaM;
+            ws.Cell("M" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("M" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("M" + cont).Style.Font.Bold = true;
+
+            ws.Cell("N" + cont).Value = sumaN;
+            ws.Cell("N" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("N" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("N" + cont).Style.Font.Bold = true;
+
+            ws.Cell("O" + cont).Value = sumaO;
+            ws.Cell("O" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("O" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("O" + cont).Style.Font.Bold = true;
+
+
+
 
             cont = cont + 3;
             var cont_a = cont - 1;
@@ -2455,19 +2516,53 @@ namespace Autrisa.Controllers
             ws.Range("A" + cont_a, "C" + cont_a).Style.Font.SetFontColor(XLColor.White);
 
             ws.Cell("A" + cont_a).Value = "Cuenta";
-            ws.Cell("B" + cont_a).Value = "Saldo Previo";
-            ws.Cell("C" + cont_a).Value = "Saldo Actual";
+            ws.Cell("B" + cont_a).Value = "Soles";
+            ws.Cell("C" + cont_a).Value = "Dolares";
+            cont = cont + 1;
+            var Operations = await _context.Operations.Where(m => m.Type < 2).ToListAsync();
+            var accounts2 = await _context.Accounts.Where(m => m.Visible == null || m.Visible == 0).ToListAsync();
+            decimal? sumsol = 0;
+            decimal? sumdlls = 0;
 
-            foreach (var item in rptas)
+            foreach (var item in accounts2)
             {
 
+                var Income = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Income).Sum();
+                var Outcome = Operations.Where(m => m.AccountId == item.Id).Select(m => m.Outcome).Sum();
+                var Amount = item.PreviousRemaining + Income - Outcome;
+
+                if (item.Currency == 0)
+                {
+                    sumsol = sumsol + Amount;
+                }
+                else
+                {
+                    sumdlls = sumdlls + Amount;
+                }
 
                 ws.Cell("A" + cont).Value = item.Name;
-                ws.Cell("B" + cont).Value = item.Suma2;
-                ws.Cell("C" + cont).Value = item.Suma;
-                cont++;
+
+                ws.Cell("B" + cont).Value = item.Currency == 0 ? Amount : 0;
+                ws.Cell("B" + cont).Style.NumberFormat.Format = "#,##0.00";
+
+                ws.Cell("C" + cont).Value = item.Currency == 1 ? Amount : 0; ;
+                ws.Cell("C" + cont).Style.NumberFormat.Format = "#,##0.00";
+
+                cont = cont + 1;
+
+
             }
 
+            
+            cont = cont + 1;
+
+            ws.Cell("B" + cont).Value = sumsol;
+            ws.Cell("B" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("B" + cont).Style.Font.Bold = true;
+
+            ws.Cell("C" + cont).Value = sumdlls;
+            ws.Cell("C" + cont).Style.NumberFormat.Format = "#,##0.00";
+            ws.Cell("C" + cont).Style.Font.Bold = true;
 
 
             ws.Columns("A", "T").AdjustToContents();
@@ -2484,6 +2579,8 @@ namespace Autrisa.Controllers
 
             return View();
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -2684,6 +2781,105 @@ namespace Autrisa.Controllers
             }
 
             ws.Columns("A", "T").AdjustToContents();
+            return wb.Deliver("Reporte.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
+
+
+        public async Task<IActionResult> ReportesPrestamosTotales()
+        {
+
+            var wb = new ClosedXML.Excel.XLWorkbook();
+            var ws = wb.AddWorksheet();
+            int cont = 2;
+
+            ws.Cell("A" + cont).Value = "Reporte de Prestamos";
+
+            cont = cont + 2;
+
+            ws.Range("A" + cont, "D" + cont).Style.Fill.SetBackgroundColor(XLColor.FromArgb(79, 129, 189));
+            ws.Range("A" + cont, "D" + cont).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thick);
+            ws.Range("A" + cont, "D" + cont).Style.Border.SetOutsideBorderColor(XLColor.FromArgb(149, 179, 215));
+            ws.Range("A" + cont, "D" + cont).Style.Font.SetFontColor(XLColor.White);
+
+            ws.Cell("A" + cont).Value = "Cliente";
+            ws.Cell("B" + cont).Value = "Moneda";
+            ws.Cell("C" + cont).Value = "S/";
+            ws.Cell("D" + cont).Value = "$";
+
+            List<CustomerTotal> list = new List<CustomerTotal>();
+            var operations = await _context.Operations
+                .Include(m => m.Account)
+                .ThenInclude(m => m.AccountDetails)
+                .Where(m => m.OperationType == 2 && m.FatherOperation == 1)
+                .ToListAsync();
+
+            var operationDistintas = operations.Distinct(new OperationComparer()).ToList();
+
+
+            decimal TotalSoles = 0;
+            decimal TotalDolares = 0;
+
+
+            foreach (var operation in operationDistintas)
+            {
+                decimal total = (decimal)(operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Income) - operations.Where(m => m.Customer == operation.Customer && m.Account.Currency == operation.Account.Currency).Sum(m => m.Outcome));
+
+                total = Math.Abs(total);
+
+                //list.Add(new CustomerTotal()
+                //{
+                //    Customer = operation.Customer,
+                //    AccountName = operation.Account.Name,
+                //    Currency = operation.Account.Currency == 0 ? "Soles" : "Dolares",
+                //    TotalSoles = operation.Account.Currency == 0 ? total : 0,
+                //    TotalDolares = operation.Account.Currency == 1 ? total : 0,
+                //});
+
+                cont++;
+
+                var ValSoles = operation.Account.Currency == 0 ? total : 0;
+                var ValDolares = operation.Account.Currency == 1 ? total : 0;
+
+                TotalSoles = TotalSoles + ValSoles;
+                TotalDolares = TotalDolares + ValSoles;
+
+
+                ws.Cell("A" + cont).Value = operation.Customer;
+                ws.Cell("B" + cont).Value = operation.Account.Currency == 0 ? "Soles" : "Dolares";
+
+                //var cellB2 = worksheet.Cell("B2");
+                //cellB2.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                //cellB2.Style.Font.Bold = true;
+
+                ws.Cell("C" + cont).Value = string.Format("{0:#,##0.00}", ValSoles);
+                ws.Cell("C" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+                ws.Cell("D" + cont).Value = string.Format("{0:#,##0.00}", ValDolares);
+                ws.Cell("D" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+
+            }
+
+            ws.Cell("A" + cont).Value = "";
+            ws.Cell("B" + cont).Value = "Total";
+            ws.Cell("B" + cont).Style.Font.Bold = true;
+
+
+            ws.Cell("C" + cont).Value = string.Format("{0:#,##0.00}", TotalSoles);
+            ws.Cell("C" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("C" + cont).Style.Font.Bold = true;
+
+            ws.Cell("D" + cont).Value = string.Format("{0:#,##0.00}", TotalDolares);
+            ws.Cell("D" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("D" + cont).Style.Font.Bold = true;
+
+
+
+
+
+
+
+
+            ws.Columns("A", "D").AdjustToContents();
             return wb.Deliver("Reporte.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
