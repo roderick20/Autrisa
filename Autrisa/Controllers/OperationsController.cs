@@ -293,7 +293,7 @@ namespace Autrisa.Controllers
 
         public async Task<IActionResult> Create(int LendingId, int InvestmentId, int PropertyId)
         {
-            var accounts = await _context.Accounts.Where(m => m.Visible == 0).ToListAsync();
+            var accounts = await _context.Accounts.Where(m => m.Visible == 0).OrderBy(m => m.Name).ToListAsync();
             var clients = await _context.Clients.Select(m => m.Name).ToListAsync();
             var clientsJson = JsonConvert.SerializeObject(clients);
             ViewBag.ClientsJson = clientsJson;
@@ -2841,7 +2841,7 @@ namespace Autrisa.Controllers
                 var ValDolares = operation.Account.Currency == 1 ? total : 0;
 
                 TotalSoles = TotalSoles + ValSoles;
-                TotalDolares = TotalDolares + ValSoles;
+                TotalDolares = TotalDolares + ValDolares;
 
 
                 ws.Cell("A" + cont).Value = operation.Customer;
@@ -2858,7 +2858,7 @@ namespace Autrisa.Controllers
                 ws.Cell("D" + cont).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
 
             }
-
+            cont++;
             ws.Cell("A" + cont).Value = "";
             ws.Cell("B" + cont).Value = "Total";
             ws.Cell("B" + cont).Style.Font.Bold = true;
